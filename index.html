@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-page-node-id="wbMHILlPMVpUzdH8gx3WB2"><head data-page-node-id="RVrm1GZTgZmBZVq93Wxy6F">
+<meta charset="UTF-8" data-page-node-id="GB3W8le8iiQIzkrYUKJdck">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="n4Qzq00YOPnrI1yUyt7zNB">
+<title data-page-node-id="OjUGTkRSgYqZMMpp931ZNP">鏡平 134．我與 AI 共創校慶海報 — 學生資源站</title>
+<style data-page-node-id="XJDt6bBjFwvuN6QpLUfu5W">
+  :root{
+    --red:#B3131B;        /* 校徽主紅 */
+    --red-dark:#7E0E13;
+    --gold:#C9A227;       /* 校徽金 */
+    --gold-light:#EBD48A;
+    --ink:#2B2320;        /* 校徽墨 */
+    --paper:#FBF6EC;      /* 米白紙色 */
+    --paper-deep:#F4EBD6;
+    --line:#E3D7BB;
+    --ok:#2E7D4F;
+    --warn:#B8860B;
+    --bad:#B3131B;
+    --card:#FFFFFF;
+    --shadow:0 2px 12px rgba(43,35,32,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.7;
+    font-size:16px;
+  }
+  /* ===== 頂欄 ===== */
+  header{
+    background:linear-gradient(135deg,var(--red) 0%,var(--red-dark) 100%);
+    color:#fff;
+    padding:22px 0 18px;
+    text-align:center;
+    position:sticky;top:0;z-index:50;
+    box-shadow:0 2px 12px rgba(0,0,0,.18);
+  }
+  header .wrap{max-width:980px;margin:0 auto;padding:0 20px}
+  header h1{font-size:26px;letter-spacing:2px;display:flex;align-items:center;justify-content:center;gap:12px}
+  header h1 img{height:44px;width:auto;border-radius:6px}
+  header .sub{font-size:14px;color:var(--gold-light);margin-top:4px;letter-spacing:1px}
+  header .tagline{font-size:16px;color:var(--gold-light);font-weight:600;letter-spacing:.5px;margin-top:8px}
+  nav{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:6px;
+    margin-top:14px;
+  }
+  nav a{
+    color:#fff;text-decoration:none;font-size:13px;
+    background:rgba(255,255,255,.14);
+    padding:6px 12px;border-radius:20px;transition:.2s;
+  }
+  nav a:hover{background:rgba(255,255,255,.3)}
+  nav a.course-link{background:var(--gold);color:var(--ink);font-weight:700}
+  nav a.course-link:hover{background:var(--gold-light)}
+  /* ===== 主體 ===== */
+  main{max-width:980px;margin:0 auto;padding:26px 20px 80px}
+  section{margin-bottom:44px;scroll-margin-top:220px}
+  h2{
+    font-size:22px;color:var(--red);
+    border-left:6px solid var(--gold);
+    padding-left:12px;margin-bottom:6px;
+  }
+  h2 .step{color:var(--gold);font-weight:800;margin-right:6px}
+  .sub{color:#6b5d4f;font-size:14px;margin-bottom:16px}
+  h3{font-size:17px;color:var(--red-dark);margin:20px 0 10px}
+  p{margin-bottom:10px}
+  .card{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:18px 20px;margin-bottom:16px;
+    box-shadow:var(--shadow);
+  }
+  .card > h3{
+    margin:0 0 12px;padding-bottom:9px;border-bottom:2px solid var(--paper-deep);
+  }
+  .card > h3:first-child{margin-top:0}
+  .tip{
+    background:var(--paper-deep);border-left:4px solid var(--gold);
+    border-radius:6px;padding:12px 16px;margin:12px 0;font-size:14px;
+  }
+  .tip b{color:var(--red-dark)}
+  /* ===== 詩歌主題卡 ===== */
+  .theme-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+    gap:12px;margin:14px 0;
+  }
+  .theme-card{
+    background:#fff;border:1.5px solid var(--line);border-radius:12px;
+    padding:14px 16px;min-height:96px;
+  }
+  .theme-no{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:26px;height:26px;border-radius:50%;
+    background:var(--gold);color:#fff;font-weight:800;font-size:13px;
+    margin-bottom:8px;
+  }
+  .theme-card b{display:block;font-size:15px;color:var(--red-dark);margin-bottom:4px}
+  .theme-card .theme-desc{display:block;font-size:13px;color:#6b5d4f;line-height:1.5}
+  /* ===== 首頁入口 / 離線練習 / 浮動課件 ===== */
+  .entry-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:6px 0 26px}
+  .entry-card{
+    display:block;text-align:left;background:#fff;border:1.5px solid var(--line);
+    border-radius:14px;padding:18px 20px;text-decoration:none;color:var(--ink);
+    font-family:inherit;cursor:pointer;transition:.15s;
+  }
+  .entry-card:hover{box-shadow:var(--shadow);transform:translateY(-2px);border-color:var(--gold)}
+  .entry-card.primary{background:linear-gradient(135deg,var(--red),var(--red-dark));border-color:var(--red);color:#fff}
+  .entry-card .ec-tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:1px;color:var(--gold);margin-bottom:8px}
+  .entry-card.primary .ec-tag{color:var(--gold-light)}
+  .entry-card b{display:block;font-size:20px;margin-bottom:6px}
+  .entry-card span{display:block;font-size:13px;line-height:1.6;color:#6b5d4f}
+  .entry-card.primary span{color:rgba(255,255,255,.82)}
+  .offline-practice{margin:0 0 16px;border:1px dashed var(--gold);border-radius:10px;padding:0 14px 4px;background:#fffdf7}
+  .offline-practice summary{cursor:pointer;padding:12px 0;font-weight:700;color:var(--red-dark);font-size:15px}
+  .offline-practice summary::marker{color:var(--gold)}
+  .offline-practice[open] summary{border-bottom:1px solid var(--paper-deep);margin-bottom:10px}
+  .floating-courseware{
+    position:fixed;right:18px;bottom:18px;z-index:99;
+    background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:14px;
+    padding:12px 18px;border-radius:999px;box-shadow:0 8px 22px rgba(43,35,32,.28);
+  }
+  .floating-courseware:hover{background:var(--red-dark)}
+  @media print{.floating-courseware,.entry-strip{display:none!important}}
+  .warn{
+    background:#FDF0EC;border-left:4px solid var(--bad);
+    border-radius:6px;padding:12px 16px;margin:12px 0;font-size:14px;
+  }
+  ul,ol{padding-left:24px;margin-bottom:10px}
+  li{margin-bottom:6px}
+  /* ===== 按鈕 ===== */
+  button{
+    font-family:inherit;cursor:pointer;border:none;
+    background:var(--red);color:#fff;font-size:14px;
+    padding:9px 18px;border-radius:8px;transition:.15s;
+  }
+  button:hover{background:var(--red-dark)}
+  button.ghost{background:#fff;color:var(--red);border:1.5px solid var(--red)}
+  button.ghost:hover{background:var(--paper-deep)}
+  button.copy{
+    background:var(--gold);color:#fff;
+  }
+  button.copy:hover{background:#a9881e}
+  button.copy.ok{background:var(--ok)}
+  /* ===== 元素選項庫（個人工作台） ===== */
+  .style-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+    gap:12px;margin:14px 0;
+  }
+  .style-card{
+    border:2px solid var(--line);border-radius:12px;overflow:hidden;
+    cursor:pointer;transition:.15s;background:#fff;position:relative;
+  }
+  .style-card:hover{border-color:var(--gold)}
+  .style-card.on{border-color:var(--red);box-shadow:0 0 0 3px rgba(179,19,27,.15)}
+  .style-card img{width:100%;height:150px;object-fit:cover;display:block}
+  .style-card .sc-body{padding:10px 12px}
+  .style-card b{font-size:14px;color:var(--red-dark);display:block}
+  .style-card .sc-tag{font-size:12px;color:#6b5d4f}
+  .style-card .chk{color:var(--red);font-weight:800;float:right;visibility:hidden}
+  .style-card.on .chk{visibility:visible}
+  .dim-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+    gap:14px;margin:14px 0;
+  }
+  .dim{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .dim label{display:block;font-weight:700;font-size:15px;color:var(--red-dark);margin-bottom:8px}
+  .dim label .d-no{color:var(--gold)}
+  .dim .hint{font-size:12px;color:#999;font-weight:400;margin-left:6px}
+  .dim select{
+    width:100%;padding:10px;font-size:15px;border:1.5px solid var(--line);
+    border-radius:8px;background:#fff;font-family:inherit;color:var(--ink);
+  }
+  .dim select:focus{outline:none;border-color:var(--gold)}
+  .dim select option.rec{color:var(--ok);font-weight:700}
+  .dim select option.warn{color:var(--warn)}
+  .dim select option.bad{color:var(--bad)}
+  /* ===== 和諧度預警 ===== */
+  #harmony{
+    border-radius:12px;padding:16px 20px;margin:16px 0;
+    font-size:15px;display:flex;align-items:flex-start;gap:14px;
+  }
+  #harmony .dot{
+    flex:0 0 auto;width:20px;height:20px;border-radius:50%;margin-top:3px;
+    background:#ccc;box-shadow:0 0 0 4px rgba(0,0,0,.05);
+  }
+  #harmony.green .dot{background:var(--ok);box-shadow:0 0 0 4px rgba(46,125,79,.18)}
+  #harmony.green{background:#EDF7F0;border:1px solid #B7DCC4}
+  #harmony.yellow .dot{background:var(--warn);box-shadow:0 0 0 4px rgba(184,134,11,.18)}
+  #harmony.yellow{background:#FDF6E3;border:1px solid #EAD9A8}
+  #harmony.red .dot{background:var(--bad);box-shadow:0 0 0 4px rgba(179,19,27,.18)}
+  #harmony.red{background:#FDF0EC;border:1px solid #F0C2BD}
+  #harmony .h-body b{display:block;margin-bottom:2px}
+  #harmony .h-body .h-msg{color:#4a4038;font-size:14px}
+  #harmony .h-body .h-why{font-size:13px;color:#8a7a64;margin-top:4px}
+  /* ===== 提示詞產出 ===== */
+  .prompt-out{
+    position:relative;background:#1E1B18;color:#F5EEDD;
+    border-radius:12px;padding:20px 22px;margin:14px 0;
+    font-family:"Consolas","Microsoft JhengHei",monospace;
+    font-size:14px;line-height:1.9;white-space:pre-wrap;word-break:break-all;
+  }
+  .prompt-out .plabel{color:var(--gold-light);font-family:inherit;font-weight:700}
+  .prompt-bar{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+  .tool-links{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13.5px;color:#8a7a64;margin:-2px 0 2px}
+  .tool-links a{color:var(--red);font-weight:700;text-decoration:none;border:1.5px solid var(--red);border-radius:16px;padding:4px 12px;font-size:13px;background:#fff;transition:.15s}
+  .tool-links a:hover{background:var(--red);color:#fff}
+
+  /* ============================================================
+     以下為 index（①–④）內容適配紅色系的補充樣式
+     ============================================================ */
+  .sec-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  .sec-no{
+    flex:0 0 auto;width:44px;height:44px;border-radius:12px;
+    background:var(--red);color:var(--gold-light);
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;font-weight:700;
+  }
+  .sec-head h2{font-size:22px;margin:0;line-height:1.3;border-left:none;padding-left:0}
+  .sec-head .sub{font-size:13px;color:#8a7a64;margin:2px 0 0}
+  .hint{
+    background:var(--paper-deep);border-left:4px solid var(--gold);
+    border-radius:6px;padding:12px 16px;margin:12px 0;font-size:14px;
+  }
+  .hint b{color:var(--red-dark)}
+  .todo{
+    background:#FDF6E3;border:2px dashed var(--gold);border-radius:12px;
+    padding:16px 18px;margin:14px 0;font-size:15px;color:#7A5B00;
+  }
+  .todo strong{color:#8A6100}
+  /* 表格 */
+  .tbl-scroll{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+  th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+  th{background:var(--paper-deep);font-weight:700;color:var(--red-dark)}
+  tbody tr:nth-child(even){background:#FBF6EC}
+  /* 選項卡（校訓、絕句規則） */
+  .opt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:12px 0}
+  .opt{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .opt b{display:block;color:var(--red-dark);font-size:15px;margin-bottom:6px}
+  .opt span{font-size:14px;color:#6b5d4f;line-height:1.7}
+  /* Word 技能檢核 */
+  .skill-list{list-style:none;padding:0;margin:12px 0}
+  .skill-item{
+    display:flex;align-items:flex-start;gap:11px;
+    padding:9px 14px;border:1.5px solid var(--line);border-radius:9px;
+    margin-bottom:7px;background:#fff;cursor:pointer;transition:.15s;
+  }
+  .skill-item:hover{border-color:var(--gold)}
+  .skill-item .box{
+    flex:0 0 21px;width:21px;height:21px;border:2px solid #CFC0A0;border-radius:6px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;font-weight:800;color:#fff;margin-top:2px;transition:.15s;
+  }
+  .skill-item.done{border-color:var(--ok);background:#F2FAF5}
+  .skill-item.done .box{background:var(--ok);border-color:var(--ok)}
+  .skill-item.done .box::after{content:"✓"}
+  .skill-item .s-txt{font-size:14.5px;line-height:1.6}
+  .skill-item .s-txt b{color:var(--red-dark)}
+  .skill-item.done .s-txt b{color:var(--ok)}
+  .skill-item .s-note{display:block;font-size:12.5px;color:#8a7a64;margin-top:1px}
+  .skill-progress{
+    display:inline-block;background:var(--paper-deep);border:1.5px solid var(--line);
+    border-radius:20px;padding:6px 16px;font-size:14px;font-weight:700;
+    color:var(--red-dark);margin-top:4px;
+  }
+  .skill-progress.all{background:#EDF7F0;border-color:#B7DCC4;color:var(--ok)}
+  .skill-sub{font-size:14px;color:#6b5d4f;margin:16px 0 4px;font-weight:700}
+  /* 複製區塊 */
+  .copybox{position:relative;margin:14px 0}
+  .copybox .bar{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    background:var(--red);color:#fff;padding:8px 12px 8px 16px;
+    border-radius:12px 12px 0 0;font-size:14px;font-weight:600;
+  }
+  .copybox pre{
+    margin:0;background:#FBF6EC;border:1px solid var(--line);border-top:none;
+    border-radius:0 0 12px 12px;padding:16px;white-space:pre-wrap;word-break:break-word;
+    font-family:"Microsoft JhengHei","PingFang TC",sans-serif;font-size:15px;line-height:1.8;
+  }
+  .copy-btn{
+    flex:0 0 auto;cursor:pointer;border:none;border-radius:18px;
+    background:var(--gold);color:#fff;font-weight:700;font-size:13px;
+    padding:7px 16px;font-family:inherit;transition:.15s;
+  }
+  .copy-btn:hover{background:#a9881e}
+  .copy-box-select{background:var(--gold-light)!important;color:var(--ink)!important}
+  /* 時間軸 */
+  .tl{list-style:none;padding:0;margin:14px 0 0;position:relative}
+  .tl::before{content:"";position:absolute;left:66px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .tl li{position:relative;padding:0 0 16px 88px;min-height:30px}
+  .tl .yr{position:absolute;left:0;top:0;width:56px;text-align:right;font-weight:700;color:var(--red-dark);font-size:14px}
+  .tl .dot{position:absolute;left:60px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--gold);border:3px solid #fff;box-shadow:0 0 0 1.5px var(--red)}
+  .tl .txt{font-size:15px}
+  /* 連結按鈕與來源 */
+  .btn-link{
+    display:inline-block;background:var(--red);color:#fff;text-decoration:none;
+    padding:11px 26px;border-radius:26px;font-weight:700;font-size:15px;
+    margin:6px 0 4px;transition:.15s;
+  }
+  .btn-link:hover{background:var(--red-dark)}
+  .src{font-size:12.5px;color:#8a7a64;margin-top:10px}
+  /* ===== 素材下載 ===== */
+  .asset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin:14px 0}
+  .asset{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;text-decoration:none;color:var(--ink);transition:.15s;display:block}
+  .asset:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+  .asset img{width:100%;height:110px;object-fit:cover;display:block}
+  .asset .meta{padding:8px 10px}
+  .asset b{font-size:13px;display:block;color:var(--red-dark)}
+  .asset span{font-size:11px;color:#999}
+  footer{background:var(--ink);color:#c9bfae;text-align:center;padding:22px 20px;font-size:13px;line-height:1.8}
+  @media (max-width:600px){
+    header h1{font-size:21px;flex-wrap:wrap}
+    .sec-head h2{font-size:19px}
+    section{scroll-margin-top:360px}
+  }
+  @media (max-height:800px){
+    header .tagline{display:none}
+    header{padding:14px 0 10px}
+    header h1{font-size:22px}
+  }
+  @media print{
+    header,nav,button,.no-print{display:none!important}
+    body{background:#fff}
+  }
+</style>
+<style id="__dm_no_drag_style__" data-page-node-id="72rtzkluodOwzUoEy7yO1V">* { -webkit-user-drag: none !important; }</style><style id="__dm_bindable_badge_style__" data-page-node-id="gj3GWJUCqhnC09aMUTqfGj">[data-sp-bindable="database"]{outline:1px dashed #0088ff;outline-offset:2px;border-radius:4px;}[data-sp-bindable="database"] *{pointer-events:none !important;transition:none !important;animation:none !important;}[data-sp-bindable="database"]{transition:none !important;animation:none !important;}</style></head>
+<body data-page-node-id="tv4qLV5Hri5TVODQV4tvCI" style="position: relative;">
+
+<header data-page-node-id="CEVH2lHaVg1zyG6mpLiGRE">
+  <div class="wrap" data-page-node-id="xT4WBnyLdwj7QbiePiCxls">
+    <h1 data-page-node-id="vrSxa1J601AozjtwBW3MWb"><img src="assets/校徽.png" alt="鏡平學校校徽" data-page-node-id="LHAAFnH3nuwZ8tpd3acijU"> 鏡平 134．我與 AI 共創校慶海報</h1>
+    <div class="sub" data-page-node-id="FTExAEyaUBnmZFJe0YwLKN">P5 上學期跨學科專題活動 · 學生資源站</div>
+    <div class="tagline" data-page-node-id="rIGVi3E0JrvcQvKzfhZjdK">「AI 什麼都能生成，那你的貢獻在哪裡？」</div>
+    <nav data-page-node-id="yz9daMWKphvBWhlfN5qd6S">
+      <a href="#start" data-page-node-id="YN4H8OodVICRGzYDtJ4zG5">① 任務</a>
+      <a href="#history" data-page-node-id="jEaBk9cr2RCWKasspOcqtZ">② 校史</a>
+      <a href="#jueju" data-page-node-id="SCcjLqa3JtEVyOePev2arQ">③ 絕句</a>
+      <a href="#poem" data-page-node-id="Orbt3SVz7aGE2hAetyVIAa">④ 詩句</a>
+      <a href="#poster" data-page-node-id="4P4qsNYimKmpzNaBknloG5">⑤ 底圖</a>
+      <a href="#route" data-page-node-id="1UQGpFsopBog2BvtRS82zj">⑥ 風格</a>
+      <a href="#compose" data-page-node-id="IssElp1b7CcZoSl7Mp0C96">⑦ 合成</a>
+      <a href="#download" data-page-node-id="0bYa1m3gwRJAzGPy3Ff77z">📁 下載</a>
+      <a href="互動課件/index.html" class="course-link">▶ 互動課件</a>
+    </nav>
+  </div>
+</header>
+
+<main data-page-node-id="Hd6iEZ6pBe4pgnK3kr1Gpg">
+
+<div class="entry-strip">
+  <a class="entry-card primary" href="互動課件/index.html">
+    <span class="ec-tag">互動課件</span>
+    <b>開始 6 關卡任務</b>
+    <span>13 頁 · 3 條流程 · 自動保存進度</span>
+  </a>
+  <a class="entry-card" href="#start">
+    <span class="ec-tag">學生教材</span>
+    <b>從校史開始</b>
+    <span>讀校史 · 選主題 · 找關鍵詞 · 寫提示詞</span>
+  </a>
+</div>
+
+<!-- ============ ① 任務啟動 ============ -->
+<section id="start" data-page-node-id="9aORsItOrbGrTSiLGaC7Mz">
+  <div class="sec-head" data-page-node-id="2SyRuZAJxXHGrJVB2V1Bac">
+    <div class="sec-no" data-page-node-id="RbSE6TGmjuu2U1KfqvBVhJ">①</div>
+    <div data-page-node-id="mcEM5coEd9FfMGC1mpGSEY">
+      <h2 data-page-node-id="h2dxGTwdMg4N7G3662E9t0">任務啟動：你要做什麼？</h2>
+      <p class="sub" data-page-node-id="UEUiGMpblnhEEsIYxRt9V4">先看清楚全貌，再動手</p>
+    </div>
+  </div>
+
+  <div class="card" data-page-node-id="WIvXqZ1pbjHDrIsxgzBizp">
+    <h3 data-page-node-id="mGgWvNkPiU1d3GIExNWDDK">三個步驟，一件作品</h3>
+    <div class="tbl-scroll" data-page-node-id="pIQW0fe0pASpuIpjFTNRw8">
+    <table data-page-node-id="JMu0AwFW88yABiRSA4XhlC">
+      <thead data-page-node-id="boj9dE93EDtgSZWlJkVbhm"><tr data-page-node-id="DAXuIgXQeMGBou5emiRTJC"><th style="width:80px" data-page-node-id="bkEcJgZb3XyoEq0cwQjuNT">步驟</th><th data-page-node-id="8yUMMB2ojd2FCxinKQAsQ0">你要做的事</th><th style="width:150px" data-page-node-id="CO5zMDDt7HeBxUqFRSKhgi">放進模板哪一頁</th></tr></thead>
+      <tbody data-page-node-id="TF5YdGW24MRs7HM47hOsFF">
+        <tr data-page-node-id="NBZNyJGKjMmz56SWgF3YSc"><td data-page-node-id="Dqag1qt9oSObZgXb65HsmE"><b data-page-node-id="LFETayxrFZrg2iqg8Dvdw7">第一部份</b></td><td data-page-node-id="I3uPtEqbexU0napQ5Kfg7T">用 AI 生成一首慶祝鏡平校慶的詩（繁體中文、五言或七言絕句、共 4 句）</td><td data-page-node-id="DWE4F0UpVNKkL2qEqJp2tq">第 2 頁</td></tr>
+        <tr data-page-node-id="pvFypIIF9nFaChoa4zH0En"><td data-page-node-id="vMHKK9taASM8P4rGFPHm5N"><b data-page-node-id="sjOszQpOYahJz2mqxBKLly">第二部份</b></td><td data-page-node-id="rjhoTDYkCPhHOhNo43srYm">根據詩句的意境，用 AI 生成一幅海報底圖（直向 A3、<b data-page-node-id="QuWz1jYRqZ4D0llxbnX5lI">不要文字</b>、要留白）</td><td data-page-node-id="EOzhF72YcP8YKbKo1IHHfz">第 3 頁</td></tr>
+        <tr data-page-node-id="07MDoAD3GppHavLrYkHuAZ"><td data-page-node-id="gbNGopn6igO7U5uvWmC3da"><b data-page-node-id="ysFgw8n04bgWgSRgPbNaof">第三部份</b></td><td data-page-node-id="LJu0uQXfqBZrKGAGI5EMJ6">用 Word 把底圖和詩句合成——插入圖片、設定「襯於文字下」、加上文字方塊，變成一張完整校慶海報</td><td data-page-node-id="NCoGe7u8xTbo3A3z3pN4kd">第 4 頁</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="hint" data-page-node-id="w4dX3Cg4UmXn9YH7WaSmXt">
+      <b data-page-node-id="MX47cEiFiDU364oMVyc64Q">為什麼要分成三步？</b>因為 AI 畫圖時寫中文字經常會寫錯、出現亂碼。所以我們讓它只負責畫畫面，<b data-page-node-id="cxwpNFQjn6uRjxMTXxAiZB">文字由你親手加上去</b>——寫對字，是你的責任，也是這份功課最重要的一環。
+    </div>
+  </div>
+
+  <div class="card" data-page-node-id="D8kbHSEsmckUbNczz1zaXM">
+    <h3 data-page-node-id="MxaachiZOtyHqdggXyxCET">要交兩件東西</h3>
+    <ol data-page-node-id="YwZI9CYsDUj7UyNoW12Jad">
+      <li data-page-node-id="o6y2MUFYwLbdYmvfrf5uFn"><b data-page-node-id="kQjXkZEEh1j19E1eYu7BJL">校慶海報提交模板（Word 版）.docx</b>（5 頁都填好：封面資料、詩句＋提示詞、底圖＋提示詞、完成的海報、技能檢核）</li>
+      <li data-page-node-id="dfIeOGRSJy2z8VKsIDAclh"><b data-page-node-id="CAHCYnivkiGcrWLLudUt50">最終完成的海報 PNG 圖片檔</b></li>
+    </ol>
+    <p style="margin-bottom:0" data-page-node-id="3N54SZQk5MOV2hbPfVSXAE">兩個檔案一起上傳到 <b data-page-node-id="BNVKWsG0WB81etTu95HudA">PL2 的「作業檔案提交」區</b>。</p>
+  </div>
+
+  <div class="card" data-page-node-id="IDLbkDxoZCI529oWipzOWw">
+    <h3 data-page-node-id="qvkcxkHSTPzfAIHJ3n3Avf">老師會看什麼？（評分四個面向）</h3>
+    <div class="tbl-scroll" data-page-node-id="JlPsmJld40VZreGtD9u0QD">
+    <table data-page-node-id="PJVAvDIwErHOSKtDHe9wRU">
+      <thead data-page-node-id="BYw7YVIiTqZ843tVhIgfbH"><tr data-page-node-id="dNSIEhRMXDWJa0BtiRyx9Q"><th style="width:130px" data-page-node-id="K2Kb0b5OCl27BnkqaHVkhA">面向</th><th data-page-node-id="h4D9dCjEnrdlBiDYiSjY7F">做到這些就是「優異」</th></tr></thead>
+      <tbody data-page-node-id="fk8v9KHXvyrcPGlNylSiC0">
+        <tr data-page-node-id="EMHKVHAqwpwBjpX9VlvSFt"><td data-page-node-id="ZpBpiuO9MhouRXIBxbDzYh"><b data-page-node-id="niTJKXKLMoMiM7lUTp0P50">A 詩句創作</b></td><td data-page-node-id="y0mSHUmwR6rGxrhLSTayfN">格式完全正確（4 句、五言或七言、押韻）；內容具體結合本校校史或校訓；意象鮮明、有個人特色</td></tr>
+        <tr data-page-node-id="jUl1yRD0DuILfxVKMgawXT"><td data-page-node-id="XRCsA3YHL80wm68NkpotK6"><b data-page-node-id="4cH93z3VtCYlI9SVudLjIC">B 提示詞設計<br data-page-node-id="T2ZNBUgOyrzHeNT93xFayJ">與修改</b></td><td data-page-node-id="Z0WUFdseNJJ6AhYPKU4cs3">提示詞四要素完整；參考資料具體；<b data-page-node-id="D5K28SO6aCBl5DS52ZD0CV">有兩次以上方向明確的追問修改</b>；能說出每次修改的理由</td></tr>
+        <tr data-page-node-id="8WGEFJ9yfYjQzYO4qZFRoy"><td data-page-node-id="eHffg2pbsRiHBpK0H8J5NQ"><b data-page-node-id="N82jmWNYQz9mCECmAhSNhR">C 海報畫面</b></td><td data-page-node-id="HwBLwXTwB0D6ObKrMK4maa">主次分明、視線動線清楚；留白運用得當；文字與背景對比良好、易讀；整體和諧有節慶氣氛</td></tr>
+        <tr data-page-node-id="kCtOwSCCxzWFIz3vWiJ1xk"><td data-page-node-id="j3CBy7hCJgjbc3yW9F8TdG"><b data-page-node-id="yODv4S8plFmV2RcbST1wkF">D AI 素養<br data-page-node-id="Hle6XWw7mtVWEmD7Ke1Urg">與責任</b></td><td data-page-node-id="3DWDKsXSruqOIai0QX9xZ7">能準確指出 AI 的能力邊界並舉出補位做法；完整標註工具與資料來源；互評具體友善</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="hint" data-page-node-id="tytekbn54dJodzIRNqFnTN">
+      <b data-page-node-id="R7KoiJIiBQlm0wH5pDyAk4">重點提醒：</b>「B 提示詞設計與修改」佔很重。<b data-page-node-id="Crp8uw6z1Lql7ribaOCScs">只生成一次就交的，分數不會高</b>——因為老師要看的是你<b data-page-node-id="9iCNPochlFvSrIqyNMrjI9">動了腦、改了東西</b>。每次追問都要在任務單上寫下「我改了什麼、為什麼改」。
+    </div>
+  </div>
+
+  <div class="card" data-page-node-id="YpT9KpxKkxphpkG7EblUNW">
+    <h3 data-page-node-id="feUMb3cHbsOJNe7e9tYEi5">四節課的流程</h3>
+    <div class="tbl-scroll" data-page-node-id="728fFXPV2xdtnBY4UtbeWK">
+    <table data-page-node-id="iOUg6gdh82Crwq1kPbHVlA">
+      <thead data-page-node-id="UditHSbZgkEHMRtRvupVxY"><tr data-page-node-id="iwMAChX4gdgjE22gpxuPfM"><th style="width:90px" data-page-node-id="8G3SxSGY0szZQZY2gmfYdI">節次</th><th data-page-node-id="9no5Vm3MJfmlDXIegiW7u8">主題</th><th data-page-node-id="EhYt6XoG8BtdVvmhlp9wcQ">當節要完成</th></tr></thead>
+      <tbody data-page-node-id="wjSXQXMYpsquoHYEH8bEQw">
+        <tr data-page-node-id="F1wH9OzRZJQefYUUMM07lq"><td data-page-node-id="pyga1QwSDzWscdNsBkNKmf">第 1 節</td><td data-page-node-id="dPKcvUIximpZ0pKcHt2v1y">走進鏡平 134</td><td data-page-node-id="yQKiZU2vG3DZUdMrfGFSUL">校史採集、認識絕句、認識海報視覺元素</td></tr>
+        <tr data-page-node-id="Gbsda9ztxiuopMdEXDqtEG"><td data-page-node-id="ZZO3Ol5Hj8F7Qo67HB3vZZ">第 2 節</td><td data-page-node-id="XqkXGaBdzoiC8wsf0iUyE7">生成詩句</td><td data-page-node-id="ZAouFA94ujhhqlrJfhA26Z">寫提示詞、生成詩句、追問修改、貼進模板第 2 頁</td></tr>
+        <tr data-page-node-id="jd4ZWfUY41t6YC55K8i3Df"><td data-page-node-id="jdZNTBMP2wFnoBOAil9Zap">第 3 節</td><td data-page-node-id="ATEur1VFpYsTiEerzJFCAk">生成海報底圖</td><td data-page-node-id="CSDrPQXbxuZnS2Te7sOFId">畫面規劃、寫提示詞、生成 3 個版本、選圖、貼進第 3 頁</td></tr>
+        <tr data-page-node-id="cDFQqQ0PbhZSrVlKPDcN3u"><td data-page-node-id="ZmnxB5sGCYEDnnlvIzDoJo">第 4 節</td><td data-page-node-id="nTTqDaCg4YER7QNMo7Cl06">合成與評價</td><td data-page-node-id="xG0GQcnQadqoElH00DpaJI">用 Word 合成（加詩句）、截圖存 PNG、標註來源、互相評賞、提交</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ② 走進鏡平 134 ============ -->
+<section id="history" data-page-node-id="JxWQRcufBtXACVq2uV3Cq9">
+  <div class="sec-head" data-page-node-id="NyjeTHo1wlkvKx9DajmhEA">
+    <div class="sec-no" data-page-node-id="7RuMua3lF4FdDjOhTFFjVW">②</div>
+    <div data-page-node-id="FMESHA5KzZheBzA3K9wxM2">
+      <h2 data-page-node-id="iGLI4ymQHxug5kuHGMe05A">走進鏡平 134：校慶背景資料包</h2>
+      <p class="sub" data-page-node-id="SCYISafY05pHCCNEP5PE3F">寫詩、畫海報的素材都在這裡，可以直接複製給 AI</p>
+    </div>
+  </div>
+
+  <div class="card" data-page-node-id="Qt1xjPWfdx9VfCBCEXrFZH">
+    <h3 data-page-node-id="DVJZioBctq4iqE1DgFHmJl">學校小檔案</h3>
+    <div class="tbl-scroll" data-page-node-id="fTzaqcvmoHJkgaeqh5X39R">
+    <table data-page-node-id="ZPZDZHZwSuBDwBAIoMOh9H">
+      <tbody data-page-node-id="Eat32OjGZ2bpKwhx6ER6rJ">
+        <tr data-page-node-id="kTMqlOBMnDvBwhkkkYt6vq"><th style="width:150px" data-page-node-id="HTnxdPj50P9U3FZ080uX3d">校名</th><td data-page-node-id="dDIWvBkNbgDnU9ryFVM2f1">澳門鏡平學校（Escola Keang Peng，簡稱 KP）</td></tr>
+        <tr data-page-node-id="nPoV2FYF69MKe9AwqALH1Q"><th data-page-node-id="6nIMBTMcjoeY4lmWnrrs4S">創校</th><td data-page-node-id="sDGthdbK26bXRQNAmK1zet">1892 年，為<b data-page-node-id="rE7JZEeJCq6yDQT9urSIGE">澳門辦校歷史最悠久的學校</b>；由鏡湖醫院慈善會興辦，前身為「鏡湖義塾」</td></tr>
+        <tr data-page-node-id="uyhRnX7zcuNi2XqDgunq8H"><th data-page-node-id="TpDp7decKHJ7ibHOCqlBU4">校訓</th><td data-page-node-id="MJGNzdww5sEPFCTKxZUEtL"><b data-page-node-id="PLV3DvaukuBI9ozTrMQX8T">誠、毅、精、博</b></td></tr>
+        <tr data-page-node-id="KbDJeOm5d4Av0HUcqrc4zL"><th data-page-node-id="pEo2Lkt9ehjQLqsQNieTq6">學風</th><td data-page-node-id="bn3hUFHhvc5wvXbXGC1Mgq">尊師、善學、求實、創新</td></tr>
+        <tr data-page-node-id="4yZV5IP1F0iFZEwU4TUZOh"><th data-page-node-id="lNH0lcdvrlmUyCDvQUDyVS">教風</th><td data-page-node-id="oFApKMfQA0lVCNYaTvbGWV">敬業愛生、科教育才</td></tr>
+        <tr data-page-node-id="qlmAlCbk8VZsaFFvYRJYOy"><th data-page-node-id="Toct6uX95OfA5Gx4hSOaHI">宗旨</th><td data-page-node-id="TZJ0jCDqhfYBsoZpGWnm9c">愛國愛澳、服務社群</td></tr>
+        <tr data-page-node-id="xEYaupF8lceelu4VHwavcL"><th data-page-node-id="jYriPtcRNdLDMVz1MYEL3U">現況</th><td data-page-node-id="m3r27Ov33LsjQL1RGgHB9a">中小幼一條龍學校，共 92 個教學班，學生逾 3,000 人</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="card" data-page-node-id="tiy1RAzXEP5x0UeLw3H2cI">
+    <h3 data-page-node-id="c5WEd1RGGAhA3mh6PM3Pkc">校史沿革（時間軸）</h3>
+    <ul class="tl" data-page-node-id="xh8YKeLtYXICVFfLrwGrbx">
+      <li data-page-node-id="FnmWcr97HzArx2qGnayoHg"><span class="yr" data-page-node-id="NmGmuu7mMdXIWbd88JZwGa">1892</span><span class="dot" data-page-node-id="imsF8ASjbZaXylhhAHvDrK"></span><span class="txt" data-page-node-id="K133WwOTaBMh5aFsDhtpHi">曹、周二姓善長捐出物業興辦義學，鏡湖醫院在澳門各區辦學塾，統稱「鏡湖義塾」</span></li>
+      <li data-page-node-id="mpJdkSPDrI2NwcjkkVCVEZ"><span class="yr" data-page-node-id="QotwJcyypUFaojc4hVcVfq">1911</span><span class="dot" data-page-node-id="vCXbQOZBGb4Gu9DH2nBCSV"></span><span class="txt" data-page-node-id="wpz1OjGKrUdDjEJHaXs7Pz">正式立案，改名為「鏡湖小學」</span></li>
+      <li data-page-node-id="9FTAJ4qClZWwWBEqGdeHpA"><span class="yr" data-page-node-id="6GUC6zrAXleMCH1FCXr3xq">1924</span><span class="dot" data-page-node-id="bdmHwuQ4yKyx1GdEf2XMIR"></span><span class="txt" data-page-node-id="HPr4uFbf830O5rp5JAy6C2">熱心人士許祥發起籌辦義學，創辦「平民小學」（共七所），並設女子夜校</span></li>
+      <li data-page-node-id="ItMEIMHj8biRutI01Ggamy"><span class="yr" data-page-node-id="AaLbdHF72AD4xmgGTqQjfn">1948</span><span class="dot" data-page-node-id="Ebep4kWQUgU5sLgR0SjtpL"></span><span class="txt" data-page-node-id="yaABvG3f7SYe7oceGI4Tta">慈善會董事何善衡捐出望廈地段，合力籌建新校舍</span></li>
+      <li data-page-node-id="fBK9JaA2wv3DSgvYWEJ4jK"><span class="yr" data-page-node-id="NOIGtFqEGTIuDQxADkkfjy">1949</span><span class="dot" data-page-node-id="7YO3t24v4mqY6VthTbRaNV"></span><span class="txt" data-page-node-id="b2kt8YAtBzCOHUMWxiqblX">「鏡湖小學」與「平民小學」合併，組成「鏡湖平民聯合小學」，余倩嫻女士任校長，學生逾 1,500 人</span></li>
+      <li data-page-node-id="NGDOiE2eCpgEiY8bFufC6q"><span class="yr" data-page-node-id="loVdwribC9rpVgbT8MHyUD">1950</span><span class="dot" data-page-node-id="eCctOS6He8xdIr9aECSCkL"></span><span class="txt" data-page-node-id="2gR1wnLnNZ87UcSFLwA5I8">新校舍落成啟用；同年何賢先生接任校長</span></li>
+      <li data-page-node-id="dHpei1IDPGybAWbaknkwhw"><span class="yr" data-page-node-id="gjHeqIpWbqAYR9SlKO6Tqy">1984</span><span class="dot" data-page-node-id="mNOFAmKCbJ9iqsIJrKNQ44"></span><span class="txt" data-page-node-id="UedK1GETuKLG4jCnZbZoy0">何德明先生接任校長，學校與時並進，增設電腦及公民課</span></li>
+      <li data-page-node-id="RHaki9c1jvxfX1XP0f7CAQ"><span class="yr" data-page-node-id="RDhvZgowwM02cCVUm5Dq7c">1990</span><span class="dot" data-page-node-id="oDcMZ5HjFlUJTV5QITD7d3"></span><span class="txt" data-page-node-id="YXLiHRVcsRj87tIZeVT49U">崔世安先生任校長，大力推動電化教學、改善環境與設備</span></li>
+      <li data-page-node-id="e5aTnBtM0JDNF2zPI2JFxL"><span class="yr" data-page-node-id="KbFqGjnOKq0weSUoBHc8RK">1992</span><span class="dot" data-page-node-id="EzUtPvv71omvtJ9s54LLKz"></span><span class="txt" data-page-node-id="hn6nSTWQ9i1UvB9pbsFMJc">小學原址改建為樓高四層的新校舍，正式改名為「<b data-page-node-id="o5cCZoFxIfPM1OsmqjSfZi">鏡平學校</b>」</span></li>
+      <li data-page-node-id="gbLDJPzGrr7DUd1tkDLMHD"><span class="yr" data-page-node-id="cHNnQh2elxTqSdUKpmW0Gw">1997</span><span class="dot" data-page-node-id="XTcPeujOQUnbOOnvAN6iNx"></span><span class="txt" data-page-node-id="EFShdB17DDrLDtDTAxcCWE">位於黑沙環馬場大馬路的中學部落成啟用</span></li>
+      <li data-page-node-id="HnL28HDBJW0bAYHlosJkoc"><span class="yr" data-page-node-id="yN6ZeYLPBYlskyHzaaKBz7">1999</span><span class="dot" data-page-node-id="JtPlzG0fvCaeC2o9zHjsm9"></span><span class="txt" data-page-node-id="KDwDpsEClCtiYO7qeuvkLF">黎世祺先生接任校長，推行多個六年發展規劃，引領學校高質量發展</span></li>
+      <li data-page-node-id="YasY8WYcUyEICuXVA3XN7O"><span class="yr" data-page-node-id="MCoIdqaBoViPkAPozzn3ga">2016</span><span class="dot" data-page-node-id="jP9ER1CbLBEkM1cvPtpbyz"></span><span class="txt" data-page-node-id="WvRjsGi8CuoEVaA3xC3DAR">望廈舊校址重建，樓高十層的教學大樓啟用；同年 10 月國務院總理李克強到訪</span></li>
+      <li data-page-node-id="RnK7xgzjUtrGSyrqdb0JLV"><span class="yr" data-page-node-id="famunn88ENcILooYlIZ1SN">2025</span><span class="dot" data-page-node-id="4HDTBwLPPX3NAqwDnbGj6G"></span><span class="txt" data-page-node-id="RKwTokqEGB2dMp6ifbxznG">曾紀川先生擔任校長，秉持守正創新、服務社群，推動課程教學創新與家國情懷</span></li>
+    </ul>
+  </div>
+
+  <div class="card" data-page-node-id="j7tP3MURWk3WVngI3WIKOx">
+    <h3 data-page-node-id="eo44vjAHuADPQ0TucGw8hN">校訓四個字，各是什麼意思？</h3>
+    <p data-page-node-id="sbjRiiqVaYkC1gi7UaGSOl">寫詩時把校訓的意思寫進去，詩就會很有「鏡平味」。以下整理自學校官網對校訓的解說：</p>
+    <div class="opt-grid" data-page-node-id="nObUCiyZ7fWcj3lYm6jZoq">
+      <div class="opt" data-page-node-id="rF9BAgI4fEE4H0APmgg6SQ"><b data-page-node-id="3pqNS2xfqQt8HWBumEuULi">誠</b><span data-page-node-id="hUouy1Rqwq8cP4XUCgbOZM">對自己誠實，言行一致，做老實人、說老實話、辦老實事；對別人真誠，以誠相待；對祖國忠誠，愛國愛澳愛校。</span></div>
+      <div class="opt" data-page-node-id="DHBcwfAMflxsYMqGIWoX1k"><b data-page-node-id="56HagALaa2jGtgy96j8UeL">毅</b><span data-page-node-id="JullumYJqg07hhCU8atqCY">堅強的意志和毅力。學習和做事有堅定的目的性，鍥而不捨、知難而進、堅持到底、百折不撓。</span></div>
+      <div class="opt" data-page-node-id="mRMZT7QgBqhA4OIpvH2ZET"><b data-page-node-id="UWCLJU1L82AtTc8ZzGDj3w">精</b><span data-page-node-id="dWWBcmCUTVGnixjheaY5p6">學習上精益求精。專心致志，有扎實深入的知識，掌握基本技能，逐步培養自學與動手操作能力。</span></div>
+      <div class="opt" data-page-node-id="u6y4OIwET87OmxolzaIejk"><b data-page-node-id="zCTtLdMlfUY3lDCZoyKgOt">博</b><span data-page-node-id="7rRkFlRt3q7fwkprVvnX3z">博學多才。在深入的基礎上向廣的方面發展，既掌握課本知識，也學習課堂以外的知識，做到既專且博。</span></div>
+    </div>
+  </div>
+
+  <div class="card" data-page-node-id="mqyNv0concUMUPnmBzZTOa">
+    <h3 data-page-node-id="grxW8ahTrYpfp8cHvSrP7O">辦學宗旨、目標與育人目標</h3>
+    <div class="copybox" data-page-node-id="i0ZyMifauedDtRHjikvMFj">
+      <div class="bar" data-page-node-id="DmUUWRGwdAhZcHCrUsSmmN"><span data-page-node-id="35CQB0Mfa82WENKPyukxuQ">可直接複製給 AI 的參考資料</span>
+        <button class="copy-btn" data-target="c-philosophy" data-page-node-id="rVCEDTYGGznE7pF5SF4tKU">複製</button></div>
+      <pre id="c-philosophy" data-page-node-id="zZzxhsqD5Ghc5Ny92FD6J0">【澳門鏡平學校 辦學宗旨】
+堅持教育為澳門社會發展服務的方向，使受教育者能熱愛祖國，熱愛澳門，在德智體群美諸方面得到全面和諧的發展，為培養有理想、有道德、有知識、有能力、有健全體魄的人才奠定基礎。校訓為：誠、毅、精、博。
+
+【辦學目標】
+全面推進素質教育，實施現代教育技術環境下的創思教育，建立高效率的管理系統，建設高素質的師資隊伍，營造良好的校園文化，培養高素質的建設人才，把我校建設成澳門的一流學校。
+
+【育人目標】
+德育為首、智育為主、能力為重、全面發展、學有所長。
+
+【校訓釋義】
+誠：對自己誠實、言行一致；待人以誠；對祖國忠誠，愛國愛澳愛校。
+毅：有堅強意志與毅力，鍥而不捨、知難而進、百折不撓。
+精：學習上精益求精，專心致志，掌握扎實知識與基本技能。
+博：博學多才，既專且博，多才多藝。
+
+【近期發展與成就】
+．澳門辦校歷史最悠久的學校，創校於 1892 年，至今逾 130 年
+．中小幼一條龍，共 92 個教學班，學生逾 3,000 人
+．2018 年獲國內學科競賽網評為「500 強最佳學校」，並獲「500 強學校最佳校長獎」
+．2019 年獲香港《鏡報》評選為「學校社會責任獎」學校
+．近十年多次在國際 PISA 測試中位居澳門前列
+．大批畢業生獲保送至北京大學、清華大學、復旦大學等內地一流大學
+．2025 年學生團隊在世界青少年英才奧林匹克競賽榮獲 2 金 1 榮譽獎</pre>
+    </div>
+    <p class="src" data-page-node-id="FpGuMXYAGWuu1YMlyYZ52p">資料來源：鏡平學校官網「學校沿革」「校訓-學風-教風」頁；澳門特區政府授勳文件（2025）；澳門記憶「鏡湖小學及平民小學史略」。校慶周年數依校方公布為 134 周年。</p>
+  </div>
+
+  <div class="card" data-page-node-id="9DwVwNDf70hMsF5ncZe8VB">
+    <h3 data-page-node-id="4tVY3AzizgCXDjYM7itzne">校歌歌詞</h3>
+    <p data-page-node-id="sbMrFF8NVaNynRfOblAG0N">校歌是鏡平人的精神旋律——歌詞裡的「誠毅精博求上進」，唱的就是校訓。想引用校歌精神寫詩時，就從這裡閱讀、複製。</p>
+    <div class="copybox" style="margin-top:12px" data-page-node-id="elkL6qIcmMpl5dmG6RH1F5">
+      <div class="bar" data-page-node-id="q9sr18SkWUUMmmI6OIHqPs"><span data-page-node-id="wpUI01PtuvkCVVHojY6dgG">鏡平學校校歌歌詞</span>
+        <button class="copy-btn" data-target="c-song" data-page-node-id="Khz1bC9Hj3lotMFwIOtBs6">複製</button></div>
+      <pre id="c-song" data-page-node-id="4uYULuaclHJGQ6vgklvAg1">黌宮屹立鏡海濱，萬千學子勤耕耘，
+陽光照耀我們要恪守校訓，我們熱愛祖國熱愛澳門，
+雨露滋潤，小苗茁壯桃李滿園，
+熱愛鏡平學校，誠毅精博求上進，
+做個素質全面的人，用我們智慧的頭腦，
+用我們勤勞的雙手，不怕困難，勇於攀登，
+繼承傳統，光大校譽，共同創造燦爛美好明天。</pre>
+    </div>
+    <p class="src" data-page-node-id="MEFPWT5gOvNaI8CA3WcYxS">歌詞由學校提供。</p>
+  </div>
+
+  <div class="card" data-page-node-id="zAQV9clijNArQc3EmaVG6J">
+    <h3 data-page-node-id="rCVzOpKIcxb1F9LsCS8A4b">自由選擇：你的探究方向是哪一個？</h3>
+    <p style="font-size:14px;color:#6b5d4f" data-page-node-id="YkUkCTaGGzed20BSl0Gtbq">以下是五個探究方向，你可以<b data-page-node-id="F39Wu64tosEELLlZFRrKGI">任選一個（或多個）</b>深入研究——方向是給你靈感的，最後詩只寫一首。</p>
+    <div class="tbl-scroll" data-page-node-id="FVTqJCDaMvtqSFd7Ohw7C3">
+    <table data-page-node-id="OeDkIkb82Tp2CZbBDGeOPD">
+      <thead data-page-node-id="IXNFPqezuqurNy3QFrbajR"><tr data-page-node-id="lJIjp5xEyV6pofyEExI3Sj"><th style="width:80px" data-page-node-id="mZ0umjAHVrI736OHAA3fDM">方向</th><th data-page-node-id="Yi5DDTpBKB0YsqOsmdhJ3D">探究題目</th><th style="width:230px" data-page-node-id="EU0SvmAO4RhBbwEBC9sX72">可以在哪裡找</th></tr></thead>
+      <tbody data-page-node-id="yZoqI24hmvoMQwmTPi5Y1G">
+        <tr data-page-node-id="5SSH5ndYvUBYTmVT5Wss5x"><td data-page-node-id="BHiUFWVmjLBtzuFeH2GjwP"><b data-page-node-id="jBYB1Z19e8aBVkKGXqpApk">方向一</b></td><td data-page-node-id="r5QktLP5jRBmB5UYgtRAar">歷史沿革：學校從 1892 年走到今天</td><td data-page-node-id="bfiVFjtMcSFnouX7cbpH8r">本頁時間軸、學校官網「學校沿革」</td></tr>
+        <tr data-page-node-id="th3C6TtaCCyDJofn3e0zX2"><td data-page-node-id="dHj5MutXA6nYE1AtHNj3vO"><b data-page-node-id="jQC1QGTmSGX3yt8wEJ878v">方向二</b></td><td data-page-node-id="2U2E5CT0tzYohIVt4SAIpg">辦學理念與校訓「誠、毅、精、博」</td><td data-page-node-id="qWgaTF4KznCUwwqEl3L9O7">本頁「辦學宗旨、目標與育人目標」</td></tr>
+        <tr data-page-node-id="NoG8cfFHmD1QDuCKzp8hcn"><td data-page-node-id="x3sRyLVEHfygQArl8Mq6AF"><b data-page-node-id="wpot33Q5iM2fCwawDEvPkf">方向三</b></td><td data-page-node-id="tHHhDSk86CX4HJyskDCwhp">校歌（歌詞內容與精神）</td><td data-page-node-id="JDanVudH82S9VrgTEm7KUa">本頁「校歌歌詞」</td></tr>
+        <tr data-page-node-id="q2goCaXGLWtEmmB13HnoHZ"><td data-page-node-id="uPtBaNn0ckOHOWvczD88NB"><b data-page-node-id="zHChAdefjN4VRBhnB1GVfD">方向四</b></td><td data-page-node-id="YmzD4rcX02jSX2Xz2qwjH2">校園環境與特色（校舍、校徽、KP 娃娃）</td><td data-page-node-id="t4uB14zwRCbPFchQNKY8BR">本站素材下載區的校徽、校園照片、KP 娃娃</td></tr>
+        <tr data-page-node-id="tl3llHJYvGsFPuN6HHaFzc"><td data-page-node-id="hBWfdQSZtDmDUYMiEstar2"><b data-page-node-id="Jw3XeMjzs99vyFcWE7Iq9D">方向五</b></td><td data-page-node-id="8Lm6bHEpNpXDjgWKlmq5TD">近年成就與校友發展</td><td data-page-node-id="TnZn7MDZLc1AtXifzoh5d4">本頁「近期發展與成就」</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="hint" data-page-node-id="kUgfg9TAQ6Hid3agg0YOe0">
+      <b data-page-node-id="Pe8kZ8wsl3QAOEqHm9Vj1M">把你找到的 3–5 個關鍵詞寫進任務單的第一頁。</b>等一下寫提示詞時，這些關鍵詞就是你的「參考資料」——這是讓你的詩<b data-page-node-id="Tay7oUdJzr9Ga0Kpwp0gsv">不像別的同學</b>的關鍵。
+    </div>
+  </div>
+</section>
+
+<!-- ============ ③ 絕句入門 ============ -->
+<section id="jueju" data-page-node-id="h8EMUAxmYhR9LHkwThOSz0">
+  <div class="sec-head" data-page-node-id="DwTMLczdRzE6EomwzqEeSm">
+    <div class="sec-no" data-page-node-id="rir0TFVHFNGln0je6S9gWx">③</div>
+    <div data-page-node-id="AxqXbhdf3hyymL9XbDfQu0">
+      <h2 data-page-node-id="I4T7T4x4yUybG8aGGStEaY">絕句入門：什麼是絕句？</h2>
+      <p class="sub" data-page-node-id="jcqd7pKwcCmLJ4ZIjhEGGq">先懂規則，才知道要叫 AI 做什麼</p>
+    </div>
+  </div>
+
+  <div class="card" data-page-node-id="i8HIhLyoX3kifUEXloiVlW">
+    <h3 data-page-node-id="XxdekFy1eSwHvhzz2TzHHz">四個規則，一個都不能少</h3>
+    <div class="opt-grid" data-page-node-id="D9m6yV3hx4KKjyA9gtg6QQ">
+      <div class="opt" data-page-node-id="EwOkgCqBC8QMn6GxTl3lx7"><b data-page-node-id="8aZosBSl6BpbWFRLo9i8hd">① 一共 4 句</b><span data-page-node-id="IBQYxEZQvoESG7fbC24xiM">多一句、少一句都不叫絕句。</span></div>
+      <div class="opt" data-page-node-id="mgsJdHrLztSEI5iiQtggDQ"><b data-page-node-id="D2OHMloiPPebEFBEHSiwMm">② 每句 5 字或 7 字</b><span data-page-node-id="8PfWdDN3mdXqDRrxMHurXd">五言或七言，<b data-page-node-id="1BpESKdgWgdLrcKpHIR7E2">全首要統一</b>，不能一句 5 字一句 7 字。</span></div>
+      <div class="opt" data-page-node-id="WTQ3tGUWOQ3P6Rxe2kGgyh"><b data-page-node-id="BkAPCXUbCOcguXO8nb1Njf">③ 第 2、4 句押韻</b><span data-page-node-id="Wbj4qdQzYKaITQFFklVByG">第 2 句和第 4 句最後一個字，讀起來要相似。</span></div>
+      <div class="opt" data-page-node-id="AtcvOm4LRdxOJXFOOHui7a"><b data-page-node-id="s2nBhHHFljMHmdm6mFSjtH">④ 要有畫面與感情</b><span data-page-node-id="QZB6D2e3HdYsW9PW8KSC5h">不是把資料堆上去，而是讓讀的人「看見」鏡平。</span></div>
+    </div>
+  </div>
+
+  <div class="card" data-page-node-id="fiUz4Hiafp2OLNDxZHCKHR">
+    <h3 data-page-node-id="ri3SEArfoX8WSEx3xDulgx">看看範例詩怎麼寫</h3>
+    <div class="copybox" data-page-node-id="urNauYwBxR1aFiQm5RUSHt">
+      <div class="bar" data-page-node-id="bAe6t6fLWxjBQi3GxRpECf"><span data-page-node-id="eKBjFOLYNShBbZpUxIDblu">範例詩（僅供觀摩，你的詩要和它不一樣）</span>
+        <button class="copy-btn" data-target="c-sample-poem" data-page-node-id="GNGRrdUwMJw75qKhCmhHiH">複製</button></div>
+      <pre id="c-sample-poem" data-page-node-id="ufinH6tB3Hxrf3cbx4ltV1">鏡映初心育棟樑，
+平章德藝潤方塘。
+誠毅精博傳薪火，
+桃李芬芳耀澳疆。</pre>
+    </div>
+    <div class="tbl-scroll" data-page-node-id="BwwL8p4eVPAK5T9qQ5SKsx">
+    <table data-page-node-id="EOa4kEcPkIndkPk8RJ0iLY">
+      <thead data-page-node-id="uy5b1AINBLWSim8CrqU3zH"><tr data-page-node-id="Qun5pD0nbL4otGwU4lcXOp"><th style="width:180px" data-page-node-id="UHaqTe7oGNpWQCjwCbpKcS">觀察點</th><th data-page-node-id="XkKvCBBxiuSliDjAFVHyOA">拆解</th></tr></thead>
+      <tbody data-page-node-id="MyD1ifAsYzvGd5dte8AAOY">
+        <tr data-page-node-id="tQrid8teVLa7WTRFVBMD9Z"><td data-page-node-id="IlYMhzYmCXCe6VcTBxFOKC">押韻的字</td><td data-page-node-id="s9OD6NDhGO88uNoAVUBqwD"><b data-page-node-id="MOAdrjFANbLLKY13W6JQXQ">樑、塘、疆</b>——第 1、2、4 句句尾押韻（押韻愈穩，讀起來愈順）</td></tr>
+        <tr data-page-node-id="mjJjueG7lASgKcCzSOJtYs"><td data-page-node-id="9Z0K7v5M3meijZRmpnBXo4">藏頭</td><td data-page-node-id="hYzbKgVemlHFJSFmyP7Jq7">每句第一個字連起來是「<b data-page-node-id="ssESGjbiBNB4nOsOMk3bvE">鏡平誠桃</b>」——第 1、2 句藏了校名「鏡平」</td></tr>
+        <tr data-page-node-id="A2OkctKvkNlF4PQu6HR73k"><td data-page-node-id="uAjFCyP1BbuEuoJ5Wea1Qg">藏校訓</td><td data-page-node-id="VMd1hfCCYNKjG0XnCMURnJ">第 3 句「誠毅精博」直接把校訓四個字寫了進去</td></tr>
+        <tr data-page-node-id="NGgNRHra49jduooxNzgWUz"><td data-page-node-id="JjC0W6MMVK6OP0kLKUukhA">用典與意象</td><td data-page-node-id="EnJreiXhvg7Y4pe43rhVki">「育棟樑」指培育人才；「桃李」指學生；「薪火」指傳承——這些都是有意象的詞</td></tr>
+        <tr data-page-node-id="4Zb61OnLhVGcbPADjpyuvc"><td data-page-node-id="IHYF92lB6ukoHy0jzTbnxd">結合校史</td><td data-page-node-id="Jl2aeO212nrXNlgZH3DCOS">「鏡」取自鏡湖／鏡平，「澳疆」指向澳門——處處扣著學校與澳門</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="hint" data-page-node-id="gE52tBdYpsQf4zOG8ueXEu">
+      <b data-page-node-id="j9J3y1tWst7GL6Z9ruEwGY">你的詩不必和這首一樣，甚至可以比它更好。</b>全班三十幾人，老師要看的是<b data-page-node-id="AKqOI868dDjbPziS28Is9d">你的詩有什麼別人沒有的東西</b>——例如你用了你自己找到的那個校史細節。
+    </div>
+  </div>
+
+  <div class="card" data-page-node-id="3wzMnPMm3DbCFU1kdRYvAe">
+    <h3 data-page-node-id="5J7m9bqEsAy7yYzSXfxL67">寫完詩，用這五個問題檢查一次</h3>
+    <ol data-page-node-id="QKXKowTL6kxYFupsPbWOgg">
+      <li data-page-node-id="dsUnUCMViYcLmGXunnMgmB">一共 4 句嗎？</li>
+      <li data-page-node-id="eOdBXrlDmTfueXxGAefapN">每句都是 5 個字，或都是 7 個字嗎？</li>
+      <li data-page-node-id="jABWzAoF1lD8z7FCrvwAx8">第 2 句和第 4 句押韻嗎？</li>
+      <li data-page-node-id="JmHRgvyc2iwBuQEqlWuJns">內容和鏡平校慶、校史或校訓有關嗎？</li>
+      <li data-page-node-id="LGZMpuVaDexqCklj6Pwi3l">用的是繁體中文嗎？有沒有我自己最滿意的一句？</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ ④ 生成詩句 ============ -->
+<section id="poem" data-page-node-id="eqaPnARy4qmg9HlWqx5g2W">
+  <div class="sec-head" data-page-node-id="gRmiUKoEIfSfzDcuwiMsFD">
+    <div class="sec-no" data-page-node-id="GvwfdLh3AUDJKMGyGZHacZ">④</div>
+    <div data-page-node-id="DuRzQ9q69G9gLYHFINqeAj">
+      <h2 data-page-node-id="CkuJ03WFbzAXJgo74m7A1P">第一部份：用 AI 生成校慶詩句</h2>
+      <p class="sub" data-page-node-id="xpvG1ZcO2RwNCjVgO38kPH">選主題、提示詞範例、追問句型、操作步驟</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>先選一個主題（六選一）</h3>
+    <p style="font-size:14px;color:#6b5d4f">你的詩要往哪個方向寫？選一個，再把相關的校史關鍵詞放進提示詞。</p>
+    <div class="theme-grid">
+      <div class="theme-card"><span class="theme-no">1</span><b>校史慶典</b><span class="theme-desc">134 年的傳承、輝煌與里程碑</span></div>
+      <div class="theme-card"><span class="theme-no">2</span><b>校訓精神</b><span class="theme-desc">以鏡為鑑、平實辦學的品格</span></div>
+      <div class="theme-card"><span class="theme-no">3</span><b>校園景色</b><span class="theme-desc">木棉、校舍、操場、一草一木</span></div>
+      <div class="theme-card"><span class="theme-no">4</span><b>澳門與家國</b><span class="theme-desc">愛國愛澳、與祖國同心的情懷</span></div>
+      <div class="theme-card"><span class="theme-no">5</span><b>薪火相傳</b><span class="theme-desc">學長學弟、代代相承的使命</span></div>
+      <div class="theme-card"><span class="theme-no">6</span><b>成長與感恩</b><span class="theme-desc">在鏡平成長、感謝師長培育</span></div>
+    </div>
+    <div class="tip"><b>寫詩提示：</b>選好題目後，把你想到的「校史關鍵詞」「校園景物」串起來，湊成四句有畫面、押韻的詩。可以用 AI 聊天工具幫你潤色，但詩句內容要你自己定。</div>
+  </div>
+
+  <div class="card" data-page-node-id="nEgrmzbLFoXEzSq1ftyoYR">
+    <h3 data-page-node-id="QTSFZPnutL3DGZOh2tZZLg">操作步驟（跟著做）</h3>
+    <ol data-page-node-id="A9xzAtG1SC8NEHbUn0qvGm">
+      <li data-page-node-id="4Z8cIrPAbQ5T1hzu3Yli1O"><b data-page-node-id="4ZKKurVnnQw9lzZPfnPfvS">開啟 AI 工具。</b>使用本節最下方「開啟 AI 工具」區的任一入口（靈機 AIGC／Copilot／豆包）。登入後下次還能看到之前的對話，比較方便修改。</li>
+      <li data-page-node-id="VKFaaOHwDV0odM1FkaJ9C3"><b data-page-node-id="fPXHIK4tocTBYn0HWIUlg5">先複製下面的「提示詞完整版」。</b></li>
+      <li data-page-node-id="eEWsOHFFKhn8EL9drAZnHO"><b data-page-node-id="z2yNm22A3p5A0GcpqGU4M5">把提示詞裡的三處「＿＿」換成你自己的校史資料</b>（從背景資料包或任務單抄過來）。這一步最重要——不換的話，你的詩會和別人一樣。</li>
+      <li data-page-node-id="G2VRf7KXxBsTgjtLHm6Hye"><b data-page-node-id="6aro1XKlS2iMlfmDTkT0LA">貼進對話框，送出。</b></li>
+      <li data-page-node-id="z3p1p1GQ14nWF6UONDlCb6"><b data-page-node-id="to2pzFhOJ230LShjpj7jfc">看結果，然後追問至少一次</b>（追問句型見下方）。不滿意就繼續叫它改。</li>
+      <li data-page-node-id="PYyTo9YyhMIjRLCs2Duh8Y"><b data-page-node-id="4P9XHlEjEzCLDACw7GjUMc">把滿意的詩複製下來</b>，貼進提交模板（Word 版）第 2 頁，分成 4 行；同時把<b data-page-node-id="gH7jLoHUy7NVPYoGZZeW70">完整提示詞</b>也貼進第 2 頁。</li>
+    </ol>
+    <div class="hint" data-page-node-id="4xzO4a28bvUWCxl2kVmrhB">
+      <b data-page-node-id="2sFGdAfDR4v8iQC9qrSJ3l">遇到「生成很久沒回應」？</b>先等一下（可能同時太多人在用），若超過一分鐘仍無反應，重新整理頁面再試一次。若真的不行，先跳去做下一題，課後再補。
+    </div>
+  </div>
+
+  <div class="card" data-page-node-id="qysCBOjVEDACCu4LKSiIyw">
+    <h3 data-page-node-id="97LidWuqBXV0Dz8f2pNKzF">提示詞範例（完整版）</h3>
+    <div class="copybox" data-page-node-id="ZnTiTd0kCgvgrjuDDjzral">
+      <div class="bar" data-page-node-id="e27W3haSJHpihHztnFZTyy"><span data-page-node-id="PkDagKDTYflUEag0mc2F2G">把你的校史資料填進「＿＿」處</span>
+        <button class="copy-btn" data-target="c-poem-full" data-page-node-id="7ELydPqa7fbMX0CbpZqLmZ">複製</button></div>
+      <pre id="c-poem-full" data-page-node-id="NFmzZxodwprZb3UKvCSFSg" style="white-space: pre-wrap;">你是一位熟悉中國古典詩詞的中文老師。
+請依以下指示，生成一首慶祝澳門鏡平學校校慶的詩：
+
+1. 使用繁體中文字；
+2. 詩句的格式為--言絕句，全詩共 --句；
+3. 第 --句和第 -- 句要押韻；
+4. 詩句要能表達慶祝鏡平學校校慶、讚揚鏡平學校的辦學精神或特色；
+5. 以下是澳門鏡平學校的參考資料，你生成詩句時可以參考：
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+
+（說明：第 5 點請填上你自己採集到的校史資料，例如學校歷史沿革、辦學理念、校訓「誠毅精博」、校歌精神，或學校近年的成就。）​</pre>
+    </div>
+
+    <p class="hint" style="margin-top:10px">第一句「角色」可以換成你自己想的身分（例：鏡平校友、校史館的解說員）——身分不同，AI 寫出來的口氣就不同。</p>
+
+    <h3 style="margin-top:22px" data-page-node-id="1pjh54esLGvFM08qi9Vws5">提示詞範例（填空版——進階挑戰）</h3>
+    <p data-page-node-id="SV66g5iHGedxNEpoqVbaTd">如果你想更進一步，可以自己決定要強調什麼，而不是只填資料：</p>
+    <div class="copybox" data-page-node-id="Nv6hMPoLnXg8GPkZ1IskpE">
+      <div class="bar" data-page-node-id="m8rjjzRw1h6g8AQ5Il3gOt"><span data-page-node-id="evm9IDl7f9cOipSB1oN5UD">可自行修改關鍵字的版本</span>
+        <button class="copy-btn" data-target="c-poem-adv" data-page-node-id="BmyZwUUh4IRuyUnyJZu0ps">複製</button></div>
+      <pre id="c-poem-adv" data-page-node-id="hM8HEfjL4oVEpDlfUiy0xw" style="white-space: pre-wrap;">你是一位熟悉中國古典詩詞的中文老師。
+請為澳門鏡平學校創作一首慶祝校慶的七言絕句，全詩 -- 句，第 --句和第 --句押韻，使用繁體中文。
+
+我希望這首詩強調的主題是：＿＿＿＿＿＿（例如：校史慶典 / 校訓精神 / 校園景色 / 澳門與家國 / 薪火相傳 / 成長與感恩）
+我希望詩中出現的意象有：＿＿＿＿＿＿（例如：木棉花、書本、鏡海、燈塔、鳳凰木）
+我希望整首詩的氣氛是：＿＿＿＿＿＿（例如：溫暖莊重 / 昂揚奮發 / 喜慶熱烈）
+
+以下是學校的參考資料：＿＿＿＿＿＿＿＿＿＿
+請先說明你打算怎麼安排這四句的結構，再寫出詩句。​</pre>
+    </div>
+  </div>
+
+  <div class="card" data-page-node-id="lPrgnEaqFNXh4tScNqMKBH">
+    <h3 data-page-node-id="hmhy9MKtfTN1Nfn9a10C8e">追問句型（至少挑一句用一次）</h3>
+    <p data-page-node-id="yEGOovugSc64qNutYvKqkL">AI 第一次給的詩幾乎不會是最好的。你要告訴它哪裡不對、要改成怎樣：</p>
+    <div class="tbl-scroll" data-page-node-id="i4NteVITPzk1JEml9aZ9bE">
+    <table data-page-node-id="tBAya7IlUD4UnvFWNPFpJp">
+      <thead data-page-node-id="IW2DK14gwYqmpQbx82cG0Y"><tr data-page-node-id="kV8cF33tGkWgCyqr3vSuJy"><th style="width:60px" data-page-node-id="l0r21XuK0FFpCmL1RCGAEL">類型</th><th data-page-node-id="cPaHIDy7bwTEGqYTd902gK">可以這樣對 AI 說</th></tr></thead>
+      <tbody data-page-node-id="xWXCTv2XWsKo9XDfGED2Nn">
+        <tr data-page-node-id="pIIJ9jH2EiwuKeMwDoDaNg"><td data-page-node-id="nsEmsUgo7gpa1aG75etd6q">換內容</td><td data-page-node-id="vvlRXw4JqUe9SSgTtobtx3">「請把第 2 句改成描寫校園景色的句子。」</td></tr>
+        <tr data-page-node-id="6IgtaLFh02SpEwophMF9nS"><td data-page-node-id="J3LB6tPm4nW77E0VsON01H">換意象</td><td data-page-node-id="WGwlkH53jbz4coTGrlK7TH">「『育棟樑』這個說法太普通了，請換一個更有畫面感的說法。」</td></tr>
+        <tr data-page-node-id="GqQcgXA1duElv4RM2xftjF"><td data-page-node-id="RFkfF030IvQoAG0szKWDOK">換韻腳</td><td data-page-node-id="E1ngqcXLPEQ1cUuUSl3DrY">「請把押韻的字換成和『疆』同韻的字。」</td></tr>
+        <tr data-page-node-id="iZZ0TveylyXiFx7Ex19AkG"><td data-page-node-id="hvA7FNDm1IgaBU8ITtCbzt">限字挑戰</td><td data-page-node-id="6PnlPVxiQv4li15QodJVCa">「請讓每一句的第一個字合起來，變成『鏡平學校』。」（藏頭詩）</td></tr>
+        <tr data-page-node-id="ILMS6fUQekDwJm1HNYDmQc"><td data-page-node-id="zK7A1B1bBlVDfoWTtBZChT">強調校訓</td><td data-page-node-id="V1OxbN1m7d7LngBTxIL6Uo">「請把校訓『誠、毅、精、博』的意思自然地融入第 3 句。」</td></tr>
+        <tr data-page-node-id="aoX74mgUukhVaoQrFIMSLk"><td data-page-node-id="w2qVS4Eg9q5lrkTrkQkTb5">調整語氣</td><td data-page-node-id="kjWuInNC9MmKVQv6L43pca">「這首詩讀起來太嚴肅了，請改得更有喜慶、熱鬧的感覺。」</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="warn" data-page-node-id="TAsFDJc3AwxD7F97vPm52C">
+      <b data-page-node-id="noRAlGM3OLSFTUyJEQ8hbo">每次追問都要記錄！</b>把你對 AI 說的話、AI 改完的結果、以及<b data-page-node-id="fRsFeBeen3nj0CI6FZAuED">你為什麼要這樣改</b>，寫在任務單上。這是老師評分時最看重的證據。
+    </div>
+  </div>
+
+  <div class="card" data-page-node-id="4BDkdwuGfw9kRi9EFzd6dU">
+    <h3 data-page-node-id="j4ULvvu9jFCz1XcuPtACRv">開啟 AI 工具</h3>
+    <div class="prompt-bar" data-page-node-id="dwfDjKx95g2VUYvwJhzuzd">
+      <a class="btn-link" href="https://one.macaucampus.com/campus/login" target="_blank" rel="noopener" data-page-node-id="w9nEEgwT08H1eCD72i8hge">開啟靈機 AIGC →</a>
+      <a class="btn-link" href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener" data-page-node-id="phDJ6H1QI1lfTv1xyLs0NW">開啟 Copilot →</a>
+      <a class="btn-link" href="https://www.doubao.com/" target="_blank" rel="noopener" data-page-node-id="saQio2DN2gd1DH9L8zva78">開啟豆包 AI →</a>
+    </div>
+    <p style="margin:10px 0 0; font-size:14px; color:#8a7a64" data-page-node-id="0lpvh31EvDNeFGBmRXZlZO">靈機 AIGC（澳門校園平台）與 Copilot 需登入後使用；若學校建議使用其他 AI 工具，請依老師指示。</p>
+  </div>
+</section>
+
+<!-- ============ ⑤ 生成海報底圖（個人工作台） ============ -->
+<section id="poster" data-page-node-id="vB9gI0fqVLLVvK1qHUnZS7">
+  <h2 data-page-node-id="7yrdcmmuN8Woic7wPnMjFa"><span class="step" data-page-node-id="jqaZ6NB9vw1jw5DSsHFWsF">⑤</span>生成海報底圖</h2>
+  <p class="sub" data-page-node-id="loFTwguiar1WUuRixQaHcR">海報底圖用 AI 生成。這一步，你要先在下一步「選你的風格」，把提示詞準備好。</p>
+  <div class="card" data-page-node-id="p0WdU8yBJQDF4Z7qYEVOBN">
+    <h3 data-page-node-id="Lxe2bhCLRXE9HnJTyP1ncP">生成底圖前，先記住這三條「鐵律」</h3>
+    <div class="warn" data-page-node-id="uLM27FDtaWyaDeVpEdffEs">
+      <b data-page-node-id="eaUu0Qx77Bzf0dLp3Ku5fs">① 海報要直向 A3 尺寸。</b><br data-page-node-id="A5rzjySip1JsxRlWDfBwfQ">
+      <b data-page-node-id="LLcf5P59qRfES0SoOanfPD">② 海報中不要加入任何文字。</b><br data-page-node-id="YgCyt9zyAjGADKuqLTJUBn">
+      <b data-page-node-id="EfBed5HlI9apkgX3Gw9wbP">③ 頂部三分之一要預留空白</b>——可以塗底色，但<b data-page-node-id="N9ypleLIqdiY0e24mnmHbE">不要有任何物件、方框或對話框</b>，因為你最後要在這裡手動放上詩句。
+    </div>
+    <div class="tip" data-page-node-id="QkA8K0X3Wu1inrIGJ8XhLh"><b data-page-node-id="1c4kcBOu0etw4fQnzwc6pz">附件參考：</b>下面有鏡平學校的建築物圖片、KP 娃娃圖片（含透明底卡通娃娃），生成底圖時可以參考、融入這些元素，讓你的海報更有鏡平的特色。</div>
+  </div>
+</section>
+
+<!-- ============ ⑥ 選你的風格（個人工作台，核心） ============ -->
+<section id="route" data-page-node-id="smg3uFnbQkG0HdwQHGHDyz">
+  <h2 data-page-node-id="a0o9bOVwZ5Q7OqHUzjJOAL"><span class="step" data-page-node-id="DhOisMkuTWoR65UrIy5NxH">⑥</span>選你的風格</h2>
+  <p class="sub" data-page-node-id="mvNjZHSri7i3GwFF0aTFP6">這是讓「每張海報都不一樣」的關鍵。你先選一個<b data-page-node-id="CqCBTgzI07svQKbx6897L6">風格</b>，再逐項挑選主體、人物、光線、色彩、氣氛、構圖——系統會幫你把選項統整成一段<b data-page-node-id="ksLHhQCO4vFhwZfiwaVhKf">協調的提示詞</b>。</p>
+  <div class="hint"><b>風格圖鑑：</b>先看圖選路線；實際配元素與生成提示詞，請到互動課件操作。</div>
+
+  <div class="card" data-page-node-id="ARRkqXOuse1Td2YUHIeT7t">
+    <h3 data-page-node-id="w1zGhOBDMWvFVjXKdUomMW">第一步：選風格路線（十選一）</h3>
+    <p style="font-size:14px;color:#6b5d4f" data-page-node-id="26GV3RNuqvYZkyufcGdbMN">風格是你的海報的「基因」。點一張選中，下面六個項目會自動帶出跟它最搭的推薦值。</p>
+    <div class="style-grid" id="styleGrid" data-page-node-id="yaFb9SpAfUiTb9fBRwkfMl">
+    <div class="style-card" data-id="1" data-page-node-id="w6AK61hErGxQ9zgpOlmTxb">
+      <span class="chk" style="position:absolute;margin:6px;background:rgba(255,255,255,.9);border-radius:50%;width:22px;height:22px;line-height:22px;text-align:center" data-page-node-id="M8VzYKqiFeQM8u7HNzfDR6">✓</span>
+      <img src="assets/風格示範/風格1_金紅節慶_插畫風.png" alt="金紅節慶" data-page-node-id="HLbfS7pZsUWFRIEyNlRv1e">
+      <div class="sc-body" data-page-node-id="8XHc9mc4DzxK46mNOqOXNH">
+        <b data-page-node-id="MyXuiyrwwrFbbN8iOy6CMP">路線 1 · 金紅節慶</b>
+        <span class="sc-tag" data-page-node-id="zHAjlo0dlB3VXO1EKRksms">插畫風 · 校史慶典</span>
+      </div>
+    </div>
+    <div class="style-card" data-id="2" data-page-node-id="kUtXW8bA1hD4B5ZVZacW2y">
+      <span class="chk" style="position:absolute;margin:6px;background:rgba(255,255,255,.9);border-radius:50%;width:22px;height:22px;line-height:22px;text-align:center" data-page-node-id="G845GFoYs2kSfIwW9jUyy1">✓</span>
+      <img src="assets/風格示範/風格2_清新水彩_淡雅風.png" alt="清新水彩" data-page-node-id="QA5KZhzKpkyGmmNdpBNpRY">
+      <div class="sc-body" data-page-node-id="gKKBCZvgngpoR4gDKXTBjX">
+        <b data-page-node-id="z6tPXG7B30B2cWGEwP6R9C">路線 2 · 清新水彩</b>
+        <span class="sc-tag" data-page-node-id="JJeC7iODRhdYZm4erMKamP">淡雅風 · 校園景色</span>
+      </div>
+    </div>
+    <div class="style-card" data-id="3" data-page-node-id="Nw5RrGdiCvjQdSkKFAakfh">
+      <span class="chk" style="position:absolute;margin:6px;background:rgba(255,255,255,.9);border-radius:50%;width:22px;height:22px;line-height:22px;text-align:center" data-page-node-id="0Bf4ZruNz0q1oWVrLSNcdZ">✓</span>
+      <img src="assets/風格示範/風格3_Q版3D_童趣風.png" alt="Q 版 3D" data-page-node-id="9ip8V5CrsQ021Gut3wwcEK">
+      <div class="sc-body" data-page-node-id="BQLP88cYQiioujtozA5f4O">
+        <b data-page-node-id="EQgncj48FHCGJeE1EpEjsY">路線 3 · Q 版 3D</b>
+        <span class="sc-tag" data-page-node-id="mtDDZMqmA7ufE2L7OKFaEJ">童趣風 · 校園生活</span>
+      </div>
+    </div>
+    <div class="style-card" data-id="4" data-page-node-id="dvFGvWoQPovBTnNvzhKAqq">
+      <span class="chk" style="position:absolute;margin:6px;background:rgba(255,255,255,.9);border-radius:50%;width:22px;height:22px;line-height:22px;text-align:center" data-page-node-id="XQ7tUpWRFS3RJZoOdsy778">✓</span>
+      <img src="assets/風格示範/風格4_古風水墨_書卷風.png" alt="古風水墨" data-page-node-id="SNTlnKnZ6NrrF7ZGlQjEKS">
+      <div class="sc-body" data-page-node-id="cdVP2JAPAYze39TCB5MY1n">
+        <b data-page-node-id="yT1KLQkjZwON1al09zZz7q">路線 4 · 古風水墨</b>
+        <span class="sc-tag" data-page-node-id="767PaIcLsJYScVcLj2pooS">書卷風 · 校訓傳承</span>
+      </div>
+    </div>
+    <div class="style-card" data-id="5" data-page-node-id="CmVec0Fmle1jOgJg8oWDNj">
+      <span class="chk" style="position:absolute;margin:6px;background:rgba(255,255,255,.9);border-radius:50%;width:22px;height:22px;line-height:22px;text-align:center" data-page-node-id="sRoiBQQllk8aiSkdUpi29i">✓</span>
+      <img src="assets/風格示範/風格5_現代幾何_設計風.png" alt="現代幾何" data-page-node-id="J4uGBcCMjW19oSbLe5J4vn">
+      <div class="sc-body" data-page-node-id="FiLLFhzAQOSJ5M4jVwNFL6">
+        <b data-page-node-id="Em6gzf3JEPrTSKqZEbwPgb">路線 5 · 現代幾何</b>
+        <span class="sc-tag" data-page-node-id="qmK7Er6lzJvheb9u6ChtOW">設計風 · 創校里程碑</span>
+      </div>
+    </div>
+    <div class="style-card" data-id="6" data-page-node-id="liXMp5q3g0C3d29jUEcEdU">
+      <span class="chk" style="position:absolute;margin:6px;background:rgba(255,255,255,.9);border-radius:50%;width:22px;height:22px;line-height:22px;text-align:center" data-page-node-id="TXu0weSKy6HTyZFNLda0Hm">✓</span>
+      <img src="assets/風格示範/風格6_藍調夜景_璀璨風.png" alt="藍調夜景" data-page-node-id="uRI3NjiIZFRvQJsrUmGDJl">
+      <div class="sc-body" data-page-node-id="AXdoAoOoBQ8elRxdLQm5Vd">
+        <b data-page-node-id="A8cpiGsEkj2lHhnqc0De1r">路線 6 · 藍調夜景</b>
+        <span class="sc-tag" data-page-node-id="OLuWF1gy3FD2ApDqGLHvlw">璀璨風 · 澳門與家國</span>
+      </div>
+    </div>
+    <div class="style-card" data-id="7" data-page-node-id="UJJMgdbKCzoiPqPvCitt0k">
+      <span class="chk" style="position:absolute;margin:6px;background:rgba(255,255,255,.9);border-radius:50%;width:22px;height:22px;line-height:22px;text-align:center" data-page-node-id="h3c3PJh9kdU2ixSlCZN6jm">✓</span>
+      <img src="assets/風格示範/風格7_剪紙鏤空_民俗風.png" alt="剪紙鏤空" data-page-node-id="eODl65wB0blFEHAGMVQAq2">
+      <div class="sc-body" data-page-node-id="3SQazyrQdPuajQ9tM8BXCR">
+        <b data-page-node-id="T6LtBXNgKM7f6ainZ0yQXn">路線 7 · 剪紙鏤空</b>
+        <span class="sc-tag" data-page-node-id="j4fBNlIdzZVLkCkDNcGRyJ">民俗風 · 節慶吉祥</span>
+      </div>
+    </div>
+    <div class="style-card" data-id="8" data-page-node-id="zcJiJOjMcupQIO8FVbsnp6">
+      <span class="chk" style="position:absolute;margin:6px;background:rgba(255,255,255,.9);border-radius:50%;width:22px;height:22px;line-height:22px;text-align:center" data-page-node-id="ZxaQrKvHOSInHXe0fvmYGx">✓</span>
+      <img src="assets/風格示範/風格8_醒獅賀慶_南嶺風.png" alt="醒獅賀慶" data-page-node-id="rWVIBScbnuCAIEBeDX1Ign">
+      <div class="sc-body" data-page-node-id="LHTJlT9GInGEV8nORkCiVG">
+        <b data-page-node-id="SV21iHGCGrkM6EDl4LGQbP">路線 8 · 醒獅賀慶</b>
+        <span class="sc-tag" data-page-node-id="EmtxOne3rUHsFVXHJGSOgI">南嶺風 · 鑼鼓歡騰</span>
+      </div>
+    </div>
+    <div class="style-card" data-id="9" data-page-node-id="ZzExF07D5o4W6e39ZrKzj0">
+      <span class="chk" style="position:absolute;margin:6px;background:rgba(255,255,255,.9);border-radius:50%;width:22px;height:22px;line-height:22px;text-align:center" data-page-node-id="0NCR38HnODKYnzrow95hxX">✓</span>
+      <img src="assets/風格示範/風格9_澳門印記_蓮城風.png" alt="澳門印記" data-page-node-id="BZXDdME84YqAipo2y6tIeS">
+      <div class="sc-body" data-page-node-id="kFhpJZK8pattFeHqKAr4SR">
+        <b data-page-node-id="lOSX9K2e1nHc3Svhxrl8So">路線 9 · 澳門印記</b>
+        <span class="sc-tag" data-page-node-id="3La4mjyKXAZjNU5cYQxF2I">蓮城風 · 澳門風情</span>
+      </div>
+    </div>
+    <div class="style-card" data-id="10" data-page-node-id="vMec0zHpZnQyUhNZgJ2jzk">
+      <span class="chk" style="position:absolute;margin:6px;background:rgba(255,255,255,.9);border-radius:50%;width:22px;height:22px;line-height:22px;text-align:center" data-page-node-id="JPjuixpkTgr1G2yzPQWERc">✓</span>
+      <img src="assets/風格示範/風格10_國潮新韻_新中式風.png" alt="國潮新韻" data-page-node-id="hwJwI9B7ZRjFaYGLVnaZW7">
+      <div class="sc-body" data-page-node-id="eUC8TTlMXTQUx33dIhtHPN">
+        <b data-page-node-id="HEgENuwPFNvSeZ99FsYSNu">路線 10 · 國潮新韻</b>
+        <span class="sc-tag" data-page-node-id="85ZzzFzaW9DAvi7xzHutNG">新中式風 · 時尚喜慶</span>
+      </div>
+    </div></div>
+  </div>
+
+  <details class="offline-practice">
+    <summary>離線練習：自己配元素、生成提示詞（可選）</summary>
+  <div class="card" data-page-node-id="owFWGr4GjCZ11mNJaHrtm4">
+    <h3 data-page-node-id="hFSEMaQXhaXuPe7B4fX04s">第二步：逐項挑選元素</h3>
+    <p style="font-size:14px;color:#6b5d4f" data-page-node-id="8D0IFUceMqXvkUdqbUxBCJ">每一項都可以自己選。標 <b style="color:var(--ok)" data-page-node-id="vSBkxFnCD7yieSzJQgfe8y">⭐ 推薦</b> 的選項，是和你的風格最搭的；選其他選項也可以，但系統會提醒你「這組合可能不太協調」。</p>
+    <div class="dim-grid" id="dimGrid" data-page-node-id="90tDwVxivuIieENX5KeNn5">
+    <div class="dim" data-page-node-id="bX2nRkiEo8dqrN6saBTOjg">
+      <label data-page-node-id="cwRzwtxWzqP6a27Kbumzne"><span class="d-no" data-page-node-id="s9U2s2QBpRDlrupnpY73hb">第 5 項</span> 主體<span class="hint" data-page-node-id="UUZISd6Fcl8RHpYgaB0wiN">畫面主角是什麼</span></label>
+      <select data-dim="subject" data-page-node-id="DoqonCYZU16wId2UYPy0Xy">
+        <option value="school" class="" data-page-node-id="BjSHR06lu2Ux9hKFDZ4fqO">鏡平校園建築</option><option value="campus" class="" data-page-node-id="igos75gjQHL0Jcp8unnd5Z">校園景色</option><option value="landmark" class="" data-page-node-id="sM440NBQMZAYff1y90CJUT">澳門地標+校園</option><option value="symbol" class="" data-page-node-id="WG4rdg38EfUcZBZmQY1XYD">抽象符號</option>
+      </select>
+    </div>
+    <div class="dim" data-page-node-id="9aTRnA3ssDI4cJOwGyjXp6">
+      <label data-page-node-id="MEeo7biAjnEY9cS4PznsCD"><span class="d-no" data-page-node-id="pxl7oSqQQOG7GofAUjo9Sm">第 6 項</span> 人物<span class="hint" data-page-node-id="bNvg0AJnGNBpIO95VHFrKW">畫面有沒有角色</span></label>
+      <select data-dim="person" data-page-node-id="EHra2HOW1Ly1FKUJBhBSwf">
+        <option value="kp" class="" data-page-node-id="pEdWFiTfgyjp1vDE2RiFxn">KP 娃娃</option><option value="students" class="" data-page-node-id="XbuMLsJhlWIhODz7KHVllG">學生群像</option><option value="none" class="" data-page-node-id="1GRJhkJKp975TfiTrNcj1Y">不要人物</option>
+      </select>
+    </div>
+    <div class="dim" data-page-node-id="nNw9lNsrlAuBB7Jq2wYaGD">
+      <label data-page-node-id="iWEIpUFrFRnzywyXSuAwKu"><span class="d-no" data-page-node-id="4gYsoPC4UtIHip0A0v8RKC">第 7 項</span> 光線<span class="hint" data-page-node-id="MCrqlVtCqTo81Z860Dtoc1">畫面的光影氛圍</span></label>
+      <select data-dim="light" data-page-node-id="SCz2VijJEH1jZTM3l2Kjds">
+        <option value="radiant" class="" data-page-node-id="tSJhvtOh0B2AxhHUdiA9wL">放射金光</option><option value="soft" class="" data-page-node-id="Ea88f9zFwE9BJCUvi92x11">柔和側光</option><option value="bright" class="" data-page-node-id="MYFsAedn5A9o6zv6kQiSji">明亮日光</option><option value="night" class="" data-page-node-id="o8xJVVaC90DjkKmIjGgBjb">夜晚燈光</option><option value="flat" class="" data-page-node-id="EBILbBZEfaEoeAc7PD4HU6">無陰影平光</option>
+      </select>
+    </div>
+    <div class="dim" data-page-node-id="OtMpf63vf0PvUbTPB8usaK">
+      <label data-page-node-id="YUqFSPNWHfPNEavSDoapY0"><span class="d-no" data-page-node-id="dljcK9jJrjkSkeSqkn074B">第 8 項</span> 色彩<span class="hint" data-page-node-id="TqWd1C4BCUUs7tRLHFw7B6">主色調與配色</span></label>
+      <select data-dim="color" data-page-node-id="ciW2kWZZcYj0vkDmQNc0WI">
+        <option value="redgold" class="" data-page-node-id="psIbaHHhSdyTx5X3FhYSsL">正紅+金</option><option value="fresh" class="" data-page-node-id="Rmq4jf3Uf0l2sTLFJEcmK9">米白淺青</option><option value="bright" class="" data-page-node-id="HyU5FJIIanVtCiiOGrKNkv">繽紛高彩</option><option value="ink" class="" data-page-node-id="OzB6v7nt2tlt3Es5szYgQA">墨赭宣紙</option><option value="navygold" class="" data-page-node-id="wCNpXnn4A1WYpH3JH9DBnY">金+深藍</option><option value="bluegold" class="" data-page-node-id="2SPYFkpy78dsbFDZiFc95v">深藍+暖黃</option><option value="guochao" class="" data-page-node-id="jSndRCTVOwcMFC6xxNK6Cw">國潮紅青</option><option value="liancheng" class="" data-page-node-id="mn49TdexD9ANCGKwiivvW9">蓮城粉彩</option>
+      </select>
+    </div>
+    <div class="dim" data-page-node-id="c9DtC3bHJ9LJC4YOu5NqVC">
+      <label data-page-node-id="XyySp0onECI4VqFyH4CTT2"><span class="d-no" data-page-node-id="YmDKz8QjBfUmsRNpSeG8D2">第 9 項</span> 氣氛<span class="hint" data-page-node-id="mYKqqeuLFxgFpSkDmQYjK3">整體情感基調</span></label>
+      <select data-dim="mood" data-page-node-id="kQ6JM4voITXCvBXfNLu09l">
+        <option value="celebrate" class="" data-page-node-id="CnXwlE1JGcmROE5v4dS5ri">喜慶熱鬧</option><option value="quiet" class="" data-page-node-id="crYcJZyg9Fm6xXuDC8tc7q">安靜淡雅</option><option value="playful" class="" data-page-node-id="ONAdv59pLEwUZFu4ZvF0bF">活潑童趣</option><option value="modern" class="" data-page-node-id="XXqvUyne8Jm6YEF4YRdSou">現代時尚</option><option value="serene" class="" data-page-node-id="BnCdZMjGFhHl5IeTDduHsf">靜謐璀璨</option><option value="warm" class="" data-page-node-id="oeLRzq9TzNQBR0DDyRWgAr">溫馨動人</option>
+      </select>
+    </div>
+    <div class="dim" data-page-node-id="yZPTL1HeXb6nQLQdufClzb">
+      <label data-page-node-id="f8aRSiNN7C0AWxYFJQYXH5"><span class="d-no" data-page-node-id="eAJvqnLjRIZkYqoBQd624F">第 10 項</span> 構圖<span class="hint" data-page-node-id="VVtGmi8Hnm6OvWU7WUFXhH">畫面布局方式</span></label>
+      <select data-dim="comp" data-page-node-id="CQrueUVHM1gUskLBJmOXzH">
+        <option value="symmetry" class="" data-page-node-id="3xHvQEqHwa1AwqTLzeVEnT">對稱中心式</option><option value="space" class="" data-page-node-id="RMNHeJZreLHcQ9HKL9g8R9">大留白式</option><option value="center" class="" data-page-node-id="fUweQa5j7G0pKWrXtWLMF6">近景特寫式</option><option value="geometry" class="" data-page-node-id="NMpszAzjsnd8Yv6EOz53LB">幾何分割式</option><option value="depth" class="" data-page-node-id="lWOI5sB4v2ANMX4FBblLfy">遠近景深式</option>
+      </select>
+    </div></div>
+
+    <div id="harmony" class="green" data-page-node-id="AB7a1Rh8paM6sJwfL0xxoo">
+      <div class="dot" data-page-node-id="gK98v6DyavMSewzPKBJNQv"></div>
+      <div class="h-body" data-page-node-id="i8T7ndbQkZeLW4I5FJnBRA">
+        <b id="harmonyTitle" data-page-node-id="YBfo8pWAHSAQu69KvQG9NN">請先選風格</b>
+        <div class="h-msg" id="harmonyMsg" data-page-node-id="rKqXfYP4ZHcj1aZ7YxzeN5">選好風格路線後，這裡會即時告訴你組合協不協調。</div>
+        <div class="h-why" id="harmonyWhy" data-page-node-id="M3YYwMBeSjm6cpcRHFAOPr"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-page-node-id="8oqn1vhDiwJLYj15WvHjR2">
+    <h3 data-page-node-id="6n8NEE2gAWS5XmboHpS6tC">第三步：生成提示詞</h3>
+    <p style="font-size:14px;color:#6b5d4f" data-page-node-id="STBCXUtaLHTiIYZtMJYAWD">確認下方提示詞無誤後，按「複製提示詞」，貼到 AI 圖片工具裡生成底圖。生成後記得檢查：<b data-page-node-id="qIOTgmDTiZ3ZqZCDuQFw0W">頂部三分之一有沒有留白、有沒有出現文字</b>。</p>
+    <div class="prompt-out" id="promptOut" data-page-node-id="lIErcGwiaD7oqnAQdMyfsD"><span class="plabel" data-page-node-id="Wr8ky3vBtCwyuIwuke8sAF">請先在上方「第一步」選一個風格路線，這裡就會自動組裝出你的完整提示詞。</span></div>
+    <div class="prompt-bar" data-page-node-id="gtjCUZKjaiVDA42LouBHon">
+      <button class="copy" id="btnCopy" data-page-node-id="6IjhKpWspFAsXPXu1EJMWN">複製提示詞</button>
+      <button class="ghost" id="btnReset" data-page-node-id="iOMarBHe7yY9zKptNZoSQJ">全部重設</button>
+    </div>
+    <div class="tool-links" data-page-node-id="CPvqizQJD5vXB4ZBG2Aqik">
+      <span data-page-node-id="976o2ZpLCvADa5FcPteMXo">複製後開啟 AI 工具生成底圖：</span>
+      <a href="https://one.macaucampus.com/campus/login" target="_blank" rel="noopener" data-page-node-id="6FnATuEnLq18TDIYto1Hb6">靈機 AIGC</a>
+      <a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener" data-page-node-id="T7T3EEjHrWlEJ7ekNTEVhZ">Copilot</a>
+      <a href="https://www.doubao.com/" target="_blank" rel="noopener" data-page-node-id="5Bm6dImQCYYTkqOkn0jG4g">豆包</a>
+    </div>
+  </div>
+  </details>
+</section>
+
+<!-- ============ ⑦ 合成與評價（index 版） ============ -->
+<section id="compose" data-page-node-id="1o4EjvBR2k4vWYD2eDr0PU">
+  <div class="sec-head" data-page-node-id="WPtO8GDDukgOtR0fAtR6CS">
+    <div class="sec-no" data-page-node-id="KZuhfYOsBBvfmqvuxV8c1a">⑦</div>
+    <div data-page-node-id="fYt4VNkhkGJcuzvaoTymHg">
+      <h2 data-page-node-id="JwDUdy1jUYBPJVDkX5ONcE">第三部份：合成、評價與提交</h2>
+      <p class="sub" data-page-node-id="DLZ1rIDaacE2bWspcghPd8">最後一步，也是最能看出你的功力的地方</p>
+    </div>
+  </div>
+
+  <div class="card" data-page-node-id="dlA625RqWbZrEU49cOV8Xy">
+    <h3 data-page-node-id="pqcv3pFxN7FAgVn5MNU20p">先想一想：為什麼不讓 AI 直接把字寫上去？</h3>
+    <p data-page-node-id="QGpFxxJYDwcuFIWHbpTtjq">上課時我們會做一個實驗：請 AI 把詩句直接寫進海報圖片裡，然後一起看結果。</p>
+    <p style="margin-bottom:0" data-page-node-id="mjwUahYKE2ARdOCrd0Ew0M"><b data-page-node-id="SPN0ctWHT7YBVXfMxf2eMq">請先猜一猜：它寫的中文字會正確嗎？為什麼？</b>把你的猜測寫在任務單上，再對答案。</p>
+  </div>
+
+  <div class="card" data-page-node-id="IQJTLde15GXVlyHXfGWXb2">
+    <h3 data-page-node-id="WO9RW9rsufeTg1KkW4MMMz">合成六步（Word 操作）</h3>
+    <ol data-page-node-id="31kw2j3KSxQC6J5pgyIRQe">
+      <li data-page-node-id="EPCqemUTcqW7sRtUqrJa4C">用 <b data-page-node-id="UukcvgzYPbosgthTEiGQcz">Word</b> 打開「校慶海報提交模板（Word 版）」，捲到<b data-page-node-id="hl9B52sAevCLr039ACBGDp">第 4 頁</b>。</li>
+      <li data-page-node-id="eZv6Nci0uDo2dN6ltNw5UC">「<b data-page-node-id="rWhzIK2H8pb1Rraw4amCrY">插入</b>」→「<b data-page-node-id="ZWS9m41boWHDOmN8TBEA6k">圖片</b>」，選擇你生成的海報底圖，拉大至<b data-page-node-id="YhuEQ3xnMcAhK52JFCXnWd">填滿整頁</b>。</li>
+      <li data-page-node-id="Cm7T6aVnEcZS4i8RQZTtMg">點選圖片，把「<b data-page-node-id="0uZyE1nzWqf3VCFsOXqFYF">文繞圖</b>」設成「<b data-page-node-id="nuQPZDIWOw8iGt8qe086yf">襯於文字下</b>」——這樣文字才能疊在圖片上面。</li>
+      <li data-page-node-id="XCkXbhOnGCKxZZ37vdc28K">「<b data-page-node-id="7soofJlmNSWrYXUH18Y4mu">插入</b>」→「<b data-page-node-id="l4zEiIyGlMYD41pv0fMASB">文字方塊</b>」，在畫面上方三分之一輸入你的詩句（分成 4 行）。</li>
+      <li data-page-node-id="4hDqdDglj8BUHBWDcje7XI">設定詩句的<b data-page-node-id="3cfRARYPFWDAkuhe05ij1h">字型、字號</b>——選清楚易讀的（例如標楷體、微軟正黑體），看得清楚但不要大到遮住畫面主角。</li>
+      <li data-page-node-id="xGy0XxBPGBi6gdHII9VSnh">設定<b data-page-node-id="NDxPCSjnphuMnecyHwE5aI">顏色</b>、把文字方塊移到留白處，再用「<b data-page-node-id="9wArd2i7Sufi41V4QwtYKc">對齊</b>」工具微調，最後<b data-page-node-id="KP6HVUb2VuL5t7vc5CNMhk">儲存檔案</b>。</li>
+    </ol>
+    <div class="hint" data-page-node-id="x0ZyajuMmhDKTC54QbJAmG">
+      最後整體看一次：<b data-page-node-id="CxOX5UH03Cp3uCCKqvw9Ht">和諧嗎？會不會擋住重要畫面？四個字有沒有寫錯？</b>再截圖交件。
+    </div>
+    <div class="tip" data-page-node-id="I7vEysjfy5jnT9Z7kxUz6J"><b data-page-node-id="9leHdP1volbsOrlkDjZuk1">想讓海報更活潑？</b>素材下載區有「<b data-page-node-id="mqxja2liFQudh3R1mETXPt">透明底 KP 娃娃</b>」——挑一款插入後，記得也把「文繞圖」設成「襯於文字下」（不會有白框，像貼紙一樣），再貼到畫面角落或留白處當裝飾，不要擋住詩句和主角。</div>
+  </div>
+
+  <div class="card" data-page-node-id="XGORKMwLJbmW7ba3EQwN7s">
+    <h3 data-page-node-id="EQVoaAMpjFTJ1UhPhhiUUd">版面判斷三問</h3>
+    <div class="opt-grid" data-page-node-id="nVtezKaJKo8eQqNZBDT3rr">
+      <div class="opt" data-page-node-id="F4UHarWvAQFlq37756Q58S"><b data-page-node-id="59mwOnHLjanuFFmtj1PP15">① 字放在哪裡最清楚？</b><span data-page-node-id="RltUmsAovmcoWWP1R8ND3O">找你畫面裡最乾淨的那一塊留白。放在熱鬧的花叢上，字就看不見了。</span></div>
+      <div class="opt" data-page-node-id="2MlS5w2OfZ2WZHtRVwiDYS"><b data-page-node-id="A8djqBH0FQszP95ZQRsAwB">② 顏色對比夠嗎？</b><span data-page-node-id="thGygKK6sVzOvQsqk60WUB">淺色背景配深色字，深色背景配淺色字。也可以用描邊或陰影讓字浮出來。</span></div>
+      <div class="opt" data-page-node-id="Wo7yD7TE9e3TxDBb656ebR"><b data-page-node-id="Q1CpP8kH3z1NO4ZpDdlyxt">③ 整體和諧嗎？</b><span data-page-node-id="JnciXsH9AVFUVCvMawYYAA">字的風格、大小與畫面配合嗎？會不會一邊太重、一邊太空？</span></div>
+    </div>
+  </div>
+
+  <div class="card" data-page-node-id="hNh8fLZz0DDDMeUb4lIKqG">
+    <h3 data-page-node-id="urWqOl4fZVrQ6GP46J1aGE">Word 技能檢核（核心 7 項・必評）</h3>
+    <p data-page-node-id="Fb0l9e2ZFTGNB7jatIM6y5">這次專題會用到 7 個 Word 核心技能。做完後<b data-page-node-id="XbY9rZ62IWHnCnQHATUcHM">點一點下面的清單</b>打勾；也別忘了在模板<b data-page-node-id="QcuyxPjgtncro5eRAiRYmw">第 5 頁</b>把同樣的清單打勾。</p>
+    <ul class="skill-list" id="skillList" data-page-node-id="I3HBWXJLeg2FBTAk37LncY">
+    <li class="skill-item" data-k="c0" data-page-node-id="2t0IDnRVGpDts0EAysoD2e">
+      <span class="box" data-page-node-id="s2xkRYhpgukkqmTI4ncI0K"></span>
+      <span class="s-txt" data-page-node-id="Kb9hDzMSuyWxH3Yxpu8W2l"><b data-page-node-id="ZPHSePEdWg5oWKJXEIEkqV">① 我會打字和貼上文字</b><span class="s-note" data-page-node-id="wBbjy6bc0DAzUi2HVRlwqW">把提示詞、詩句放進文件</span></span>
+    </li>
+    <li class="skill-item" data-k="c1" data-page-node-id="clGaNEgRlD07O9NbNDbNzC">
+      <span class="box" data-page-node-id="46gbhGsBBUvQQCOqbq2ZvO"></span>
+      <span class="s-txt" data-page-node-id="V2Sy8RWeq6Zd3Br1C645qo"><b data-page-node-id="HtnLCE8DFla1JDDPBNY47J">② 我會設定文字格式</b><span class="s-note" data-page-node-id="hiOHvMXjaEe7sSEuw8zno0">字型、字號、顏色</span></span>
+    </li>
+    <li class="skill-item" data-k="c2" data-page-node-id="pkqENbVl3du08sWxLOntIU">
+      <span class="box" data-page-node-id="7o0dpDkfE0l9l8DRA6a0pi"></span>
+      <span class="s-txt" data-page-node-id="AIFRmOB1jsOar2kuTD7gKv"><b data-page-node-id="sgbU3ZSbksDqm6T0LCzaw1">③ 我會把詩句「置中」對齊</b></span>
+    </li>
+    <li class="skill-item" data-k="c3" data-page-node-id="QdBm5cQscbAs1OTilWi1ba">
+      <span class="box" data-page-node-id="zOhuAPxvRq9HyhyyoRtXgU"></span>
+      <span class="s-txt" data-page-node-id="UqNL4uZUArXc2sNzRE1Gal"><b data-page-node-id="0UixHPu64hVvJAk1HCepaZ">④ 我會「插入圖片」，並調整大小</b></span>
+    </li>
+    <li class="skill-item" data-k="c4" data-page-node-id="TcYmWWsqxuC5HsXwPDE7x8">
+      <span class="box" data-page-node-id="muzV0BTDx3hDSGoM7Ws1hs"></span>
+      <span class="s-txt" data-page-node-id="UneRj6eloe6G8k9Um0L7LS"><b data-page-node-id="7wQIXGoMcsKlKkCCP0qoXD">⑤ 我會設定圖片的「文繞圖 → 襯於文字下」</b></span>
+    </li>
+    <li class="skill-item" data-k="c5" data-page-node-id="Omy1wUGeFf8vAew6z0yd9P">
+      <span class="box" data-page-node-id="lfRnqFfDe67j63lHTHqIbR"></span>
+      <span class="s-txt" data-page-node-id="8fwxxIpKtBu2heSOOntj7j"><b data-page-node-id="d45abcCkWvkpflQI1Ovlgk">⑥ 我會「插入文字方塊」，並移到想要的位置</b></span>
+    </li>
+    <li class="skill-item" data-k="c6" data-page-node-id="HqpYcTrx5Gd5D5npCBFcnn">
+      <span class="box" data-page-node-id="yKW73R7GGrFBt0xLzv41wd"></span>
+      <span class="s-txt" data-page-node-id="TAmuM5HEP8LRhWShkLLHOC"><b data-page-node-id="sHJZZH2sTtldDKypPcEbgm">⑦ 我會儲存檔案</b><span class="s-note" data-page-node-id="ZVJI2wrt2oOLHVzHpVFg8I">檔名：P5A_學號_姓名_校慶海報</span></span>
+    </li></ul>
+    <div class="skill-progress" id="skillProgress" data-page-node-id="ZWQ44EptqTshHgtJtJWzMN">核心技能：0 / 7</div>
+    <div class="skill-sub" data-page-node-id="B0MQs05uargXbvhvyH4xWH">進階挑戰——做到就更棒！</div>
+    <ul class="skill-list" id="skillListAdv" data-page-node-id="blusCm0M6rmlzOJBv3uRaI">
+    <li class="skill-item" data-k="a0" data-page-node-id="c1xY4SZPx13hUz0Vc4Bv46">
+      <span class="box" data-page-node-id="OYMw9odr8hNDpo0MOJJrmY"></span>
+      <span class="s-txt" data-page-node-id="pNWumO5RJt32OsenjBWHn0"><b data-page-node-id="i3hfUWIcJdwlnYG7WrT7g5">⑧ 我會用「對齊」工具把物件排整齊</b></span>
+    </li>
+    <li class="skill-item" data-k="a1" data-page-node-id="FkVOXFljFdqJPq6mmvrsjA">
+      <span class="box" data-page-node-id="pJs2p8dpfeYTvCRubHhQUL"></span>
+      <span class="s-txt" data-page-node-id="j3GwUwWE0WQ0HSiS4WGLM0"><b data-page-node-id="eExDE6Vq3IjRgDokJJo3OT">⑨ 我會調整「行距」，讓詩句更好看</b></span>
+    </li></ul>
+    <div class="hint" data-page-node-id="WMI0FV2CLpGN1r5LyVMFMr">打勾表示「我真的會做」——還不太會的，趁現在問老師或同學把它補起來。</div>
+  </div>
+
+  <div class="card" data-page-node-id="As5pZJd45N3Ecxxilnoc6L">
+    <h3 data-page-node-id="DMklZSs2QP0q0eQr5zAiav">把海報存成 PNG 圖片</h3>
+    <p style="font-size:14px;color:#6b5d4f" data-page-node-id="bK5AIFVtLVAiv9JVloiKIT">Word 沒有「另存成圖片」的按鈕，所以我們出動系統的「剪取工具」把第 4 頁截下來。</p>
+    <ol data-page-node-id="5xwtXGYwZ2FG4JQK3oNbtv">
+      <li data-page-node-id="uRi5NWoPZFOOxCC6hezAwQ">確認第 4 頁的海報已調整完成、<b data-page-node-id="dF6jOqMlbu6dDsCCPHOuQu">存好檔</b>，並調整顯示比例讓<b data-page-node-id="6ctlIr56JP54avk1Ct8XIe">整頁都看得到</b>。</li>
+      <li data-page-node-id="pWBjENQqjwRcF2bDAw5B4p">按鍵盤 <b data-page-node-id="KJZljui3rAhGC0qspzzTAc">Win + Shift + S</b>（或從開始選單打開「<b data-page-node-id="bzRl5vJ3zGDjVxPGEf7BGU">剪取工具</b>」→「新增」）。</li>
+      <li data-page-node-id="vDuxyBQvMKhJFug9zdWW9p">游標變成十字後，從海報<b data-page-node-id="LnRcqnE1UJOd9DIYW18SEi">左上角拖到右下角</b>，框住整頁。</li>
+      <li data-page-node-id="9xDvMfgrJzlH47EKtlPByf">右下角會彈出畫面通知——<b data-page-node-id="kPSynDkdWQ68XbbnvXGI72">點開它</b>，按「儲存」。存檔命名建議：<b data-page-node-id="BXDDHNzZ8k477juHkbE365">P5A_學號_姓名_校慶海報.png</b></li>
+      <li data-page-node-id="MYfvF5F88N7UHBXRVKsav6">打開存出來的圖片檢查：詩句清楚嗎？有沒有被裁掉？</li>
+    </ol>
+  </div>
+
+  <div class="card" data-page-node-id="5SLrjwJswXbEXw0Eay28O1">
+    <h3 data-page-node-id="OolM1uAqxCmi5E0LtrwRn7">加上來源標註（一定要寫）</h3>
+    <p data-page-node-id="DY2WKgRt1l44VlRCv3kNEl">用了 AI 就要說清楚。模板封面的「使用 AI 工具」和「校史資料來源」兩行<b data-page-node-id="20BYLdrHIq3BRc6hJRFUik">一定要填</b>；也可以把下面這整段放在你的作品角落：</p>
+    <div class="copybox" data-page-node-id="3XbNOPakpBU0DkBCMirOkU">
+      <div class="bar" data-page-node-id="493l3R0m8N0fuW2l2waBQK"><span data-page-node-id="1SgKjxKzatfjPtQnYEQLEA">來源標註範本</span>
+        <button class="copy-btn" data-target="c-credit" data-page-node-id="ojunI8BRwE8SzkFfiXmk8l">複製</button></div>
+      <pre id="c-credit" data-page-node-id="611TEuY7DsqL8sv6tDWxaL">本海報使用 ＿＿＿＿＿＿＿＿（AI 工具名稱）協助生成詩句與底圖；
+校史資料來源：＿＿＿＿＿＿＿＿；
+詩句、選圖與版面編排由本人完成。</pre>
+    </div>
+    <div class="hint" data-page-node-id="eo8RDL55clDrCJISSYtZ0z">
+      <b data-page-node-id="EN1OYhMDHAszc6TPAyqugP">為什麼要寫這個？</b>因為這張海報是你的作品，不是 AI 的作品。說清楚你用了什麼工具、資料從哪裡來，是對自己負責，也是對原作者和學校的尊重。
+    </div>
+  </div>
+
+  <div class="card" data-page-node-id="FNVL9AFt3p3EKPF5mnHY3I">
+    <h3 data-page-node-id="3yyb65h5OJaBXM5bUHXOQY">同儕互評：給同學具體的回饋</h3>
+    <p data-page-node-id="FL5fCv58bWsHeH3t4XQkbS">看完同學的作品，用這三句話回饋。<b data-page-node-id="eXZBtvkMyEMfKCdT6ByvGj">不可以只寫「好看」或「不好看」</b>——要說出你在畫面裡看到什麼：</p>
+    <ol data-page-node-id="lQcJ3H2dCsUC1Y06e8D84U">
+      <li data-page-node-id="BCjYob1hVzvTr1hFsoSOYg">我最欣賞這張海報的一個地方是……（說出是哪個畫面元素、或哪一句詩）</li>
+      <li data-page-node-id="ut6duGjEbrv3U2nE7O5zHy">我很好奇的一個選擇是……</li>
+      <li data-page-node-id="FEKnQJDoiHCqnYmgbRCG2r">如果是我，我會試著……</li>
+    </ol>
+  </div>
+
+  <div class="card" data-page-node-id="2rnKcFzrmuevYOZr30vQPw">
+    <h3 data-page-node-id="LaTOvcSxdZmrPKyJTW6H60">提交前最後檢核</h3>
+    <div class="tbl-scroll" data-page-node-id="4SGQioIpOkmAnTtzjlovHB">
+    <table data-page-node-id="9hwbzzdS5aYifWXLqkx0VA">
+      <thead data-page-node-id="Seu3GOaliIj51v7lj45wY2"><tr data-page-node-id="KaSN2eGkRpeGV2wmOn8Fs5"><th style="width:60px" data-page-node-id="BF5nJeL5GJmNi8MW8cbi0m">✓</th><th data-page-node-id="F03thn3A7Icc1ETIpEzAoE">檢查項目</th></tr></thead>
+      <tbody data-page-node-id="3KdLUPNuyY0kKEF4HdfsbY">
+        <tr data-page-node-id="aFe9wLFiEAWZMABDIImgb3"><td data-page-node-id="O6mJHmauTkEM3X91e1qJ0b">☐</td><td data-page-node-id="LEBBzaCxmtBeDPvA6JR3xn">提交模板第 1 頁已填班別、班號、姓名</td></tr>
+        <tr data-page-node-id="WsUnaiRLDGhA4k0jFQvs17"><td data-page-node-id="pOtKtkV5EfYJfpy8qbGuGa">☐</td><td data-page-node-id="gWhIgHzevi6yVA4hXa8gNj">第 2 頁有我的<b data-page-node-id="a2N3VOni2DDnnNYMIhCQBe">完整提示詞</b>和詩句</td></tr>
+        <tr data-page-node-id="bCAOCTXUbJyRs6eB2zXkPI"><td data-page-node-id="56xG2sL2sqTEA4CmkGVBqU">☐</td><td data-page-node-id="3fqEUGraP3UREADelBLwBC">第 3 頁有我的海報<b data-page-node-id="CpTfHOVWereT35rJHrUSAs">提示詞</b>和底圖</td></tr>
+        <tr data-page-node-id="bijyWyNEXwhySh3Lbvwgs3"><td data-page-node-id="vuAVKuvCHI00EhxbB8BtI9">☐</td><td data-page-node-id="1xiezUQdGBQqeIkh56QSgR">第 4 頁已合成完成的海報（圖片＋文字方塊）</td></tr>
+        <tr data-page-node-id="vJnIZ7ut9VPlyAOCYPSTMM"><td data-page-node-id="TtLLzKr2EIucON32Kz57zV">☐</td><td data-page-node-id="AvdDnBCB5vEOC0fOLO45cc">第 5 頁的技能檢核已打勾</td></tr>
+        <tr data-page-node-id="QH8Cw6vhxFyMvZrcEoK37h"><td data-page-node-id="6AtbkMcsb2FsW9nHQ1fQmg">☐</td><td data-page-node-id="C34JPEJMpcOETpunwRxmLB">我已把海報截圖存成 <b data-page-node-id="xYu1GhqGTOsYK05dorB7vR">PNG 圖片檔</b></td></tr>
+        <tr data-page-node-id="FqLNBfafJNBdBFRw4tTdVF"><td data-page-node-id="MAzk3DrzKOaSrpEXg4XAOt">☐</td><td data-page-node-id="D8kJTA5ge8IYCrTzR93mkp">我已標註 AI 工具和資料來源</td></tr>
+        <tr data-page-node-id="ffF8B12k7FvjiLwDyaAwBO"><td data-page-node-id="dHEch5YXI3qyo4TbkVKhW4">☐</td><td data-page-node-id="sT5bNwFCLLmK7au71dmckk">我已完成互評單</td></tr>
+        <tr data-page-node-id="HeeuFnuh61CzKja2ClxyyF"><td data-page-node-id="zwr9Sk8zy8eaX6g5vwLDod">☐</td><td data-page-node-id="BRVBRd2GsUVR3TfpmQxEPh">兩個檔案都已上傳到 PL2 作業提交區</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 素材下載（個人工作台） ============ -->
+<section id="download" data-page-node-id="9tHGwHieUgtbeA22SgFWSo">
+  <h2 data-page-node-id="461IkM35Gro2JeEvi4xQKu"><span class="step" data-page-node-id="u6zrArdDntgZZE60C2owWm">📁</span>素材下載</h2>
+  <p class="sub" data-page-node-id="BHESaqDNO0e2UPAGGmCleZ">點擊圖片即可下載原始檔案。素材只供本次專題活動學習使用，請勿公開發布或作其他用途。</p>
+  <div class="card" data-page-node-id="alkFpfHai2fpqNzYOtkcgK">
+    <h3 data-page-node-id="I6zlsvShwnra3mBCTxnaDH">學校與人物素材（生成底圖可參考）</h3>
+    <div class="tip" data-page-node-id="kEPwkwQpYZmFzd4Q1Orvmo"><b data-page-node-id="rGDlwL17h55I2XePZZH6Az">小提示：</b>帶「<b data-page-node-id="wXbcfX8pjBiO3fmkyQJpz2">透明底</b>」的 KP 娃娃沒有白色背景——下載後可以直接貼到海報上當裝飾（像貼紙一樣），不會出現白框；也可以上傳給 AI 當作生成風格的參考。</div>
+    <div class="asset-grid" id="assetGrid" data-page-node-id="w5Xdmwd33o0onxqz18iRqY"><a class="asset" href="assets/校徽.png" download="" data-page-node-id="pTFAi4eHMeDP6rChog1xh6">
+    <img src="assets/校徽.png" alt="校徽" data-page-node-id="AucEjrllDMGOTCUVtOovbP">
+    <div class="meta" data-page-node-id="eKHznJliJxDRaZaWC5HGbG"><b data-page-node-id="20DcjpnSzfUOIeEmOuBGnW"> 校徽</b><span data-page-node-id="9fCvfCeNYZhBNYS6WgYGWV">點擊下載</span></div>
+  </a><a class="asset" href="assets/鏡平學校外觀01.jpg" download="" data-page-node-id="o0kwZZF7Pk8jRFbROV6VAU">
+    <img src="assets/鏡平學校外觀01.jpg" alt="校園外觀 01" data-page-node-id="02LHtCoS5MvAZhdydN8BBv">
+    <div class="meta" data-page-node-id="471RCNRClGRsD32EXjK28s"><b data-page-node-id="KIA6LAKpdklwPf2JbWw1Gf"> 校園外觀 01</b><span data-page-node-id="QuynQCWt6ldezB6xc2hwoB">點擊下載</span></div>
+  </a><a class="asset" href="assets/鏡平學校外觀02.jpg" download="" data-page-node-id="vHIOFBk3RuRmf8yhCCCps0">
+    <img src="assets/鏡平學校外觀02.jpg" alt="校園外觀 02" data-page-node-id="eCSjqkue823LUvtFtqj4ek">
+    <div class="meta" data-page-node-id="hKJHrK2C7YzhnDBYpiF8JZ"><b data-page-node-id="JBmOksMWe1ucjw9Nyt6SgD"> 校園外觀 02</b><span data-page-node-id="CIIM0D8mzV9T57OYfgHY0r">點擊下載</span></div>
+  </a><a class="asset" href="assets/KP娃娃01.jpg" download="" data-page-node-id="skzuYF1JNeDxbaVQquJbiI">
+    <img src="assets/KP娃娃01.jpg" alt="KP 娃娃 01" data-page-node-id="O702K7bURh1IirhlRIiW4O">
+    <div class="meta" data-page-node-id="vqJpr681EpFMTJlXqEzhba"><b data-page-node-id="dXgYD8zxo0Xb6WXBBMYf5G"> KP 娃娃 01</b><span data-page-node-id="Gv2rPGF2tkdYLEXyklVlx2">點擊下載</span></div>
+  </a><a class="asset" href="assets/KP娃娃02.jpg" download="" data-page-node-id="fL2judncjdNghfAb7F1JUy">
+    <img src="assets/KP娃娃02.jpg" alt="KP 娃娃 02" data-page-node-id="AZSXsiaygFLgRcwfP6XUEa">
+    <div class="meta" data-page-node-id="yjBPmzCNTniEGsx8T1pVig"><b data-page-node-id="LgNcJ2wjbgsH4Tut1h3XDW"> KP 娃娃 02</b><span data-page-node-id="GWTiFyH97qaclOZQthdmFM">點擊下載</span></div>
+  </a><a class="asset" href="assets/KP娃娃03.jpg" download="" data-page-node-id="XptvOik7vqLlgr5jqCiVbB">
+    <img src="assets/KP娃娃03.jpg" alt="KP 娃娃 03" data-page-node-id="3NwKq53mq2KDUO9gtiJ0wG">
+    <div class="meta" data-page-node-id="gXWzG1FABfaNHESn8sG111"><b data-page-node-id="EpDvPCavRwTIZoYHVYhmxQ"> KP 娃娃 03</b><span data-page-node-id="hoGxrnkzNfpf7fYwIKMegN">點擊下載</span></div>
+  </a><a class="asset" href="assets/KP娃娃04.jpg" download="" data-page-node-id="Emu7TQCtTQUnZWwl7k46xC">
+    <img src="assets/KP娃娃04.jpg" alt="KP 娃娃 04" data-page-node-id="2BzyN8KCiF202mvSFgdKlc">
+    <div class="meta" data-page-node-id="2wzTZ3zIJdZikYdrikG3FB"><b data-page-node-id="C8lQykN4dyjXChBTksZlpW"> KP 娃娃 04</b><span data-page-node-id="tpAciM0nDB1QmIPi4dgp31">點擊下載</span></div>
+  </a><a class="asset" href="assets/KP娃娃_透明_誠.png" download="" data-page-node-id="BXGkiL7gmv1bSvo0lv3ZI9">
+    <img src="assets/KP娃娃_透明_誠.png" alt="KP 娃娃 · 誠（透明底）" data-page-node-id="XuMNYY95H0BEa3cLtojrom">
+    <div class="meta" data-page-node-id="HOFbrNwuPhgfxARxpssRq1"><b data-page-node-id="CBLI0NyfCN8sdpTrEA6vSZ"> KP 娃娃 · 誠（透明底）</b><span data-page-node-id="uU9eykhBpMxdRy1dB2ChNZ">點擊下載</span></div>
+  </a><a class="asset" href="assets/KP娃娃_透明_毅.png" download="" data-page-node-id="afX4VIGbwVqPF3GDuRoswI">
+    <img src="assets/KP娃娃_透明_毅.png" alt="KP 娃娃 · 毅（透明底）" data-page-node-id="jMRgzUTiCbX22EQZj0fK5v">
+    <div class="meta" data-page-node-id="8F302AMloivR24xG3HTS44"><b data-page-node-id="KkGWsWHE7TGuZmA5HVeHnI"> KP 娃娃 · 毅（透明底）</b><span data-page-node-id="Dt3LUMi8egQZ43u6OyE8wH">點擊下載</span></div>
+  </a><a class="asset" href="assets/KP娃娃_透明_精.png" download="" data-page-node-id="gGqSgnilutyckT1qMtDmyp">
+    <img src="assets/KP娃娃_透明_精.png" alt="KP 娃娃 · 精（透明底）" data-page-node-id="ElQQ3eZ7ESmtWzPs0m0xP5">
+    <div class="meta" data-page-node-id="rZnKiNrbZbh3aUhNMDlPrh"><b data-page-node-id="fdiR6HhGctItkt1wBH71SE"> KP 娃娃 · 精（透明底）</b><span data-page-node-id="IFIZPYXDkdVhk6idHxhBSs">點擊下載</span></div>
+  </a><a class="asset" href="assets/KP娃娃_透明_博.png" download="" data-page-node-id="nBHuaatvKdFUFpQ2E3X1fk">
+    <img src="assets/KP娃娃_透明_博.png" alt="KP 娃娃 · 博（透明底）" data-page-node-id="vgn8jEwBVhDcHmsQIlWEwi">
+    <div class="meta" data-page-node-id="xWY11zhchn6Ah4gZemHP7E"><b data-page-node-id="UWtClgglMULwe0ycd4071J"> KP 娃娃 · 博（透明底）</b><span data-page-node-id="YZ4hqik0pGENQ0amJdFMDl">點擊下載</span></div>
+  </a><a class="asset" href="assets/KP娃娃_透明_四格版.png" download="" data-page-node-id="3zjrPnR1Ww7gUE6bO6DsqL">
+    <img src="assets/KP娃娃_透明_四格版.png" alt="KP 娃娃 · 四格版（透明底）" data-page-node-id="aBnHxvBuLzIjMEn2Ms5IMs">
+    <div class="meta" data-page-node-id="yeG5ldpZ1DbuJLdx951vKA"><b data-page-node-id="pkiJedSNiBlGMzPyPeNSP3"> KP 娃娃 · 四格版（透明底）</b><span data-page-node-id="J1QLvzoouBoTv1D05s7CBU">點擊下載</span></div>
+  </a><a class="asset" href="assets/KP娃娃_透明_橫排版.png" download="" data-page-node-id="VG1dNffsVUdiXmvIB0fuIo">
+    <img src="assets/KP娃娃_透明_橫排版.png" alt="KP 娃娃 · 橫排版（透明底）" data-page-node-id="2KskefTsWXDxUVOD2i0wBn">
+    <div class="meta" data-page-node-id="AYMMp8fMYhmY85ZuLqZAHF"><b data-page-node-id="vGNvqFTzg5STsH3SWxwcbD"> KP 娃娃 · 橫排版（透明底）</b><span data-page-node-id="XeRz4tlMpMzFsZA9UZUkrD">點擊下載</span></div>
+  </a><a class="asset" href="assets/範例海報_僅供觀摩.png" download="" data-page-node-id="JBciZ4qKCVOQFWCJf3jP28">
+    <img src="assets/範例海報_僅供觀摩.png" alt="範例海報（僅供觀摩）" data-page-node-id="WP68MkL7zEDtujDHHwg34G">
+    <div class="meta" data-page-node-id="lCs2SJWUQSsccLY1wgrP4W"><b data-page-node-id="Cx7JVtL309GeTEUVIbCiRj"> 範例海報（僅供觀摩）</b><span data-page-node-id="XaNuMAejsiywQgle7DLa5V">點擊下載</span></div>
+  </a></div>
+  </div>
+  <div class="card" data-page-node-id="2DNxqWzkHhoHecKFrrA7Dk">
+    <h3 data-page-node-id="slwjKwTXekZk3w3I9e6RSM">十條風格示範圖（看完選一條，不要照抄）</h3>
+    <div class="asset-grid" id="styleAssetGrid" data-page-node-id="Brgna7TUiqXODKUJ2cnw1S"><a class="asset" href="assets/風格示範/風格1_金紅節慶_插畫風.png" download="" data-page-node-id="fhDLI73L86zEoxed4FnNEP">
+    <img src="assets/風格示範/風格1_金紅節慶_插畫風.png" alt="金紅節慶" data-page-node-id="P8O6WFd42FpoxFLpAzLPCn">
+    <div class="meta" data-page-node-id="vwsIlMDKXad6WSxR5yrKSj"><b data-page-node-id="kZPTm2kt4dJaZKRT6nOS2X"> 金紅節慶</b><span data-page-node-id="O8mbKIlMvH9FAk5dPXw1FY">點擊下載</span></div>
+  </a><a class="asset" href="assets/風格示範/風格2_清新水彩_淡雅風.png" download="" data-page-node-id="pBVOBPHuoZ5GkSLocFnSXi">
+    <img src="assets/風格示範/風格2_清新水彩_淡雅風.png" alt="清新水彩" data-page-node-id="7F50eS1Rklxg7dMn1gQiis">
+    <div class="meta" data-page-node-id="mJHOZ6aF8L4bO2bBuHV7gA"><b data-page-node-id="URlxkT418lyHIEdv3K3gJe"> 清新水彩</b><span data-page-node-id="ukOkJKnIgXHBCjoBppoqZe">點擊下載</span></div>
+  </a><a class="asset" href="assets/風格示範/風格3_Q版3D_童趣風.png" download="" data-page-node-id="PIzgmmyuPCMdTKn5DQv9AT">
+    <img src="assets/風格示範/風格3_Q版3D_童趣風.png" alt="Q 版 3D" data-page-node-id="77kHMzhzZ74DzzDKsnNGQw">
+    <div class="meta" data-page-node-id="Er9J4shNE00xbysoKYVCtL"><b data-page-node-id="CE7TpjKyA3qKdyJFzLWWrb"> Q 版 3D</b><span data-page-node-id="iaHQw1StaoYRoQW8KGQ7lz">點擊下載</span></div>
+  </a><a class="asset" href="assets/風格示範/風格4_古風水墨_書卷風.png" download="" data-page-node-id="9BdVbkhjZ9kFCMfeedHK4z">
+    <img src="assets/風格示範/風格4_古風水墨_書卷風.png" alt="古風水墨" data-page-node-id="TeFIzxtdVA4pguOcGyIaC7">
+    <div class="meta" data-page-node-id="1MriXideJgAOGzTZvdh9rv"><b data-page-node-id="xofTNrH0CfGYEoc7FXoDGe"> 古風水墨</b><span data-page-node-id="kigZ4Lc2xSDL2coMyiLFeA">點擊下載</span></div>
+  </a><a class="asset" href="assets/風格示範/風格5_現代幾何_設計風.png" download="" data-page-node-id="T9GaIHHCBl77gHxgQUY45z">
+    <img src="assets/風格示範/風格5_現代幾何_設計風.png" alt="現代幾何" data-page-node-id="DsIOf1BU733Jc7uJodZvnZ">
+    <div class="meta" data-page-node-id="5iX4ucjjpHhtghW3ov8j8y"><b data-page-node-id="xlNqBonPx2Z7IWpdMlMjE9"> 現代幾何</b><span data-page-node-id="kfZGFtFFEQTVzXKBJcXkkp">點擊下載</span></div>
+  </a><a class="asset" href="assets/風格示範/風格6_藍調夜景_璀璨風.png" download="" data-page-node-id="02LSbQxq0rUmYkQohL2Cwv">
+    <img src="assets/風格示範/風格6_藍調夜景_璀璨風.png" alt="藍調夜景" data-page-node-id="W0RFDAzH5ibWacpMwlxKPh">
+    <div class="meta" data-page-node-id="EVi5wRJmTfzKQAHKp9zZqK"><b data-page-node-id="AqFJJ0mrMKvekVNfRMKQeS"> 藍調夜景</b><span data-page-node-id="mJ6hDALMYmKpgrZgjefNLg">點擊下載</span></div>
+  </a><a class="asset" href="assets/風格示範/風格7_剪紙鏤空_民俗風.png" download="" data-page-node-id="tWAvgNjE2l3DHjXglQHayB">
+    <img src="assets/風格示範/風格7_剪紙鏤空_民俗風.png" alt="剪紙鏤空" data-page-node-id="yJLR9b74i1bbxnyu1uBU5i">
+    <div class="meta" data-page-node-id="KmWm6DdCMl4d2eQeZ9vTkE"><b data-page-node-id="atdIgjJT6Z1n9F9BRmbLZj"> 剪紙鏤空</b><span data-page-node-id="ASA0pQLrzjIiiBp62c9fJf">點擊下載</span></div>
+  </a><a class="asset" href="assets/風格示範/風格8_醒獅賀慶_南嶺風.png" download="" data-page-node-id="a5HDA5cu4sFBkFmjAAOZVe">
+    <img src="assets/風格示範/風格8_醒獅賀慶_南嶺風.png" alt="醒獅賀慶" data-page-node-id="X8uHfFCBKZG8JazvkBFwTZ">
+    <div class="meta" data-page-node-id="ppUAQYywbx5MY8UNFkVZEv"><b data-page-node-id="0YYXs7grhYCt0qg7SAapRf"> 醒獅賀慶</b><span data-page-node-id="BYqHIpB8zQooR3c7QhBZYu">點擊下載</span></div>
+  </a><a class="asset" href="assets/風格示範/風格9_澳門印記_蓮城風.png" download="" data-page-node-id="7L3nRwjq9s12r8HhDUq7o9">
+    <img src="assets/風格示範/風格9_澳門印記_蓮城風.png" alt="澳門印記" data-page-node-id="oMRQ34BAhmJkJeTFYx0xvq">
+    <div class="meta" data-page-node-id="fpgzZfNLog0C6HRlAkwCyO"><b data-page-node-id="kgKy1bRjbNXR5COQbfMqUg"> 澳門印記</b><span data-page-node-id="D5o3A32VZzGGZwqv2y6XM1">點擊下載</span></div>
+  </a><a class="asset" href="assets/風格示範/風格10_國潮新韻_新中式風.png" download="" data-page-node-id="uZs5UuOdSrDXVRnf6q5WKb">
+    <img src="assets/風格示範/風格10_國潮新韻_新中式風.png" alt="國潮新韻" data-page-node-id="FHMDMSQTLFOGhILq9RF9we">
+    <div class="meta" data-page-node-id="xCfB5h50RaEFBZLUh4GAKt"><b data-page-node-id="huMADND815VMbSkluAa2WO"> 國潮新韻</b><span data-page-node-id="E7ZqFSo4MSQ11swBpKiVOh">點擊下載</span></div>
+  </a></div>
+  </div>
+  <div class="card" data-page-node-id="ICq4vnMebpDnpKzER6nsFA">
+    <h3 data-page-node-id="8nugusUS9eN5XosVoccOBp">作業與模板</h3>
+    <div class="asset-grid" id="docGrid" data-page-node-id="dT3DlpN2uDb383ZEikJXVS"><a class="asset" href="assets/校慶海報提交模板（Word版）.docx" download="" data-page-node-id="MFh0ZNUH8vMnaU9fDeIlpD">
+    
+    <div class="meta" data-page-node-id="4NZDPzh0DCp5LNBmQ7VWyV"><b data-page-node-id="qQtWG0Pu52DSNl13XZ32QC">📄 提交模板（Word 版）</b><span data-page-node-id="FlJ1bQc4bMCkDDYdEDRhov">點擊下載</span></div>
+  </a></div>
+  </div>
+</section>
+
+</main>
+
+<footer data-page-node-id="CHpFn9AjV9XMEHjbs37Owa">
+  鏡平 134．我與 AI 共創校慶海報 · P5 上學期跨學科專題活動<br data-page-node-id="D7f6B1VhljRp3Z1fvo9Xnl">
+  校史與校訓資料來源：鏡平學校官網（學校沿革、校訓-學風-教風）／澳門特區政府授勳文件（2025）／澳門記憶「鏡湖小學及平民小學史略」<br data-page-node-id="I0JXnyhRySH915BMwiLdE2">
+  本頁可離線使用，建議用 Chrome 或 Edge 開啟。
+</footer>
+
+<script data-page-node-id="cYkiHJzH9bQKz3tJARmsIP">
+/* ============================================================
+   ①–④ 的複製按鈕（源自 index）
+   ============================================================ */
+(function(){
+  function fallbackCopy(text){
+    try{
+      var ta=document.createElement('textarea');
+      ta.value=text;
+      ta.style.position='fixed'; ta.style.top='0'; ta.style.left='0';
+      ta.style.opacity='0'; ta.style.pointerEvents='none';
+      document.body.appendChild(ta);
+      ta.focus(); ta.select();
+      var ok=false;
+      try{ ok=document.execCommand('copy'); }catch(e){ ok=false; }
+      document.body.removeChild(ta);
+      return ok;
+    }catch(e){ return false; }
+  }
+  function selectNode(node){
+    try{
+      var r=document.createRange();
+      r.selectNodeContents(node);
+      var s=window.getSelection();
+      s.removeAllRanges(); s.addRange(r);
+    }catch(e){}
+  }
+  var btns=document.querySelectorAll('.copy-btn');
+  for(var i=0;i<btns.length;i++){
+    btns[i].addEventListener('click',function(){
+      var btn=this;
+      var target=document.getElementById(btn.getAttribute('data-target'));
+      if(!target) return;
+      var text=target.innerText;
+      var original=btn.textContent;
+      function done(ok){
+        if(ok){
+          btn.textContent='已複製 ✓';
+        }else{
+          selectNode(target);
+          target.classList.add('copy-box-select');
+          btn.textContent='請按 Ctrl+C';
+          alert('自動複製未成功，已為你選取文字。\n請按 Ctrl+C（Mac 按 Command+C）複製。');
+        }
+        setTimeout(function(){
+          btn.textContent=original;
+          target.classList.remove('copy-box-select');
+        },2500);
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){ done(true); },function(){ done(fallbackCopy(text)); });
+      }else{
+        done(fallbackCopy(text));
+      }
+    });
+  }
+})();
+</script>
+
+<script data-page-node-id="NLm1kL9oiwkHIrcSpL5S5m">
+/* ============================================================
+   ⑥ 選你的風格：資料定義（源自個人工作台）
+   ============================================================ */
+
+/* 十條風格路線。每條含：
+   - name/tag/img：卡片展示用
+   - styleDesc：提示詞第4點「風格」的完整描述
+   - rec：六個從屬維度的推薦值 key（協調錨點）
+*/
+const STYLES = [
+  {
+    id:1, name:"金紅節慶", tag:"插畫風 · 校史慶典",
+    img:"assets/風格示範/風格1_金紅節慶_插畫風.png",
+    styleDesc:"現代商業插畫風格，喜慶金光，畫面熱鬧有慶典感",
+    rec:{subject:"school", person:"kp", light:"radiant", color:"redgold", mood:"celebrate", comp:"symmetry"},
+  },
+  {
+    id:2, name:"清新水彩", tag:"淡雅風 · 校園景色",
+    img:"assets/風格示範/風格2_清新水彩_淡雅風.png",
+    styleDesc:"清新水彩畫風格，柔和淡雅，低飽和的透明水彩質感，筆觸輕盈水潤",
+    rec:{subject:"campus", person:"kp", light:"soft", color:"fresh", mood:"quiet", comp:"space"},
+  },
+  {
+    id:3, name:"Q 版 3D", tag:"童趣風 · 校園生活",
+    img:"assets/風格示範/風格3_Q版3D_童趣風.png",
+    styleDesc:"可愛的 3D 卡通渲染風格（Q 版），有立體感與光澤，活潑童趣",
+    rec:{subject:"campus", person:"kp", light:"bright", color:"bright", mood:"playful", comp:"center"},
+  },
+  {
+    id:4, name:"古風水墨", tag:"書卷風 · 校訓傳承",
+    img:"assets/風格示範/風格4_古風水墨_書卷風.png",
+    styleDesc:"中國傳統水墨畫風格，帶宣紙紋理，淡墨與濃墨交錯，古雅留白",
+    rec:{subject:"school", person:"none", light:"soft", color:"ink", mood:"quiet", comp:"space"},
+  },
+  {
+    id:5, name:"現代幾何", tag:"設計風 · 創校里程碑",
+    img:"assets/風格示範/風格5_現代幾何_設計風.png",
+    styleDesc:"現代扁平化幾何設計風格（flat vector design），純色塊與簡潔線條，時尚簡約",
+    rec:{subject:"landmark", person:"none", light:"flat", color:"navygold", mood:"modern", comp:"geometry"},
+  },
+  {
+    id:6, name:"藍調夜景", tag:"璀璨風 · 澳門與家國",
+    img:"assets/風格示範/風格6_藍調夜景_璀璨風.png",
+    styleDesc:"夜景燈光風格，寫實感，深藍夜空配暖黃燈光，靜謐璀璨",
+    rec:{subject:"landmark", person:"kp", light:"night", color:"bluegold", mood:"serene", comp:"depth"},
+  },
+  {
+    id:7, name:"剪紙鏤空", tag:"民俗風 · 節慶吉祥",
+    img:"assets/風格示範/風格7_剪紙鏤空_民俗風.png",
+    styleDesc:"中國傳統剪紙藝術風格，紅色鏤空質感，祥雲燈籠等吉祥紋樣，喜慶熱鬧",
+    rec:{subject:"school", person:"kp", light:"radiant", color:"redgold", mood:"celebrate", comp:"symmetry"},
+  },
+  {
+    id:8, name:"醒獅賀慶", tag:"南嶺風 · 鑼鼓歡騰",
+    img:"assets/風格示範/風格8_醒獅賀慶_南嶺風.png",
+    styleDesc:"嶺南醒獅賀慶風格，金紅醒獅頭與彩綢飛舞，鑼鼓喧天，熱鬧歡騰的節慶畫面",
+    rec:{subject:"school", person:"students", light:"radiant", color:"redgold", mood:"celebrate", comp:"symmetry"},
+  },
+  {
+    id:9, name:"澳門印記", tag:"蓮城風 · 澳門風情",
+    img:"assets/風格示範/風格9_澳門印記_蓮城風.png",
+    styleDesc:"澳門城市風情插畫風格，蓮花、大三巴牌坊、東望洋燈塔與葡式彩色建築交融，暖陽金橙色調，中葡文化共融的溫馨風情",
+    rec:{subject:"landmark", person:"kp", light:"bright", color:"liancheng", mood:"warm", comp:"depth"},
+  },
+  {
+    id:10, name:"國潮新韻", tag:"新中式風 · 時尚喜慶",
+    img:"assets/風格示範/風格10_國潮新韻_新中式風.png",
+    styleDesc:"國潮新中式設計風格，中國傳統紋樣（祥雲、回紋、印章）與現代平面構成融合，紅撞青綠描金，時尚大氣",
+    rec:{subject:"school", person:"kp", light:"flat", color:"guochao", mood:"modern", comp:"geometry"},
+  },
+];
+
+/* 六個從屬維度的完整選項庫。
+   每項：{key, label, prompt, good:該選項與哪些風格「協調」}
+*/
+const DIMS = [
+  {
+    id:"subject", no:5, label:"主體", hint:"畫面主角是什麼",
+    options:[
+      {key:"school",  label:"鏡平校園建築", prompt:"以鏡平學校的建築外觀為主體，突出校舍與校門的輪廓", good:[1,2,4,7,8,10]},
+      {key:"campus",  label:"校園景色",     prompt:"以校園景色為主體，描繪木棉樹、操場與綠意盎然的校園一角", good:[2,3]},
+      {key:"landmark",label:"澳門地標+校園",prompt:"以澳門地標（如大三巴、旅遊塔）與校園建築結合為主體，象徵學校與澳門同在", good:[5,6,9]},
+      {key:"symbol",  label:"抽象符號",     prompt:"以抽象符號與圖形（如放射狀圓形、幾何圖案）為主體", good:[5]},
+    ]
+  },
+  {
+    id:"person", no:6, label:"人物", hint:"畫面有沒有角色",
+    options:[
+      {key:"kp",    label:"KP 娃娃",     prompt:"融入鏡平學校的 KP 娃娃卡通形象，穿著校服，活潑可愛", good:[1,2,3,6,7,8,9,10]},
+      {key:"students",label:"學生群像",   prompt:"描繪一群學生在校園中學習、活動的剪影或形象", good:[1,2,3,7,8,9,10]},
+      {key:"none",  label:"不要人物",     prompt:"畫面中不放人物，專注於景物與意境", good:[4,5]},
+    ]
+  },
+  {
+    id:"light", no:7, label:"光線", hint:"畫面的光影氛圍",
+    options:[
+      {key:"radiant", label:"放射金光", prompt:"放射狀的溫暖金光，從中心向外擴散", good:[1,7,8]},
+      {key:"soft",    label:"柔和側光", prompt:"柔和的自然側光，光線輕柔細膩", good:[2,4]},
+      {key:"bright",  label:"明亮日光", prompt:"明亮的白天日光，色彩飽滿活潑", good:[3,9]},
+      {key:"night",   label:"夜晚燈光", prompt:"夜晚的燈光，深藍夜色中點綴暖黃光點", good:[6]},
+      {key:"flat",    label:"無陰影平光", prompt:"均勻無陰影的平光，扁平乾淨", good:[5,10]},
+    ]
+  },
+  {
+    id:"color", no:8, label:"色彩", hint:"主色調與配色",
+    options:[
+      {key:"redgold", label:"正紅+金",   prompt:"以正紅色與金色為主色調，喜慶熱烈", good:[1,7,8]},
+      {key:"fresh",   label:"米白淺青",   prompt:"以米白與淺青色為主色調，清新淡雅", good:[2]},
+      {key:"bright",  label:"繽紛高彩",   prompt:"高彩度的繽紛色彩，明快活潑", good:[3]},
+      {key:"ink",     label:"墨赭宣紙",   prompt:"以墨色與赭色的水墨宣紙色調，古雅沉靜", good:[4]},
+      {key:"navygold",label:"金+深藍",   prompt:"以金色與深藍色為主色調，時尚大氣", good:[5]},
+      {key:"bluegold",label:"深藍+暖黃", prompt:"以深藍與暖黃色為主色調，靜謐璀璨", good:[6]},
+      {key:"guochao", label:"國潮紅青",   prompt:"以中國紅為主，撞以青綠色與描金線條，時尚大氣的東方撞色", good:[10]},
+      {key:"liancheng",label:"蓮城粉彩",  prompt:"以暖陽金橙為主，點綴蓮花粉紅與葡式建築的柔和粉彩色調", good:[9]},
+    ]
+  },
+  {
+    id:"mood", no:9, label:"氣氛", hint:"整體情感基調",
+    options:[
+      {key:"celebrate", label:"喜慶熱鬧", prompt:"喜慶熱鬧的慶典氣氛，歡騰熱烈", good:[1,7,8]},
+      {key:"quiet",     label:"安靜淡雅", prompt:"安靜淡雅的氣氛，平和寧靜", good:[2,4]},
+      {key:"playful",   label:"活潑童趣", prompt:"活潑童趣的氣氛，輕快歡樂", good:[3]},
+      {key:"modern",    label:"現代時尚", prompt:"現代時尚的氣氛，簡潔有力", good:[5,10]},
+      {key:"serene",    label:"靜謐璀璨", prompt:"靜謐璀璨的氣氛，夜色寧靜又華麗", good:[6]},
+      {key:"warm",      label:"溫馨動人", prompt:"溫馨動人的氣氛，洋溢著城市情懷與自豪感", good:[9]},
+    ]
+  },
+  {
+    id:"comp", no:10, label:"構圖", hint:"畫面布局方式",
+    options:[
+      {key:"symmetry", label:"對稱中心式", prompt:"對稱的中心式構圖，主體居中、左右平衡", good:[1,7,8]},
+      {key:"space",    label:"大留白式",   prompt:"大量留白的簡約構圖，主體偏下、頂部大幅留白", good:[2,4]},
+      {key:"center",   label:"近景特寫式", prompt:"近景特寫構圖，主體放大占滿畫面下方", good:[3]},
+      {key:"geometry", label:"幾何分割式", prompt:"幾何分割構圖，以色塊與線條切割畫面", good:[5,10]},
+      {key:"depth",    label:"遠近景深式", prompt:"有前景中景遠景的景深構圖，層次分明", good:[6,9]},
+    ]
+  },
+];
+
+/* 素材下載 */
+const ASSETS = [
+  {name:"校徽", file:"assets/校徽.png", img:"assets/校徽.png"},
+  {name:"校園外觀 01", file:"assets/鏡平學校外觀01.jpg", img:"assets/鏡平學校外觀01.jpg"},
+  {name:"校園外觀 02", file:"assets/鏡平學校外觀02.jpg", img:"assets/鏡平學校外觀02.jpg"},
+  {name:"KP 娃娃 01", file:"assets/KP娃娃01.jpg", img:"assets/KP娃娃01.jpg"},
+  {name:"KP 娃娃 02", file:"assets/KP娃娃02.jpg", img:"assets/KP娃娃02.jpg"},
+  {name:"KP 娃娃 03", file:"assets/KP娃娃03.jpg", img:"assets/KP娃娃03.jpg"},
+  {name:"KP 娃娃 04", file:"assets/KP娃娃04.jpg", img:"assets/KP娃娃04.jpg"},
+  {name:"KP 娃娃 · 誠（透明底）", file:"assets/KP娃娃_透明_誠.png", img:"assets/KP娃娃_透明_誠.png"},
+  {name:"KP 娃娃 · 毅（透明底）", file:"assets/KP娃娃_透明_毅.png", img:"assets/KP娃娃_透明_毅.png"},
+  {name:"KP 娃娃 · 精（透明底）", file:"assets/KP娃娃_透明_精.png", img:"assets/KP娃娃_透明_精.png"},
+  {name:"KP 娃娃 · 博（透明底）", file:"assets/KP娃娃_透明_博.png", img:"assets/KP娃娃_透明_博.png"},
+  {name:"KP 娃娃 · 四格版（透明底）", file:"assets/KP娃娃_透明_四格版.png", img:"assets/KP娃娃_透明_四格版.png"},
+  {name:"KP 娃娃 · 橫排版（透明底）", file:"assets/KP娃娃_透明_橫排版.png", img:"assets/KP娃娃_透明_橫排版.png"},
+  {name:"範例海報（僅供觀摩）", file:"assets/範例海報_僅供觀摩.png", img:"assets/範例海報_僅供觀摩.png"},
+];
+const STYLE_ASSETS = STYLES.map(s => ({name:s.name, file:s.img, img:s.img}));
+const DOCS = [
+  {name:"提交模板（Word 版）", file:"assets/校慶海報提交模板（Word版）.docx", img:""}
+];
+
+/* ============================================================
+   狀態
+   ============================================================ */
+let selectedStyle = null;
+let selectedDims = {};
+
+/* 渲染：風格卡 */
+function renderStyles(){
+  const g = document.getElementById('styleGrid');
+  g.innerHTML = STYLES.map(s=>`
+    <div class="style-card" data-id="${s.id}">
+      <span class="chk" style="position:absolute;margin:6px;background:rgba(255,255,255,.9);border-radius:50%;width:22px;height:22px;line-height:22px;text-align:center">✓</span>
+      <img src="${s.img}" alt="${s.name}">
+      <div class="sc-body">
+        <b>路線 ${s.id} · ${s.name}</b>
+        <span class="sc-tag">${s.tag}</span>
+      </div>
+    </div>`).join('');
+  g.querySelectorAll('.style-card').forEach(el=>{
+    el.addEventListener('click',()=>{
+      const id = Number(el.dataset.id);
+      selectStyle(id);
+    });
+  });
+}
+
+function selectStyle(id){
+  const s = STYLES.find(x=>x.id===id);
+  selectedStyle = s;
+  document.querySelectorAll('.style-card').forEach(el=>{
+    el.classList.toggle('on', Number(el.dataset.id)===id);
+  });
+  selectedDims = {...s.rec};
+  renderDims();
+  updateHarmony();
+  renderPrompt();
+}
+
+/* 渲染：六個從屬維度下拉 */
+function renderDims(){
+  const g = document.getElementById('dimGrid');
+  g.innerHTML = DIMS.map(d=>{
+    const opts = orderOptions(d, selectedStyle);
+    return `
+    <div class="dim">
+      <label><span class="d-no">第 ${d.no} 項</span> ${d.label}<span class="hint">${d.hint}</span></label>
+      <select data-dim="${d.id}">
+        ${opts.map(o=>`<option value="${o.key}" class="${o.cls}">${o.flag}${o.label}</option>`).join('')}
+      </select>
+    </div>`;
+  }).join('');
+  g.querySelectorAll('select').forEach(sel=>{
+    const dim = sel.dataset.dim;
+    sel.value = selectedDims[dim] || DIMS.find(d=>d.id===dim).options[0].key;
+    sel.addEventListener('change',()=>{
+      selectedDims[dim] = sel.value;
+      updateHarmony();
+      renderPrompt();
+    });
+  });
+}
+
+function orderOptions(dim, style){
+  return dim.options.map(o=>{
+    let flag='', cls='';
+    if(style){
+      const isRec = o.good.includes(style.id);
+      if(isRec){ flag='⭐ 推薦 '; cls='rec'; }
+      else { flag=''; cls='warn'; }
+    }
+    return {key:o.key, label:o.label, flag, cls};
+  });
+}
+
+/* 和諧度判斷 + 預警 */
+function updateHarmony(){
+  const box = document.getElementById('harmony');
+  const title = document.getElementById('harmonyTitle');
+  const msg = document.getElementById('harmonyMsg');
+  const why = document.getElementById('harmonyWhy');
+  if(!selectedStyle){
+    box.className='green';
+    title.textContent='請先選風格';
+    msg.textContent='選好風格路線後，這裡會即時告訴你組合協不協調。';
+    why.textContent='';
+    return;
+  }
+  const conflicts = [];
+  DIMS.forEach(d=>{
+    const key = selectedDims[d.id];
+    const opt = d.options.find(o=>o.key===key);
+    if(opt && !opt.good.includes(selectedStyle.id)){
+      conflicts.push({dim:d, opt});
+    }
+  });
+  if(conflicts.length===0){
+    box.className='green';
+    title.textContent='✅ 風格一致';
+    msg.textContent=`你的六個選項都和「${selectedStyle.name}」很協調，可以直接生成底圖。`;
+    why.textContent='';
+  } else {
+    const names = conflicts.map(c=>`「${c.dim.label}」`).join('、');
+    const bad = conflicts.length>=3;
+    box.className = bad ? 'red' : 'yellow';
+    title.textContent = bad ? '⚠️ 組合不太協調' : '⚠️ 有幾項可以再想想';
+    msg.textContent = `你選的 ${names} 和「${selectedStyle.name}」風格不太搭。`;
+    why.textContent = '建議：把它們換回下拉選單裡標「⭐ 推薦」的選項；當然，你堅持自己的選擇也可以，只是生成的底圖風格可能沒那麼統一。';
+  }
+}
+
+/* 提示詞組裝 */
+function getOption(dimId){
+  const d = DIMS.find(x=>x.id===dimId);
+  const key = selectedDims[dimId];
+  return d.options.find(o=>o.key===key) || d.options[0];
+}
+
+function buildPrompt(){
+  if(!selectedStyle){
+    return {text:'', complete:false};
+  }
+  const subject = getOption('subject');
+  const person  = getOption('person');
+  const light   = getOption('light');
+  const color   = getOption('color');
+  const mood    = getOption('mood');
+  const comp    = getOption('comp');
+
+  const lines = [
+    '1. 海報比例及大小為：直向 A3 尺寸。',
+    '2. 海報中不要加入任何文字。',
+    '3. 我會在最後手動加入詩句，請在畫面頂部三分之一預留足夠的留白空間，可以有底色但不要有物件，也不要留有方框或對話框。',
+    `4. 風格：${selectedStyle.styleDesc}。`,
+    `5. 主體：${subject.prompt}。`,
+    `6. 人物：${person.prompt}。`,
+    `7. 光線：${light.prompt}。`,
+    `8. 色彩：${color.prompt}。`,
+    `9. 氣氛：${mood.prompt}。`,
+    `10. 構圖：${comp.prompt}。`,
+    '11. 附件是鏡平學校的建築物圖片及學生卡通形象服飾圖片，可以參考並融入圖片設計。',
+  ];
+  return {text:lines.join('\n'), complete:true};
+}
+
+function renderPrompt(){
+  const out = document.getElementById('promptOut');
+  const r = buildPrompt();
+  if(!r.complete){
+    out.innerHTML = '<span class="plabel">請先在上方「第一步」選一個風格路線，這裡就會自動組裝出你的完整提示詞。</span>';
+    return;
+  }
+  const html = r.text.split('\n').map(line=>{
+    const m = line.match(/^(\d+)\.\s*(.*)$/);
+    return m ? `<span class="plabel">${m[1]}.</span> ${escapeHtml(m[2])}` : escapeHtml(line);
+  }).join('<br>');
+  out.innerHTML = html;
+}
+
+function escapeHtml(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+/* 一鍵複製（雙路徑降級） */
+function copyPrompt(){
+  const r = buildPrompt();
+  if(!r.complete){
+    alert('請先選一個風格路線！');
+    return;
+  }
+  const btn = document.getElementById('btnCopy');
+  const doCopy = () => {
+    btn.textContent='已複製 ✓';
+    btn.classList.add('ok');
+    setTimeout(()=>{ btn.textContent='複製提示詞'; btn.classList.remove('ok'); }, 2000);
+  };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(r.text).then(doCopy).catch(()=>fallback());
+  } else {
+    fallback();
+  }
+  function fallback(){
+    const ta = document.createElement('textarea');
+    ta.value = r.text;
+    document.body.appendChild(ta);
+    ta.select();
+    try{ document.execCommand('copy'); doCopy(); }
+    catch(e){ alert('複製失敗，請手動選取提示詞後按 Ctrl+C。'); }
+    document.body.removeChild(ta);
+  }
+}
+
+/* 重設 */
+function resetAll(){
+  selectedStyle = null;
+  selectedDims = {};
+  document.querySelectorAll('.style-card').forEach(el=>el.classList.remove('on'));
+  renderDims();
+  updateHarmony();
+  renderPrompt();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+/* 素材渲染 */
+function assetCard(a, showImg){
+  const img = (showImg && a.img) ? `<img src="${a.img}" alt="${a.name}">` : '';
+  const icon = a.img ? '' : '📄';
+  return `<a class="asset" href="${a.file}" download>
+    ${img}
+    <div class="meta"><b>${icon} ${a.name}</b><span>點擊下載</span></div>
+  </a>`;
+}
+function renderAssets(){
+  document.getElementById('assetGrid').innerHTML = ASSETS.map(a=>assetCard(a,true)).join('');
+  document.getElementById('styleAssetGrid').innerHTML = STYLE_ASSETS.map(a=>assetCard(a,true)).join('');
+  document.getElementById('docGrid').innerHTML = DOCS.map(a=>assetCard(a,false)).join('');
+}
+
+/* ============================================================
+   Word 技能檢核（可點擊打勾，localStorage 保存）
+   ============================================================ */
+const SKILLS_CORE = [
+  {n:'①', t:'我會打字和貼上文字', d:'把提示詞、詩句放進文件'},
+  {n:'②', t:'我會設定文字格式', d:'字型、字號、顏色'},
+  {n:'③', t:'我會把詩句「置中」對齊', d:''},
+  {n:'④', t:'我會「插入圖片」，並調整大小', d:''},
+  {n:'⑤', t:'我會設定圖片的「文繞圖 → 襯於文字下」', d:''},
+  {n:'⑥', t:'我會「插入文字方塊」，並移到想要的位置', d:''},
+  {n:'⑦', t:'我會儲存檔案', d:'檔名：P5A_學號_姓名_校慶海報'},
+];
+const SKILLS_ADV = [
+  {n:'⑧', t:'我會用「對齊」工具把物件排整齊', d:''},
+  {n:'⑨', t:'我會調整「行距」，讓詩句更好看', d:''},
+];
+const SKILL_KEY = 'kp134_word_skills';
+let skillState = {};
+try{ skillState = JSON.parse(localStorage.getItem(SKILL_KEY)) || {}; }catch(e){ skillState = {}; }
+
+function renderSkills(){
+  const core = document.getElementById('skillList');
+  const adv = document.getElementById('skillListAdv');
+  if(!core || !adv) return;
+  const itemHtml = (s, k) => `
+    <li class="skill-item" data-k="${k}">
+      <span class="box"></span>
+      <span class="s-txt"><b>${s.n} ${s.t}</b>${s.d?`<span class="s-note">${s.d}</span>`:''}</span>
+    </li>`;
+  core.innerHTML = SKILLS_CORE.map((s,i)=>itemHtml(s,'c'+i)).join('');
+  adv.innerHTML  = SKILLS_ADV.map((s,i)=>itemHtml(s,'a'+i)).join('');
+  document.querySelectorAll('#skillList .skill-item, #skillListAdv .skill-item').forEach(el=>{
+    const k = el.dataset.k;
+    if(skillState[k]) el.classList.add('done');
+    el.addEventListener('click',()=>{
+      el.classList.toggle('done');
+      skillState[k] = el.classList.contains('done');
+      try{ localStorage.setItem(SKILL_KEY, JSON.stringify(skillState)); }catch(e){}
+      updateSkillProgress();
+    });
+  });
+  updateSkillProgress();
+}
+
+function updateSkillProgress(){
+  const el = document.getElementById('skillProgress');
+  if(!el) return;
+  let done = 0;
+  SKILLS_CORE.forEach((s,i)=>{ if(skillState['c'+i]) done++; });
+  if(done === SKILLS_CORE.length){
+    el.textContent = '✅ 核心技能 7 / 7——全部做到，厲害！';
+  } else {
+    el.textContent = `核心技能：${done} / ${SKILLS_CORE.length}`;
+  }
+  el.classList.toggle('all', done === SKILLS_CORE.length);
+}
+
+/* 初始化 */
+document.getElementById('btnCopy').addEventListener('click', copyPrompt);
+document.getElementById('btnReset').addEventListener('click', resetAll);
+renderStyles();
+renderDims();
+updateHarmony();
+renderPrompt();
+renderAssets();
+renderSkills();
+</script>
+
+<a class="floating-courseware" href="互動課件/index.html">▶ 互動課件</a>
+
+</body></html>

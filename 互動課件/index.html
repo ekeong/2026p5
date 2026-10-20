@@ -1,0 +1,3114 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-page-node-id="EFeeEjAoW3FyFz049Z82F7">
+<head data-page-node-id="Q6CJnpq8M4SX7AheWVwXKR">
+<meta charset="UTF-8" data-page-node-id="xBn9gnLADUuMBeD0iY1Ud8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="KZ0pglYOkdEhj0sayzcXa8">
+<title>鏡平 134．校慶 AI 海報互動課件</title>
+<style>
+:root{
+  --paper:#FBF6EC; --paper2:#F5EEE0; --ink:#2B2320; --ink2:#6B5D4F;
+  --red:#9E1B1B; --red-l:#C0392B; --gold:#C9A227;
+  --green:#2E7D32; --amber:#B8860B; --bad:#B3261E;
+  --line:#E3D6BF; --radius:16px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:"Microsoft JhengHei","微软正黑体","PingFang TC","Noto Sans TC",sans-serif;
+  background:var(--paper); color:var(--ink); font-size:20px; line-height:1.65;
+  padding-bottom:96px;
+}
+button{font-family:inherit}
+.mono{font-family:Consolas,"Courier New",monospace}
+
+/* ---------- 頂欄 ---------- */
+.topbar{
+  position:sticky; top:0; z-index:100; background:rgba(251,246,236,.96);
+  border-bottom:2px solid var(--line); backdrop-filter:blur(6px);
+}
+.topbar-in{max-width:1180px;margin:0 auto;padding:10px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--red);font-size:18px;letter-spacing:.5px}
+.brand img{width:30px;height:30px;object-fit:contain}
+.ver{font-size:12.5px;color:#B3A48E;letter-spacing:.6px;border:1px solid #E2D6C4;border-radius:999px;padding:1px 9px;font-weight:600;white-space:nowrap}
+.stages{display:flex;gap:9px;margin-left:auto;flex-wrap:wrap;align-items:center}
+/* 三個連續流程：關卡章分組（1-3／4-5／6） */
+.flowgrp{display:flex;align-items:center;gap:6px}
+.flowgrp + .flowgrp{padding-left:9px;border-left:1.5px dashed #E2D6C4}
+.fno{
+  width:25px;height:25px;border-radius:50%;border:1.5px solid var(--line);background:#fff;color:#A28D74;
+  display:grid;place-items:center;font-size:13.5px;font-weight:700;cursor:pointer;transition:.2s;flex:none;
+}
+.fno:hover{border-color:var(--red);color:var(--red);background:#FFF8F8}
+.fno.cur{border-color:var(--red);background:var(--red);color:#fff}
+.fno.ok{border-color:var(--gold);background:var(--gold);color:#fff}
+.stage{
+  display:flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;
+  border:1.5px solid var(--line);background:#fff;font-size:15.5px;color:var(--ink2);
+  transition:all .25s;cursor:pointer;white-space:nowrap;
+}
+.stage:hover{border-color:var(--gold);color:var(--ink);background:#FFFBEF}
+.stage b{
+  width:22px;height:22px;border-radius:50%;background:var(--paper2);color:var(--ink2);
+  display:grid;place-items:center;font-size:13px;font-weight:700;
+}
+.stage.active{border-color:var(--red);color:var(--red);background:#fff}
+.stage.active b{background:var(--red);color:#fff}
+.stage.done{border-color:var(--gold);color:var(--gold)}
+.stage.done b{background:var(--gold);color:#fff}
+.stage.done b::after{content:"";}
+/* 窄螢幕：壓縮關卡章，避免頂欄換行 */
+@media(max-width:1180px){
+  .brand{font-size:16px}
+  .brand img{width:26px;height:26px}
+  .stages{gap:7px}
+  .stage{font-size:14.5px;padding:3px 9px;gap:5px}
+  .stage b{width:19px;height:19px;font-size:12px}
+  .fno{width:21px;height:21px;font-size:12px}
+}
+@media(max-width:1080px){
+  .ver{display:none}
+}
+.progress-outer{height:6px;background:var(--paper2)}
+.progress-in{height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--gold));transition:width .5s}
+
+/* ---------- 版面 ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:30px 22px 110px}
+.page{display:none;animation:fade .35s ease}
+.page.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+@keyframes pop{0%{transform:scale(.94);opacity:0}100%{transform:scale(1);opacity:1}}
+.shake{animation:shake .42s}
+
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:16px;color:var(--red);font-weight:700;letter-spacing:1px;margin-bottom:10px}
+.eyebrow span.chip{background:var(--red);color:#fff;border-radius:6px;padding:2px 10px;font-size:14px;letter-spacing:.5px}
+h1.pagetitle{
+  font-size:clamp(28px,3.2vw,40px);line-height:1.35;margin:0 0 8px;font-weight:700;
+  border-left:7px solid var(--red);padding-left:16px;letter-spacing:.3px;
+}
+.lead{font-size:19px;color:var(--ink2);margin:0 0 26px;padding-left:23px;max-width:920px}
+
+/* ---------- 卡片 ---------- */
+.card{
+  background:#fff;border:2px solid var(--line);border-radius:var(--radius);
+  border-left:7px solid var(--red);padding:24px 28px;margin-bottom:20px;
+}
+.card.soft{border-left-color:var(--gold)}
+.card h3{margin:0 0 6px;font-size:23px;font-weight:700}
+.card p.sub{margin:0 0 18px;color:var(--ink2);font-size:18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.grid2,.grid3{grid-template-columns:1fr}}
+
+/* ---------- 按鈕 ---------- */
+.btn{
+  border:none;border-radius:999px;padding:13px 30px;font-size:19px;font-weight:700;
+  background:var(--red);color:#fff;cursor:pointer;transition:all .2s;letter-spacing:.5px;
+}
+.btn:hover{background:var(--red-l);transform:translateY(-1px)}
+.btn:disabled{background:#CFC3B2;cursor:not-allowed;transform:none}
+/* 未完成時：按鈕仍然可按，只是樣子「虛」一點——按下去會告訴你還差什麼 */
+.btn.wait{background:#fff;color:#8A7B66;border:2px dashed #D6C9B6;box-shadow:none;font-weight:600}
+.btn.wait:hover{background:#FFF9EE;color:var(--ink);border-color:var(--gold);transform:none}
+.btn .waitnote{display:inline-block;margin-left:10px;font-size:15px;font-weight:600;color:#A9927A}
+.btn.wait:hover .waitnote{color:var(--gold)}
+.btn.ghost{background:#fff;color:var(--red);border:2px solid var(--red)}
+.btn.ghost:hover{background:#FDF3F3}
+.btn.ghost:disabled{background:#F7F2E8;color:#B3A48E;border-color:#DCCFBB;cursor:not-allowed}
+.btn.ghost:disabled:hover{background:#F7F2E8}
+.btn.gold{background:var(--gold);color:#3A2D0B}
+.btn.gold:hover{background:#D8B53A}
+.btn-row{display:flex;gap:14px;align-items:center;margin-top:22px;flex-wrap:wrap}
+.hintline{color:var(--ink2);font-size:17px}
+
+/* ---------- P1 封面 ---------- */
+.cover{position:relative;overflow:hidden;text-align:center;padding:30px 30px 28px;border-radius:var(--radius);
+  background:linear-gradient(180deg,#fff 0%,#FDF7EA 100%);border:2px solid var(--line)}
+.cover .bgimg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.07;pointer-events:none}
+.cover-in{position:relative}
+.cover img.seal{width:66px;height:66px;object-fit:contain;margin-bottom:10px}
+.cover h1{font-size:clamp(28px,3.6vw,44px);margin:0 0 10px;line-height:1.28;color:var(--red)}
+.cover .sub{font-size:20px;color:var(--ink2);margin:0 0 20px}
+/* ---------- 封面：三個流程（1–3／4–5／6） ---------- */
+.flowgrid{display:grid;grid-template-columns:1.2fr 1fr .95fr;gap:16px;max-width:980px;margin:6px auto 26px;align-items:start;text-align:left}
+@media(max-width:860px){.flowgrid{grid-template-columns:1fr;gap:12px}}
+.mfhd{display:flex;align-items:center;gap:7px;background:#fff;border:2px solid var(--line);border-radius:999px;
+  padding:6px 13px;margin-bottom:9px;cursor:pointer;transition:.2s}
+.mfhd:hover{border-color:var(--red);background:#FFF8F8}
+.mfhd b{font-size:15.5px;color:var(--red);white-space:nowrap}
+.mfhd .mm{margin-left:auto;font-style:normal;font-size:12.5px;color:#A28D74;white-space:nowrap}
+.mfhd .tg{font-style:normal;font-size:11.5px;border-radius:999px;padding:1px 7px;background:#F3EDE0;color:#8A7B66;white-space:nowrap}
+.mfhd .tg.solo{background:#FFF3D6;color:#8A6A1E}
+.msteps{display:flex;flex-direction:column;gap:8px}
+.mapcard{display:flex;align-items:center;gap:9px;background:#fff;border:2px solid var(--line);border-radius:13px;
+  padding:10px 12px;text-align:left;transition:.2s;cursor:pointer}
+.mapcard:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 6px 16px rgba(201,162,39,.16)}
+.mapcard b{font-size:15px;color:var(--red);white-space:nowrap}
+.mapcard .ms{margin-left:auto;font-size:13px;color:#8A7B66;text-align:right;line-height:1.3}
+.mapcard .no{display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:var(--red);color:#fff;font-size:13.5px;font-weight:700;flex:none}
+.mapcard.lit{border-color:var(--gold);background:#FFFBEF}
+/* 恢復上次進度 */
+.restorebar{display:none;align-items:center;gap:12px;background:#FFF8E6;border:1.5px solid var(--gold);border-radius:999px;padding:7px 8px 7px 16px;font-size:15.5px;color:#7A5B00;max-width:920px;margin:0 auto 18px;flex-wrap:wrap;justify-content:center}
+.restorebar.on{display:inline-flex}
+.restorebar button{border:none;background:none;color:var(--red);font-weight:700;font-size:15px;cursor:pointer;text-decoration:underline;padding:2px 6px}
+/* 底部頁碼旁的流程徽章 */
+.flowtag{font-size:14.5px;color:#8A6A1E;background:#FFFBEF;border:1.5px solid #EADFC5;border-radius:999px;padding:3px 12px;white-space:nowrap}
+/* 矮螢幕（1024×768 投影機）：封面整頁塞得下 */
+@media(max-height:820px){
+  .cover{padding:20px 24px 18px}
+  .cover img.seal{width:52px;height:52px;margin-bottom:6px}
+  .cover h1{font-size:clamp(24px,3vw,34px);margin-bottom:8px}
+  .cover .sub{font-size:18px;margin-bottom:12px}
+  .flowgrid{gap:12px;margin:4px auto 16px}
+  .mapcard{padding:8px 11px}
+}
+
+/* ---------- P2 時間軸 ---------- */
+.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:980px){.timeline{grid-template-columns:repeat(3,1fr)}}
+.tl-node{
+  border:2px solid var(--line);border-radius:14px;background:#fff;padding:14px 12px;cursor:pointer;
+  transition:.2s;position:relative;text-align:left;width:100%;
+}
+.tl-node:hover{border-color:var(--gold);transform:translateY(-2px)}
+.tl-node .yr{font-size:24px;font-weight:700;color:var(--red);letter-spacing:.5px}
+.tl-node .brief{font-size:15px;color:var(--ink2);line-height:1.4;margin-top:4px}
+.tl-node.opened{border-color:var(--gold);background:#FFFBEF}
+.tl-node .tick{position:absolute;top:10px;right:10px;width:22px;height:22px;border-radius:50%;background:var(--gold);color:#fff;display:none;place-items:center;font-size:13px}
+.tl-node.opened .tick{display:grid}
+.tl-detail{
+  grid-column:1/-1;background:var(--paper2);border:2px dashed var(--gold);border-radius:14px;
+  padding:20px 24px;animation:pop .3s ease;
+}
+.tl-detail h4{margin:0 0 6px;font-size:22px;color:var(--red)}
+.tl-detail .txt{font-size:18px;margin-bottom:14px}
+.wordchips{display:flex;gap:10px;flex-wrap:wrap}
+.wchip{
+  border:2px solid var(--gold);background:#fff;border-radius:999px;padding:7px 16px;font-size:17px;
+  cursor:pointer;transition:.18s;color:var(--ink)
+}
+.wchip:hover{background:#FFF6DC}
+.wchip.picked{background:var(--gold);color:#fff;border-color:var(--gold)}
+.wchip.picked::before{content:"✓ ";font-weight:700}
+/* 校訓四字 */
+.motto{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:6px}
+@media(max-width:760px){.motto{grid-template-columns:repeat(2,1fr)}}
+.mcard{border:2px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff;cursor:pointer;transition:.2s}
+.mcard:hover{border-color:var(--gold)}
+.mcard b{font-size:26px;color:var(--red);display:block;margin-bottom:4px;cursor:pointer}
+.mcard span{font-size:16px;color:var(--ink2);display:none;line-height:1.5;margin-bottom:10px}
+.mcard.open span{display:block}
+.mcard.open{background:#FFFBEF;border-color:var(--gold)}
+.mchip{font-size:14px;padding:4px 12px;border-color:var(--gold);margin-top:8px}
+.mchip.picked{background:var(--gold);color:#fff;border-color:var(--gold)}
+.basketbar{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#fff;border:2px solid var(--gold);
+  border-radius:14px;padding:12px 18px;margin-top:16px;position:sticky;bottom:12px;z-index:20;
+}
+.basketbar .lbl{font-weight:700;color:var(--red);font-size:18px}
+.basketbar .cnt{background:var(--red);color:#fff;border-radius:999px;padding:2px 12px;font-size:16px}
+.basketbar .items{display:flex;gap:8px;flex-wrap:wrap;flex:1}
+.cinput{
+  border:2px solid var(--line);border-radius:999px;padding:8px 16px;font-size:16px;
+  font-family:inherit;background:#fff;color:var(--ink);width:200px;outline:none;
+}
+.cinput:focus{border-color:var(--gold)}
+.bitem{background:var(--paper2);border-radius:999px;padding:4px 12px;font-size:15px;color:var(--ink2)}
+.btag{font-style:normal;display:inline-grid;place-items:center;width:19px;height:19px;border-radius:5px;
+  background:var(--red);color:#fff;font-size:11.5px;font-weight:700;margin-right:5px;vertical-align:1px}
+
+/* ---------- 六大主題路線預覽（P2） ---------- */
+.routegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px}
+@media(max-width:820px){.routegrid{grid-template-columns:repeat(2,1fr)}}
+.routecard{background:#fff;border:2px solid var(--line);border-radius:12px;padding:12px 14px}
+.routecard b{display:block;font-size:18px;color:var(--red);margin-bottom:2px}
+.routecard span{font-size:15px;color:var(--ink2);line-height:1.5}
+
+/* ---------- 五個詞館 ---------- */
+.bankgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:900px){.bankgrid{grid-template-columns:1fr}}
+.bank{background:#fff;border:2px solid var(--line);border-radius:14px;padding:16px 18px;border-left:6px solid var(--gold)}
+.bank h4{margin:0 0 3px;font-size:19px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bank .bno{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--gold);color:#fff;font-size:14px;font-weight:700;flex-shrink:0}
+.bank .bwhy{font-size:14.5px;color:var(--ink2);margin:0 0 12px;line-height:1.5}
+.bank .chips{display:flex;gap:8px;flex-wrap:wrap}
+.bank.star{border-left-color:var(--red)}
+.bank.star .bno{background:var(--red)}
+.btag2{font-size:12px;border-radius:6px;padding:1px 7px;background:var(--red);color:#fff;font-weight:700;letter-spacing:.3px}
+.covwrap{display:inline-flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.covdot{border:2px solid var(--line);background:#fff;border-radius:999px;padding:3px 13px;font-size:15px;color:#B0A494}
+.covdot.on{border-color:var(--red);color:var(--red);background:#FDF6F6;font-weight:700}
+.covdot.on::before{content:"✓ "}
+
+/* ---------- P3 拖拽主題 ---------- */
+.pool{display:flex;gap:9px;flex-wrap:wrap;min-height:64px;padding:14px;border:2px dashed var(--line);border-radius:12px;background:var(--paper2)}
+.pool.empty::after{content:"（素材籃已清空）";color:#B0A494;font-size:16px}
+.drag{
+  background:#fff;border:2px solid var(--red);border-radius:999px;padding:7px 17px;font-size:17px;
+  cursor:grab;user-select:none;transition:.15s;touch-action:none;
+}
+.drag:active{cursor:grabbing}
+.drag.dragging{opacity:.4;transform:scale(.96)}
+.drag.used{opacity:.32;pointer-events:none;border-color:#CFC3B2;text-decoration:line-through}
+.drag.placed{border-style:dashed;border-color:var(--gold);background:#FFFBEF;color:var(--ink2)}
+.drag.placed small{font-size:12.5px;color:var(--gold);margin-left:4px}
+.titem{cursor:grab}
+.titem .tx{cursor:pointer;color:var(--bad);margin-left:6px;font-weight:700}
+.themes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:900px){.themes{grid-template-columns:repeat(2,1fr)}}
+.theme{
+  border:2px solid var(--line);background:#fff;border-radius:14px;padding:16px;transition:.2s;
+}
+.theme.mine{border-color:var(--red);background:#FDF6F6;box-shadow:0 0 0 3px rgba(158,27,27,.08)}
+.theme.over{border-color:var(--gold);background:#FFFBEF;transform:scale(1.02)}
+.theme.yes{border-color:var(--green)}
+.theme.no{border-color:var(--bad)}
+.theme h4{margin:0 0 2px;font-size:20px}
+.theme .tdesc{font-size:15px;color:var(--ink2);margin-bottom:10px;line-height:1.45}
+.theme .drop{min-height:56px;background:var(--paper2);border-radius:10px;padding:8px;display:flex;gap:7px;flex-wrap:wrap;align-content:flex-start}
+.theme .drop.fill{border:2px dashed #D9CBB2}
+.titem{background:#fff;border:1.5px solid var(--green);border-radius:999px;padding:4px 12px;font-size:15px}
+.tmsg{font-size:15px;margin-top:8px;min-height:22px;color:var(--ink2)}
+.tmsg.ok{color:var(--green);font-weight:700}
+.tmsg.bad{color:var(--bad);font-weight:700}
+.tmsg.warn{color:var(--amber);font-weight:700}
+.minebadge{display:none;background:var(--red);color:#fff;font-size:13px;border-radius:6px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.mydesc{font-size:14.5px;color:var(--ink2);margin:5px 0 9px;padding:6px 11px;background:var(--paper2);border-radius:8px;border-left:3px solid var(--gold);line-height:1.5}
+.theme.mine .minebadge{display:inline-block}
+
+/* ---------- P4 填空 ---------- */
+.fillrow{display:flex;flex-wrap:wrap;align-items:center;gap:14px;font-size:26px;line-height:2;margin-bottom:26px}
+.blank{
+  display:inline-grid;place-items:center;min-width:74px;height:56px;border:2.5px dashed var(--red);
+  border-radius:10px;background:#fff;font-weight:700;color:var(--red);cursor:pointer;transition:.2s;font-size:26px;
+}
+.blank:hover{background:#FDF3F3}
+.blank.filled{border-style:solid;border-color:var(--green);background:#EEF6EE;color:var(--green)}
+.blank.locked{cursor:default}
+.opts{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.optbtn{border:2px solid var(--line);background:#fff;border-radius:12px;padding:12px 26px;font-size:22px;font-weight:700;cursor:pointer;transition:.18s;color:var(--ink)}
+.optbtn:hover{border-color:var(--gold);background:#FFFBEF}
+.optbtn.shake{animation:shake .42s}
+
+/* ---------- P4 押韻自選 ---------- */
+.rhymepick{display:flex;gap:10px;flex-wrap:wrap}
+.rhymebtn{
+  border:2.5px solid var(--line);background:#fff;border-radius:999px;padding:9px 22px;
+  font-size:19px;font-weight:700;cursor:pointer;transition:.18s;font-family:inherit;color:var(--ink2);
+}
+.rhymebtn:hover{border-color:var(--gold);background:#FFFBEF}
+.rhymebtn.on{border-color:var(--red);background:var(--red);color:#fff}
+.rhymebtn[disabled]{cursor:not-allowed;opacity:.85}
+.rhymebtn.on[disabled]{opacity:1}
+.rhymelock{display:inline-block;font-size:14px;color:var(--gold);font-weight:700;margin-left:8px;border:1.5px solid var(--gold);border-radius:999px;padding:1px 10px}
+/* 兩首真詩：一首首句入韻、一首首句不入韻 */
+.egwrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+.egitem{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px}
+.egitem .tag{display:inline-block;font-size:14px;font-weight:700;color:var(--red);border:1.5px solid var(--red);border-radius:999px;padding:0 9px}
+.egitem .who{font-size:14.5px;color:var(--ink2);margin-left:6px}
+.egitem p{margin:8px 0 0;font-family:"標楷體","KaiTi",serif;font-size:18.5px;line-height:1.95;color:var(--ink)}
+.egitem .rh{color:var(--red);font-weight:700}
+.egitem .nr{color:#8A7B66}
+@media(max-width:820px){.egwrap{grid-template-columns:1fr}}
+.p4state{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.p6state{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
+.p6state .st{font-size:15.5px;border-radius:999px;padding:4px 14px;border:1.5px solid var(--line);color:var(--ink2);background:#fff}
+.p6state .st.ok{border-color:var(--green);color:var(--green);background:#F3F9F3;font-weight:700}
+.p6state .st.no{border-color:var(--bad);color:var(--bad);background:#FDF2F1;font-weight:700}
+.flashnow{animation:glowflash 1.1s 2}
+@keyframes glowflash{0%,100%{box-shadow:0 0 0 0 rgba(201,162,39,0)}50%{box-shadow:0 0 0 7px rgba(201,162,39,.38)}}
+.p4state .st{font-size:15.5px;border-radius:999px;padding:4px 14px;border:1.5px solid var(--line);color:var(--ink2);background:#fff}
+.p4state .st.ok{border-color:var(--green);color:var(--green);background:#F3F9F3;font-weight:700}
+.p4state .st.no{border-color:var(--bad);color:var(--bad);background:#FDF2F1;font-weight:700}
+
+/* ---------- 老師設定 ---------- */
+.gear{
+  margin-left:auto;flex-shrink:0;width:38px;height:38px;border-radius:50%;
+  border:2px solid var(--line);background:#fff;color:var(--ink2);
+  font-size:17px;cursor:pointer;transition:.2s;line-height:1;
+}
+.gear:hover{border-color:var(--red);color:var(--red)}
+.gear.set{border-color:var(--gold);color:var(--gold);background:#FFFBEF}
+.setcard{
+  background:var(--paper);border:2px solid var(--line);border-radius:18px;
+  max-width:640px;width:100%;padding:26px 30px;box-shadow:0 20px 60px rgba(0,0,0,.3);
+  animation:pop .28s ease;max-height:88vh;overflow:auto;
+}
+.setcard h3{margin:0 0 6px;font-size:22px;color:var(--red)}
+.setopt{
+  display:flex;gap:12px;align-items:flex-start;border:2px solid var(--line);background:#fff;
+  border-radius:12px;padding:14px 16px;margin-bottom:10px;cursor:pointer;transition:.18s;
+}
+.setopt:hover{border-color:var(--gold)}
+.setopt.on{border-color:var(--red);background:#FDF6F6}
+.setopt .rd{width:20px;height:20px;border-radius:50%;border:2.5px solid var(--ink2);flex-shrink:0;margin-top:3px;display:grid;place-items:center}
+.setopt.on .rd{border-color:var(--red)}
+.setopt.on .rd::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--red)}
+.setopt b{display:block;font-size:17px;margin-bottom:2px}
+.setopt span{font-size:15px;color:var(--ink2);line-height:1.55}
+
+/* ---------- P5 四要素 ---------- */
+.elem{background:#fff;border:2px solid var(--line);border-radius:14px;padding:18px 20px}
+.elem h4{margin:0 0 6px;font-size:19px;color:var(--red)}
+.elem p{margin:0;font-size:16px;color:var(--ink2);line-height:1.6}
+.elem .bn{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--red);color:#fff;font-size:15px;margin-right:8px}
+.prompt-box{background:#fff;border:2px solid var(--line);border-radius:14px;padding:22px 26px;line-height:2.1;font-size:19px}
+.prompt-box .filled-in{background:#FFF6DC;border-bottom:2.5px solid var(--gold);padding:2px 8px;border-radius:5px;font-weight:700}
+.prompt-box .empty-in{background:#FDECEA;border-bottom:2.5px solid var(--bad);padding:2px 8px;color:var(--bad);border-radius:5px}
+.prompt-box .role-fill{width:300px;max-width:100%;font:inherit;font-weight:700;color:var(--ink);background:#FFF6DC;border:0;border-bottom:2.5px solid var(--gold);border-radius:5px;padding:2px 10px;text-align:center;outline:none}
+.prompt-box .role-fill:focus{background:#FFF0C8;box-shadow:0 0 0 3px rgba(201,162,39,.22)}
+.prompt-box .role-fill:placeholder-shown{background:#fff;border-bottom-style:dashed}
+.prompt-box .role-fill::placeholder{color:#B9A77E;font-weight:400}
+.rolechips{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 12px;font-size:14px;color:var(--ink2)}
+.rolechips button{font:inherit;font-size:14px;padding:5px 12px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.rolechips button:hover{border-color:var(--gold);background:#FFF6DC}
+.state{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:6px 16px;font-size:17px;font-weight:700}
+.state.ok{background:#EEF6EE;color:var(--green)}
+.state.warn{background:#FFF6E0;color:var(--amber)}
+.state.bad{background:#FDECEA;color:var(--bad)}
+
+/* ---------- P6 配對 ---------- */
+.matchwrap{display:grid;grid-template-columns:1fr 340px;gap:22px}
+@media(max-width:980px){.matchwrap{grid-template-columns:1fr}}
+.qcards{display:grid;gap:12px}
+.qcard{border:2px solid var(--line);background:#fff;border-radius:12px;padding:14px 18px}
+.qcard .q{font-size:18px;margin-bottom:10px}
+.qcard .q::before{content:"學生說：";color:var(--ink2);font-size:15px}
+.types{display:flex;gap:8px;flex-wrap:wrap}
+.tbtn{border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:6px 16px;font-size:16px;cursor:pointer;transition:.16s;color:var(--ink)}
+.tbtn:hover{border-color:var(--red);color:var(--red)}
+.tbtn.sel{background:var(--red);color:#fff;border-color:var(--red)}
+.qcard.right{border-color:var(--green);background:#F3F9F3}
+.qcard.wrong{border-color:var(--bad);background:#FDF2F1;animation:shake .4s}
+.qcard .why{font-size:16px;color:var(--green);margin-top:8px;display:none;font-weight:700}
+.qcard.right .why{display:block}
+.side{position:sticky;top:110px;align-self:start}
+.scorebox{background:#fff;border:2px solid var(--gold);border-radius:14px;padding:18px 20px;text-align:center}
+.scorebox .big{font-size:42px;font-weight:700;color:var(--red);line-height:1.1}
+.scorebox .small{font-size:16px;color:var(--ink2)}
+
+.askbox{margin-top:16px;background:var(--paper);border:2px dashed var(--line);border-radius:12px;padding:14px;text-align:left}
+
+/* ---------- P6 詩句體檢 ---------- */
+.poemwrap{display:grid;grid-template-columns:390px 1fr;gap:22px;align-items:start}
+@media(max-width:1020px){.poemwrap{grid-template-columns:1fr}}
+.poemcard{background:#fff;border:2px solid var(--line);border-left:7px solid var(--gold);border-radius:16px;padding:22px 24px;position:sticky;top:110px}
+@media(max-width:1020px){.poemcard{position:static}}
+.poemhd{font-size:14.5px;color:var(--ink2);letter-spacing:1px;margin-bottom:14px}
+.poemlines{font-family:"DFKai-SB","標楷體","KaiTi","Microsoft JhengHei",serif;font-size:25px;line-height:2.15;letter-spacing:2px}
+.poemline{display:block;border-radius:8px;padding:1px 8px;margin-left:-8px;transition:.2s}
+.poemline.hi{background:#FFF1C9}
+.poemtip{margin-top:16px;font-size:14.5px;color:var(--ink2);border-top:1px dashed var(--line);padding-top:12px;line-height:1.6}
+.chkbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.chkcards{display:grid;gap:10px}
+.chkcard{border:2px solid var(--line);background:#fff;border-radius:14px;padding:14px 16px;transition:.2s}
+.chkcard.correct{border-color:var(--green);background:#F5FAF5}
+.chkcard.wrongshake{animation:shake .42s}
+.chkhead{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.chkhead .ptno{width:26px;height:26px;border-radius:7px;background:var(--red);color:#fff;display:grid;place-items:center;font-size:14px;font-weight:700;flex-shrink:0}
+.chkhead b{font-size:18px}
+.chkhead .tag{font-size:13px;border-radius:6px;padding:1px 8px;background:var(--paper2);color:var(--ink2)}
+.chkhow{font-size:15px;color:var(--ink2);margin-top:5px;line-height:1.55}
+.chkbtns{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.chkbtn{border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:6px 18px;font-size:16px;cursor:pointer;transition:.16s;font-family:inherit;color:var(--ink)}
+.chkbtn:hover{border-color:var(--gold);background:#FFFBEF}
+.chkbtn.pass{border-color:var(--green);color:var(--green)}
+.chkbtn.bad{border-color:var(--bad);color:var(--bad)}
+.chkres{margin-top:10px;font-size:15.5px;display:none;line-height:1.65}
+.chkcard.correct .chkres{display:block}
+.chkcard.correct .chkbtns{display:none}
+.chkres .ev{color:var(--ink2)}
+.chkres .ev b{color:var(--ink)}
+.chkres .okline{color:var(--green);font-weight:700}
+.chkres .badline{color:var(--bad);font-weight:700}
+.askline{margin-top:9px;background:#FFFBEF;border:1.5px dashed var(--gold);border-radius:10px;padding:10px 14px;font-size:16px;line-height:1.6}
+.askline .lb{font-size:13px;color:var(--gold);font-weight:700;display:block;margin-bottom:3px}
+.askline .btn{margin-top:9px;padding:6px 16px;font-size:15px}
+.askline.adopted{background:#F3F9F3;border-color:var(--green);border-style:solid}
+.asklist{display:grid;gap:8px;margin:6px 0 4px}
+.aitem{background:#fff;border:1.5px solid var(--gold);border-radius:10px;padding:10px 14px;font-size:16px;line-height:1.6}
+.aitem .pt{font-size:13px;color:var(--gold);font-weight:700;display:block;margin-bottom:2px}
+.aitem .rm{float:right;cursor:pointer;color:var(--bad);font-weight:700;padding:0 4px}
+.empty-ask{color:#B0A494;font-size:16px;padding:6px 2px}
+.askhd{font-size:16px;font-weight:700;color:var(--red);margin-bottom:8px}
+.askta{width:100%;min-height:66px;border:2px solid var(--line);border-radius:10px;padding:10px 12px;font-size:16px;font-family:inherit;color:var(--ink);background:#fff;resize:vertical;box-sizing:border-box;line-height:1.5}
+.askta:focus{outline:none;border-color:var(--red)}
+.asktypes{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.asktypes .tbtn{padding:5px 12px;font-size:15px}
+.askmsg{margin-top:10px;font-size:15px;line-height:1.6}
+.askmsg.ok{color:var(--green);font-weight:700}
+.askmsg.bad{color:var(--bad);font-weight:700}
+.chnge{margin-top:10px;background:#FFFBEF;border-left:4px solid var(--gold);border-radius:8px;padding:10px 12px;font-size:15.5px;line-height:1.7}
+.chnge b{color:var(--red)}
+.chnge .old{color:var(--ink2)}
+.chnge .new{color:var(--green);font-weight:700}
+
+
+/* ---------- P7 風格牆 ---------- */
+.stylewall{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:1080px){.stylewall{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.stylewall{grid-template-columns:repeat(2,1fr)}}
+.scard{border:2.5px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;cursor:pointer;transition:.2s;position:relative}
+.scard:hover{transform:translateY(-3px);border-color:var(--gold)}
+.scard img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.scard .sb{padding:10px 12px}
+.scard .sb b{display:block;font-size:16px;margin-bottom:2px}
+.scard .sb span{font-size:13.5px;color:var(--ink2);line-height:1.4}
+.scard.sel{border-color:var(--red);box-shadow:0 0 0 4px rgba(158,27,27,.14)}
+.scard .pick{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;background:var(--red);color:#fff;display:none;place-items:center;font-size:15px}
+.scard.sel .pick{display:grid}
+.line4{background:var(--paper2);border-radius:12px;padding:14px 18px;margin-top:16px;font-size:18px}
+.line4 b{color:var(--red)}
+
+/* ---------- P8 拖拽元素 ---------- */
+.dimrow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:12px 0;border-bottom:1px dashed var(--line)}
+.dimrow:last-child{border-bottom:none}
+.dimrow .dl{width:150px;flex-shrink:0;font-weight:700;font-size:19px}
+.dimrow .dl small{display:block;font-weight:400;color:var(--ink2);font-size:14px}
+.slot{
+  min-width:210px;min-height:52px;border:2.5px dashed var(--line);border-radius:12px;background:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:16px;color:#B0A494;padding:8px 12px;transition:.18s;
+}
+.slot.over{border-color:var(--gold);background:#FFFBEF}
+.slot.filled{border-style:solid;border-color:var(--ink2);color:var(--ink);background:var(--paper2);font-weight:700;justify-content:flex-start;padding-left:16px}
+.slot.good{border-color:var(--green);background:#EEF6EE}
+.slot.conflict{border-color:var(--bad);background:#FDECEA}
+.slot .x{display:none;margin-left:auto;color:var(--bad);cursor:pointer;font-size:18px;padding:0 4px}
+.slot.filled .x{display:block}
+.optpool{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.harmony{
+  border-radius:14px;padding:16px 22px;margin-top:18px;border:2.5px solid;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;transition:.3s;
+}
+.harmony .dot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
+.harmony .ht{font-weight:700;font-size:20px}
+.harmony .hm{font-size:17px}
+.harmony.green{background:#F1F8F1;border-color:var(--green)} .harmony.green .dot{background:var(--green)} .harmony.green .ht{color:var(--green)}
+.harmony.yellow{background:#FFF9E8;border-color:var(--amber)} .harmony.yellow .dot{background:var(--amber)} .harmony.yellow .ht{color:var(--amber)}
+.harmony.red{background:#FDF1F0;border-color:var(--bad)} .harmony.red .dot{background:var(--bad)} .harmony.red .ht{color:var(--bad)}
+
+/* ---------- P9 提示詞 ---------- */
+.plines{background:#fff;border:2px solid var(--line);border-radius:14px;overflow:hidden}
+.pline{
+  display:flex;gap:14px;padding:12px 20px;border-bottom:1px solid var(--line);font-size:17px;
+  cursor:pointer;transition:.2s;align-items:flex-start;line-height:1.6;
+}
+.pline:last-child{border-bottom:none}
+.pline .pn{
+  flex-shrink:0;width:30px;height:30px;border-radius:8px;background:var(--paper2);color:var(--ink2);
+  display:grid;place-items:center;font-weight:700;font-size:15px;transition:.2s;
+}
+.pline .pt{flex:1;filter:blur(3.6px);user-select:none;transition:filter .3s;opacity:.55}
+.pline.open{background:#FFFCF3}
+.pline.open .pn{background:var(--gold);color:#fff}
+.pline.open .pt{filter:none;user-select:text;opacity:1}
+.pline.open .lockhint{display:none}
+.lockhint{font-size:14px;color:#B0A494;flex-shrink:0}
+.countpill{background:var(--paper2);border-radius:999px;padding:6px 18px;font-size:17px;font-weight:700;color:var(--red)}
+
+/* ---------- P10 排序 ---------- */
+.sortlist{display:grid;gap:10px;max-width:760px}
+.sitem{
+  display:flex;align-items:center;gap:14px;background:#fff;border:2px solid var(--line);border-radius:12px;
+  padding:14px 18px;font-size:18px;cursor:grab;transition:.18s;user-select:none;touch-action:none;
+}
+.sitem:active{cursor:grabbing}
+.sitem.dragging{opacity:.4}
+.sitem .idx{width:32px;height:32px;border-radius:8px;background:var(--paper2);display:grid;place-items:center;font-weight:700;flex-shrink:0;color:var(--ink2)}
+.sitem.locked{border-color:var(--green);background:#F3F9F3}
+.sitem.locked .idx{background:var(--green);color:#fff}
+.sitem.droptarget{border-top:3px solid var(--red)}
+.sitem .trap{display:none;font-size:15px;color:var(--green);margin-left:auto;flex-shrink:0;text-align:right}
+.sitem.locked .trap{display:block}
+
+/* ---------- P11 技能 ---------- */
+.skilllist{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:900px}
+@media(max-width:820px){.skilllist{grid-template-columns:1fr}}
+.skill{
+  display:flex;gap:12px;align-items:flex-start;background:#fff;border:2px solid var(--line);
+  border-radius:12px;padding:14px 16px;cursor:pointer;transition:.18s;font-size:17px;
+}
+.skill:hover{border-color:var(--gold)}
+.skill .bx{width:24px;height:24px;border:2.5px solid var(--ink2);border-radius:6px;flex-shrink:0;display:grid;place-items:center;color:#fff;font-size:15px;transition:.18s}
+.skill.done{border-color:var(--green);background:#F3F9F3}
+.skill.done .bx{background:var(--green);border-color:var(--green)}
+.skill.done .bx::after{content:"✓"}
+.skill small{display:block;color:var(--ink2);font-size:14.5px;margin-top:2px}
+.ringwrap{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.ring{position:relative;width:118px;height:118px;flex-shrink:0}
+.ring svg{transform:rotate(-90deg)}
+.ring .pct{position:absolute;inset:0;display:grid;place-items:center;font-size:26px;font-weight:700;color:var(--red)}
+
+/* ---------- P12 結算 ---------- */
+.sumrow{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px dashed var(--line);font-size:18px}
+.sumrow:last-child{border-bottom:none}
+.sumrow .k{color:var(--ink2)}
+.sumrow .v{font-weight:700;text-align:right}
+.sumrow .v.miss{color:var(--bad)}
+.sumrow .v.ok{color:var(--green)}
+.big-btn{width:100%;padding:18px;font-size:21px}
+
+/* ---------- 導航 ---------- */
+.nav{
+  position:fixed;bottom:0;left:0;right:0;background:rgba(251,246,236,.97);border-top:2px solid var(--line);
+  padding:14px 22px;z-index:90;backdrop-filter:blur(6px);
+}
+.nav-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:14px}
+.nav .pageno{color:var(--ink2);font-size:17px}
+.toast{
+  position:fixed;bottom:96px;left:50%;transform:translateX(-50%) translateY(20px);opacity:0;
+  background:var(--ink);color:#fff;padding:13px 28px;border-radius:999px;font-size:18px;z-index:200;
+  transition:.3s;pointer-events:none;max-width:90vw;text-align:center;
+}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.good{background:var(--green)}
+.toast.bad{background:var(--bad)}
+
+/* ---------- 匯出面板 ---------- */
+.exportpanel{
+  position:fixed;inset:0;background:rgba(43,35,32,.55);z-index:300;
+  display:grid;place-items:center;padding:24px;
+}
+.epcard{
+  background:var(--paper);border:2px solid var(--line);border-radius:18px;
+  max-width:820px;width:100%;max-height:88vh;overflow:auto;padding:26px 30px;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);animation:pop .28s ease;
+}
+.epcard h3{margin:0 0 8px;font-size:24px;color:var(--red)}
+.epstate{display:flex;gap:20px;flex-wrap:wrap;font-size:17px;font-weight:700}
+.epstate .ok{color:var(--green)}
+.epstate .miss{color:var(--amber)}
+.epta{
+  width:100%;height:300px;font-family:Consolas,"Courier New",monospace;font-size:15px;
+  line-height:1.7;border:2px solid var(--gold);border-radius:12px;padding:14px;
+  background:#fff;color:var(--ink);resize:vertical;
+}
+</style>
+<style>
+.site-back{
+  position:fixed;left:16px;bottom:16px;z-index:120;
+  background:#FBF6EC;color:#9E1B1B;border:1.5px solid #9E1B1B;
+  border-radius:999px;padding:10px 16px;font-weight:700;font-size:14px;
+  text-decoration:none;box-shadow:0 6px 18px rgba(43,35,32,.18);
+  font-family:"Microsoft JhengHei","PingFang TC",sans-serif;
+}
+.site-back:hover{background:#9E1B1B;color:#FBF6EC}
+@media print{.site-back{display:none!important}}
+</style>
+</head>
+<body data-page-node-id="lu9IUDnnDgFVh0ZZ3VtkBO">
+
+<div class="topbar" data-page-node-id="ZhbL8wZ8PWXopcy0U4buJS">
+  <div class="topbar-in" data-page-node-id="VewRHfbp792RumMD2AwmGi">
+    <div class="brand" data-page-node-id="BfP1BAG5UP2bZE8doWe53e"><img src="assets/校徽.png" alt="校徽" data-page-node-id="HMNr1iA46hITXA4VrerCP7">鏡平 134．互動課件<span class="ver" id="build">v3.8 · 10/20</span></div>
+    <div class="stages" id="stages" data-page-node-id="ikYZ1tHDpllzmpzbk5MlgW">
+      <div class="flowgrp" data-f="1">
+        <span class="fno" data-f="1" title="流程 ①：找詞 → 寫詩 → 追問（P2–P6）">①</span>
+        <div class="stage" data-s="1" data-page-node-id="OqYI1guYGMWSLbClRKiW7B"><b data-page-node-id="ZjHy6bdqjVGbc3Wlgqlo3h">1</b>找詞</div>
+        <div class="stage" data-s="2" data-page-node-id="OonmPesYgdHk1fair16SZw"><b data-page-node-id="T1yHs4reuvtwcEGsnn4TeN">2</b>寫詩</div>
+        <div class="stage" data-s="3" data-page-node-id="Rdqjiha289TfYJXCKNyj9x"><b>3</b>詩句追問</div>
+      </div>
+      <div class="flowgrp" data-f="2">
+        <span class="fno" data-f="2" title="流程 ②：選風格 → 生成（P7–P10）">②</span>
+        <div class="stage" data-s="4" data-page-node-id="6DneQEPJcQv1ZfTgePRowZ"><b data-page-node-id="lWFsRNK1KzeQnVY5NYjRyh">4</b>選風格</div>
+        <div class="stage" data-s="5" data-page-node-id="FYJKnb9hLrToL4UUAD16tF"><b>5</b>圖片追問</div>
+      </div>
+      <div class="flowgrp" data-f="3">
+        <span class="fno" data-f="3" title="流程 ③：Word 合成（P11–P13，可單獨做）">③</span>
+        <div class="stage" data-s="6"><b>6</b>合成</div>
+      </div>
+    </div>
+    <button class="gear" id="gearBtn" onclick="openSettings()" title="老師設定">⚙</button>
+  </div>
+  <div class="progress-outer" data-page-node-id="z8oI5HYKmEVCRN7mZmAkjr"><div class="progress-in" id="prog" data-page-node-id="SEp0B5MZR2UTt7T2EUqFCg"></div></div>
+</div>
+
+<div class="wrap" id="wrap" data-page-node-id="tcY6B1hYk9K5lDI5tVqTPz">
+
+<!-- ============ P1 封面 ============ -->
+<section class="page on" data-stage="0" data-p="1" data-page-node-id="xIFsYRQm7dZoYKCEGb7eUZ">
+  <div class="cover" data-page-node-id="J3NowHvtvSf6ttGV1epT33">
+    <div class="bgimg" style="background-image:url('assets/鏡平學校外觀01.jpg')" data-page-node-id="nnGjL4Q2EAB2P2TgHKN8sc"></div>
+    <div class="cover-in" data-page-node-id="B5sElcAps0bSzLMr8wXk4Z">
+      <img class="seal" src="assets/校徽.png" alt="鏡平學校校徽" data-page-node-id="L0otb8HAIqziU3XoPOknEF">
+      <h1 data-page-node-id="Nv8TS4hjiXEEjddKU27Gkr">一句詩、一張圖，<br data-page-node-id="OMFXjTAqtVzF7LYRnMN8H2">都要靠「關鍵詞」說話</h1>
+      <p class="sub" data-page-node-id="xrC0SCArqoGamSnBgtNYcm">P5 上學期跨學科專題　·　三個連續流程</p>
+
+      <div class="restorebar" id="restoreBar">
+        <span id="restoreTxt">已恢復上次進度</span>
+        <button onclick="resetAll()">清除，重新開始</button>
+      </div>
+
+      <div class="flowgrid" id="mapgrid" data-page-node-id="K8Ctfrd2h74QrOiWH9Q8DR">
+        <div class="mapflow">
+          <div class="mfhd" data-f="1" title="進入流程 ①（第 2 頁）">
+            <span class="fno" data-f="1">①</span><b>找詞 · 寫詩 · 追問</b><em class="tg">連續</em><i class="mm">P2–P6</i>
+          </div>
+          <div class="msteps">
+            <div class="mapcard" data-m="1" data-page-node-id="OUfZTdp0cdz3jnyH8tZteo"><span class="no" data-page-node-id="fo10j59z7g7dPhXAPrKQRl">1</span><b data-page-node-id="wi1jmzGPuJQAXn3CyXiUxP">找詞</b><span class="ms" data-page-node-id="Ie62mKOfIyZ0m7Kj06FGbm">6 詞 · 跨 3 館</span></div>
+            <div class="mapcard" data-m="2" data-page-node-id="lwFyR1g60mHUQAiMyzdkEo"><span class="no" data-page-node-id="jiEBf6IErEPLE2AtulqzXL">2</span><b data-page-node-id="AXRBhwTXzKFgpdUAyEDMTl">寫詩</b><span class="ms" data-page-node-id="GsnlouKFs4E7DrwaySgmIH">絕句填空</span></div>
+            <div class="mapcard" data-m="3" data-page-node-id="XDODTqXHXXQ87XEqhg82SZ"><span class="no">3</span><b>詩句追問</b><span class="ms">體檢 5 點</span></div>
+          </div>
+        </div>
+        <div class="mapflow">
+          <div class="mfhd" data-f="2" title="進入流程 ②（第 7 頁）">
+            <span class="fno" data-f="2">②</span><b>選風格 · 生成</b><em class="tg">連續</em><i class="mm">P7–P10</i>
+          </div>
+          <div class="msteps">
+            <div class="mapcard" data-m="4" data-page-node-id="hyeogwzN9V5lffRdoIX8tc"><span class="no" data-page-node-id="Xp8mOEpXQOPZh49HPHTmGX">4</span><b data-page-node-id="ofwyb9Q2lgpCflceWPNibf">選風格</b><span class="ms" data-page-node-id="Y42btaf2AiiOoEjqhTw95X">10 選 1 · 配 6 元素</span></div>
+            <div class="mapcard" data-m="5" data-page-node-id="qwRNzwQ5lAKVzHMdUN6BKr"><span class="no">5</span><b>生成圖片追問</b><span class="ms">11 點 · 七型</span></div>
+          </div>
+        </div>
+        <div class="mapflow">
+          <div class="mfhd" data-f="3" title="進入流程 ③（第 11 頁）">
+            <span class="fno" data-f="3">③</span><b>合成</b><em class="tg solo">可單獨做</em><i class="mm">P11–P13</i>
+          </div>
+          <div class="msteps">
+            <div class="mapcard" data-m="6"><span class="no">6</span><b>Word 六步合成</b><span class="ms">7 項技能</span></div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn" onclick="go(2)" data-page-node-id="lbob1TWG4Sw9cFqjKgXv4x">開始任務</button>
+      <p class="hintline" style="margin-top:14px" data-page-node-id="PKAjxv3fx5lweK1Z4rWtUE">今天只做三件事：一句詩、一張底圖、一份合成檔。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ P2 時間軸 ============ -->
+<section class="page" data-stage="1" data-p="2" data-page-node-id="HIeMB9zoHngttQz3jICLY9">
+  <div class="eyebrow" data-page-node-id="6I9hdTHwQklvrXMi8X39IB"><span class="chip" data-page-node-id="ZEvZ4irJT2F1RDHQOKwDq3">關卡 ①</span>找詞</div>
+  <h1 class="pagetitle" data-page-node-id="gmQ4wdO6Pv3thS174HYFBG">校史不是背年份，是找「能放進詩裡的詞」</h1>
+  <p class="lead" data-page-node-id="BOllefFBg1Gg0BPmLfdIDh">下面有<strong>五個詞館</strong>，點一下就收進素材籃。不用背，只要揀得準。</p>
+
+  <!-- 六大主題路線預覽（原本印在 P3 主題卡上的 desc，搬到這裡給學生先看） -->
+  <div class="card soft">
+    <h3>六大主題路線：先看一眼，揀詞才知道要往哪裡揀</h3>
+    <p class="sub">下面這六句話，是等一下你要選的詩歌主題。<strong>把它們裡面的詞揀走</strong>，你的詩就會有「鏡平味」。</p>
+    <div class="routegrid" id="routegrid"></div>
+    <p class="hintline" style="margin-top:12px">💡 下面每一個詞館的詞，都可以放進這六條路線之中的一條。</p>
+  </div>
+
+  <!-- 五個詞館 -->
+  <div class="card" style="margin-top:20px">
+    <h3>五個詞館：點一下就收進素材籃</h3>
+    <p class="sub">不用背，只要揀得準。<strong style="color:var(--red)">標 ★ 的兩個館</strong>（景物、情感）最能讓 AI 寫出有畫面的詩。</p>
+    <div class="bankgrid" id="bankgrid"></div>
+  </div>
+
+  <!-- 校史時間軸 -->
+  <div class="card" style="margin-top:20px">
+    <h3>詞館 ①　校史足跡：點年份讀一句話</h3>
+    <p class="sub">每個年份有 3 個詞。想知道詞從哪裡來，就把年份點開。</p>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px">
+      <button class="btn ghost" style="padding:8px 18px;font-size:16px" onclick="openAllYears()">一次展開全部年份</button>
+      <button class="btn ghost" style="padding:8px 18px;font-size:16px" onclick="closeAllYears()">全部收起</button>
+    </div>
+    <div class="timeline" id="timeline" data-page-node-id="XxJ7MTksFsC70zdcWPV3zt"></div>
+  </div>
+
+  <div class="card soft" style="margin-top:22px" data-page-node-id="3ToRMPa3tax4LR6eBwzuJ9">
+    <h3 data-page-node-id="9AlKm7P90DVbPcrIEwh3ut">校訓四字，點一點看它什麼意思</h3>
+    <p class="sub" data-page-node-id="7SE2FRhxElhVqMZ0JsGD0B">寫詩時把校訓的意思寫進去，詩就會很有「鏡平味」。</p>
+    <div class="motto" id="motto" data-page-node-id="EmRuDIdAWCHmfzopViA4fJ"></div>
+  </div>
+
+  <div class="basketbar" data-page-node-id="RFOZVTLRgygr5Qy3QL0HGL">
+    <span class="lbl" data-page-node-id="2LoEIBXdXeZLcImHE6SLaO">素材籃</span><span class="cnt" id="basketCnt" data-page-node-id="bWwkh8DlBKo9OzhCMRgn3G">0</span>
+    <div class="items" id="basketItems" data-page-node-id="yrW6HcsTSGJDc4xBlS8fUZ"></div>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <input id="customWord" class="cinput" type="text" maxlength="12" placeholder="自己補一個詞…（Enter 加入）"
+             onkeydown="if(event.key==='Enter'){event.preventDefault();addCustomWord();}">
+      <button class="btn ghost" style="padding:9px 18px;font-size:16px" onclick="addCustomWord()">加入</button>
+    </div>
+    <button class="btn" onclick="go(3)" data-page-node-id="QjM9N8n2lbZkmgTjK8H5G1">下一步：分配給我的主題 →</button>
+  </div>
+  <p class="hintline" style="margin-top:12px;text-align:center">
+    <span id="basketCov" class="covwrap"></span>
+  </p>
+  <p class="hintline" style="margin-top:8px;text-align:center" id="basketTip">
+    💡 至少揀 3 個就夠，但<strong>可以多揀</strong>——詞越具體，AI 寫出來的詩越像你自己寫的。
+  </p>
+</section>
+
+<!-- ============ P3 主題拖拽 ============ -->
+<section class="page" data-stage="1" data-p="3" data-page-node-id="1HpDBfPIH99tSZmJpII9kV">
+  <div class="eyebrow" data-page-node-id="9W92baL2wN22mAFwnxA4yB"><span class="chip" data-page-node-id="7ABZkqr2kC6uVto193ZBDm">關卡 ①</span>找詞</div>
+  <h1 class="pagetitle" data-page-node-id="MxbLFFOiJjA5GW8phfKgs1">同一個主題，關鍵詞要從對應的校史角落裡揀</h1>
+  <p class="lead" data-page-node-id="D5BKOBBIl5NnWTd0SWnuv7">先點一個主題（那張卡會變紅），再把素材籃的詞<strong data-page-node-id="LNzeasPnEabVWdNJ1EHQVr">拖進</strong>那個主題的籃子。<strong data-page-node-id="LNzeasPnEabVWdNJ1EHQV0">同一個詞可以放進多個主題</strong>；這裡<strong data-page-node-id="LNzeasPnEabVWdNJ1EHQV1">不會判你錯</strong>——只有「很貼題」和「可以用」兩種。揀 3 個就夠，可以多揀。</p>
+
+  <div class="card" data-page-node-id="vFns5IaMaP8IE7QhX1U7rq">
+    <h3 data-page-node-id="fdSOaDyIu8sIuHOm9pBOpM">素材籃的詞（拖我）</h3>
+    <div class="pool" id="pool" data-drop="pool" data-page-node-id="OrzJJThZoSfAfjqHB6nBWj"></div>
+  </div>
+
+  <div class="themes" id="themes" data-page-node-id="xcOZ8WthJV3D8VJqtDYNTX"></div>
+
+  <div class="btn-row" data-page-node-id="oH5UASrReIH7ZDMq4ZROG1">
+    <button class="btn" onclick="go(4)" data-page-node-id="YRMGjTqOfkOWYmcVBanMO2">下一步：學絕句格式 →</button>
+    <span class="hintline" id="p3hint" data-page-node-id="WhpB9Nx1FkXqQ34S8LHrNx">放進去就會告訴你這個詞貼不貼題；不貼題也可以用，詩是你的。</span>
+  </div>
+</section>
+
+<!-- ============ P4 絕句填空 ============ -->
+<section class="page" data-stage="2" data-p="4" data-page-node-id="mUVXoC9BVoypXyG57DLHcR">
+  <div class="eyebrow" data-page-node-id="ldsuj5GRfYYhrq4Yg9zrWL"><span class="chip" data-page-node-id="pQbW5VxsKtHPi2xCWRBGCe">關卡 ②</span>寫詩</div>
+  <h1 class="pagetitle" data-page-node-id="4ThB4tuhihPxlWhA8cHIkH">絕句的格式是「填空題」，不是「自由題」</h1>
+  <p class="lead" data-page-node-id="EiN8Fy6aeyaDRCxC1Y2YoH">把空格填上。填錯不要緊，我會問你一個問題——答案要你自己想。</p>
+
+  <div class="card" data-page-node-id="UnGU4qcwoI8ZvyCoTV346X">
+    <div class="fillrow" data-page-node-id="0VKTyvEAiCFb7hMCUEVzNv">
+      <span data-page-node-id="tEqO1YLqlcKmuxzLgwxEpw">詩句的格式為</span>
+      <span class="blank" id="b1" data-a="7" data-page-node-id="4Tx44MG6bkhCjUVBPjQ6q6">--</span><span data-page-node-id="qanu567I52swyLzMfLsvo8">言絕句，</span>
+    </div>
+    <div class="fillrow" data-page-node-id="Z1jC4C1WBgNqrH2smdrtMC">
+      <span data-page-node-id="hbPI6EcCJpn3AKKaDFVwHi">全詩共</span>
+      <span class="blank" id="b2" data-a="4" data-page-node-id="8UVgOZrnKf82N9EG0GAYek">--</span><span data-page-node-id="WirmhKGM9b9Vnjlopw1RCJ">句；</span>
+    </div>
+    <div class="fillrow" style="align-items:flex-start;flex-direction:column;gap:12px">
+      <div><span>押韻的是</span> <span id="rhymePicked" class="filled-in">哪幾句？</span> <span id="rhymeLead">—— 點下面自己選：</span></div>
+      <div class="rhymepick" id="rhymepick"></div>
+      <div class="hintline" id="rhymeHint">第 2、4 句必須押；第 3 句必須不押；第 1 句可押可不押（兩種都是合法的絕句）。</div>
+    </div>
+    <div class="opts" id="opts" data-page-node-id="3J6Kccka9Me7fdW6ikKAtK"></div>
+    <div class="p4state" id="p4state"></div>
+    <div id="p4msg" class="hintline" style="margin-top:10px;min-height:26px" data-page-node-id="SVY8EMABHofyDFC7HbEgyH"></div>
+    <div class="btn-row" data-page-node-id="7zz4txwGFstClGFNefJVVH"><button class="btn wait" id="p4next" onclick="p4Next()" data-page-node-id="bQrJnTYH8JIojFces9XBCu">下一步：寫提示詞 →<span class="waitnote">還差：填好「7」和「4」</span></button></div>
+  </div>
+
+  <div class="card soft" data-page-node-id="gWuonFzMaGfn9JZhXuGtQu">
+    <h3 data-page-node-id="oT1bMx4HUSLrpBSk6vuMKl">為什麼是「七言」？</h3>
+    <p class="sub" style="margin:0" data-page-node-id="KpYnPMCntiVmu5anSlVqxH">七言 = 每句 7 個字。4 句 × 7 字 = 28 個字，要裝下 134 年的校史，每個字都要選準。<strong data-page-node-id="nu331ssd5natvVhh2zioet">這就是為什麼關鍵詞重要。</strong></p>
+  </div>
+
+  <div class="card soft" style="margin-top:16px">
+    <h3>第 1 句到底要不要押？看兩首真詩</h3>
+    <p class="sub" style="margin:0 0 4px">同樣是七言絕句，兩種寫法都有人用。紅字是押韻的字，灰字是不押的位置。</p>
+    <div class="egwrap">
+      <div class="egitem">
+        <span class="tag">首句入韻</span><span class="who">李白《早發白帝城》</span>
+        <p>朝辭白帝彩雲<span class="rh">間</span>，千里江陵一日<span class="rh">還</span>。<br>
+           兩岸猿聲啼不<span class="nr">住</span>，輕舟已過萬重<span class="rh">山</span>。</p>
+      </div>
+      <div class="egitem">
+        <span class="tag">首句不入韻</span><span class="who">杜甫《絕句》</span>
+        <p>兩個黃鸝鳴翠<span class="nr">柳</span>，一行白鷺上青<span class="rh">天</span>。<br>
+           窗含西嶺千秋<span class="nr">雪</span>，門泊東吳萬里<span class="rh">船</span>。</p>
+      </div>
+    </div>
+    <p class="sub" style="margin:10px 0 0">兩首的第 <b>2、4</b> 句都押韻，第 <b>3</b> 句都不押；差別只在第 <b>1</b> 句——押了叫「首句入韻」，不押叫「首句不入韻」，兩者都算對。</p>
+  </div>
+</section>
+
+<!-- ============ P5 四要素 ============ -->
+<section class="page" data-stage="2" data-p="5" data-page-node-id="U1yhZhLuhArW0qvTC1GrUx">
+  <div class="eyebrow" data-page-node-id="iba13EDpocf6Zw0FTI69aA"><span class="chip" data-page-node-id="IdpNlZtYMJWFd5tLUZjwG6">關卡 ②</span>寫詩</div>
+  <h1 class="pagetitle" data-page-node-id="dxHiH8WIijIbT0P0muwxP3">提示詞四要素：寫清楚，AI 才不會亂猜</h1>
+  <p class="lead" data-page-node-id="eOcqrsLfYiWd0wCLBUtCY2">詩句的提示詞是<strong data-page-node-id="9SZL6NM5WIHdFEe2WhJm3J">寫一段話</strong>的——不是選出來的。四要素齊了，詩才是你的。</p>
+
+  <div class="grid2" style="margin-bottom:18px" data-page-node-id="x0A8aHt7udDKurG2FrQkJA">
+    <div class="elem" data-page-node-id="eTAx13JpxdqEpB5XOcH4Yo"><h4 data-page-node-id="U1RN9QR4g1bTp6U7jrGTfZ"><span class="bn" data-page-node-id="qftXUSWFoa8DVShbuJ562t">1</span>文體格式</h4><p data-page-node-id="HUgvpiDhieo4o28CToMvFP">繁體中文、七言絕句、共 4 句。不寫清楚，AI 會給你 8 句的律詩。</p></div>
+    <div class="elem" data-page-node-id="AhbS4C0y6d7SxGdlWeXU4F"><h4 data-page-node-id="jP2VklJEWncMpIDnPL4P3S"><span class="bn" data-page-node-id="ga3TT2PylwsQ9QmNRwuwUk">2</span>押韻規則</h4><p data-page-node-id="0zJzC4TYdZGPDtm8gcNUSM">第 2、4 句<b>必須</b>押韻，第 3 句<b>必須不押</b>；第 1 句可押可不押（你剛才選的：<span id="rhymeChoice" style="color:var(--red);font-weight:700">—</span>）。</p></div>
+    <div class="elem" data-page-node-id="3arbpBJsmV2paFV5jo9tKi"><h4 data-page-node-id="VHooCqgjuOmm6pZsYwHZZk"><span class="bn" data-page-node-id="TLTSetoLXELcfJKdCv8Ulo">3</span>主題情感</h4><p data-page-node-id="OWG6nj8DTRo6c5KcrkSEEH">要讚揚什麼：辦學精神、校友傳承、還是家國情懷。</p></div>
+    <div class="elem" style="border-color:var(--gold)" data-page-node-id="Z5koxW7KFjaFbT930HYuip"><h4 data-page-node-id="5FBpxSUWMCFLFHvpEKlL00"><span class="bn" style="background:var(--gold)" data-page-node-id="zxtyId2F4ech1qDO4Tkpl1">4</span>參考資料 ★最關鍵</h4><p data-page-node-id="ElLSMkv8AVyZBCKyFjeKvl">把你採集到的校史關鍵詞填進第 5 點。<strong data-page-node-id="Lb30ADDiTOgO84nTLOyTpf">不填，你的詩會和別人一樣。</strong></p></div>
+  </div>
+
+  <div class="card" data-page-node-id="4RSkOW4GZqhdHsULg7bFNQ">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px" data-page-node-id="X98NQPjZzayjQCDBhW5EXN">
+      <h3 style="margin:0" data-page-node-id="mcUYF1lvVEAd4D9IDJGvo9">你的提示詞</h3>
+      <span class="state warn" id="p5state" data-page-node-id="otU8XRfq1Ja5BEW8kG3CH2">第 5 點尚未填</span>
+    </div>
+    <p class="hintline" style="margin:-4px 0 8px">第一行「角色」由你自己填：想 AI 用誰的口氣寫詩？沒想法就點下面的範例，再改成自己的話。</p>
+    <div class="rolechips">
+      <span>範例</span>
+      <button type="button" onclick="setRole('熟悉中國古典詩詞的中文老師')">熟悉中國古典詩詞的中文老師</button>
+      <button type="button" onclick="setRole('鏡平校友')">鏡平校友</button>
+      <button type="button" onclick="setRole('校史館的解說員')">校史館的解說員</button>
+    </div>
+    <div class="prompt-box" data-page-node-id="8lXFk238LMFUaT4Arhi63Z">
+      你是一位<input id="roleInput" class="role-fill" type="text" maxlength="24" placeholder="填一個身分" oninput="onRoleInput()" autocomplete="off" aria-label="AI 的角色">。<br>
+      請依以下指示，生成一首慶祝澳門鏡平學校校慶的詩：<br data-page-node-id="Na9Erw087Ocf7Sg1k9yTsy"><br data-page-node-id="Pci99wqyKcJmlHmhUYryfQ">
+      1. 使用繁體中文字；<br data-page-node-id="CZGIZ1YUPfyhpHcpgqgrlI">
+      2. 詩句的格式為 <span class="filled-in" data-page-node-id="i4MARsvC9fW6Yolh2eO4qV">七言絕句</span>，全詩共 <span class="filled-in" data-page-node-id="t2Qt0YdrWUAbbkA2bnY4cX">4</span> 句；<br data-page-node-id="m0dusVgPGdXjJ3pDysApQ9">
+      3. <span id="refRhyme" class="filled-in">第 2 句和第 4 句要押韻，第 1 句和第 3 句不押韻</span>；<br data-page-node-id="ZJZWRjcEzeHC71Wy9R0x1D">
+      4. 詩句要能表達慶祝鏡平學校校慶、讚揚鏡平學校的辦學精神或特色<span id="refTheme"></span>；<br data-page-node-id="8CDrxz9eG0j0zjMNa5TDfJ">
+      5. 以下是澳門鏡平學校的參考資料，你生成詩句時可以參考：<br data-page-node-id="yx6o0NbLTnGAYBEEX9IOKu">
+      <span id="refLines" class="empty-in" data-page-node-id="gGVciNOGRQXCCmt6MO9tfi">（等待第 ① 關的關鍵詞）</span>
+    </div>
+    <div class="btn-row" data-page-node-id="xcU9BOHHxKEqrhcYJlwwNr">
+      <button class="btn ghost" onclick="pullBasket()" data-page-node-id="GIA4u75rBarQGbJIz1WRj2">從素材籃帶入關鍵詞</button>
+      <button class="btn ghost" onclick="copyPrompt('poem')">複製詩句提示詞</button>
+      <button class="btn ghost" onclick="exportPromptTxt('poem')">匯出 TXT</button>
+      <button class="btn wait" id="p5next" onclick="p5Next()" data-page-node-id="psAYUR9oKF27TqKnTnGXZD">下一步：學會追問 →<span class="waitnote">還差：第 5 點關鍵詞</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ P6 詩句追問 ============ -->
+<!-- ============ P6 詩句追問 ============ -->
+<section class="page" data-stage="3" data-p="6">
+  <div class="eyebrow"><span class="chip">關卡 ③</span>詩句追問</div>
+  <h1 class="pagetitle">AI 交回來的詩，先逐項體檢，再決定要不要開口</h1>
+  <p class="lead">這首詩在五點裡有<strong>兩點是合格的</strong>——先找出來。合格的地方不用追問；追問只用在真的不對的那一項。</p>
+
+  <div class="poemwrap">
+    <div class="poemcard">
+      <div class="poemhd">AI 交回來的詩（七言絕句）</div>
+      <div class="poemlines" id="poemlines"></div>
+      <div class="poemtip">把每一句讀出來，聽聽最後一個字——押韻是耳朵聽出來的，不是眼睛看出來的。</div>
+    </div>
+
+    <div class="chkbox">
+      <div class="chkbar">
+        <span class="countpill" id="poemscore">已判定 0 / 5</span>
+        <span class="countpill" id="poemstat" style="background:#FDECEA;color:var(--bad)">合格 0 ／ 不對 0</span>
+      </div>
+      <div class="chkcards" id="pqcards"></div>
+    </div>
+  </div>
+
+  <div class="card soft" style="margin-top:22px">
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px">
+      <h3 style="margin:0">我的追問清單</h3>
+      <span class="countpill" id="askCount">0 條</span>
+    </div>
+    <p class="sub">只有「有問題」而且你按了<strong>採用這句</strong>的，才會進清單。合格的項目不會進來。</p>
+    <div id="askList" class="asklist"></div>
+
+    <div class="askbox" style="margin-top:16px">
+      <div class="askhd">✍ 再自己想一句（選填）</div>
+      <textarea id="poemAsk" class="askta" maxlength="60" placeholder="例：第 4 句的「飛」不太順，可以換一個跟「李」押韻的字嗎？"></textarea>
+      <div class="asktypes" id="poemAskTypes"></div>
+      <div class="hintline askmsg" id="poemAskMsg">先寫一句，再選它會改到第幾點。</div>
+    </div>
+
+    <div class="p6state" id="p6state"></div>
+    <div class="btn-row">
+      <button class="btn ghost" onclick="copyAskList()">複製追問清單</button>
+      <button class="btn ghost" onclick="exportAskList()">匯出 TXT</button>
+      <button class="btn wait" id="pfnext" onclick="p6Next()">流程 ① 完成 → ② 選風格<span class="waitnote">還差：5 項判定 · 1 條追問</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ P7 風格牆 ============ -->
+<section class="page" data-stage="4" data-p="7" data-page-node-id="AH73fWh0gZbbku73bKilkz">
+  <div class="eyebrow" data-page-node-id="iJkkMXKzHB4kvUFOYymmi6"><span class="chip" data-page-node-id="kFOaeEFyRw60X5BxcRCAxb">關卡 ④</span>選風格</div>
+  <h1 class="pagetitle" data-page-node-id="P7Tl8GKiVb96ymPVQ5hRIK">底圖提示詞是「選出來的」：10 條路線，選 1 條</h1>
+  <p class="lead" data-page-node-id="9dDounLbxNYnUNuaLd4PgG">點一張你喜歡的。選定後，下面 6 個元素都會跟着這條路線走——風格統一，畫面才像一張海報。</p>
+
+  <div class="stylewall" id="stylewall" data-page-node-id="6VZ9XzH42IsQOm1cRctSG8"></div>
+
+  <div class="line4" id="line4" data-page-node-id="UeKQl2SrqHfrjkwqQuS7hc">第 4 點　風格：<em style="color:var(--ink2)" data-page-node-id="hBPr4nSAcSKJsy28GrBDMA">尚未選擇</em></div>
+
+  <div class="btn-row" data-page-node-id="s6OsK3UisKSgPNzAUpLWqF">
+    <button class="btn wait" id="p7next" onclick="p7Next()" data-page-node-id="0lTZxlDHnLatVTC6f59IY5">下一步：配你的 6 個元素 →<span class="waitnote">還差：先選一條風格</span></button>
+    <button class="btn ghost" id="p7copy" disabled onclick="copyPrompt('image')">複製提示詞</button>
+    <button class="btn ghost" id="p7export" disabled onclick="exportPromptTxt('image')">匯出 TXT</button>
+  </div>
+  <p class="hintline" data-page-node-id="p7tip">選好風格就能先複製第 4 點；到下一頁配齊 6 個元素後再匯出，才是完整的 11 點提示詞。</p>
+</section>
+
+<!-- ============ P8 六元素拖拽 ============ -->
+<section class="page" data-stage="4" data-p="8" data-page-node-id="gdwYUil07SWxN5atrqqxkm">
+  <div class="eyebrow" data-page-node-id="xfVdBq6Yb4Vws5URUCjbgO"><span class="chip" data-page-node-id="KSd7huwdaqDa46n9D4qtat">關卡 ④</span>選風格</div>
+  <h1 class="pagetitle" data-page-node-id="YGHEs1IG62BOOTcccAGRkC">六個元素都要跟風格「同一條線」，不然就是拼貼</h1>
+  <p class="lead" id="p8lead" data-page-node-id="VHGa9vWrJNadCY5svqmAjr">先把右邊的選項拖進左邊的槽位。每拖一個，下面的「和諧度」就會即時告訴你：這和你的風格搭不搭。</p>
+
+  <div class="card" data-page-node-id="ECF8aY9CvwuBxKsousojAP">
+    <div id="dimrows" data-page-node-id="z0AfH5XZWZ1QxbOfx5Mtry"></div>
+    <div class="harmony yellow" id="harmony" data-page-node-id="Ay69iGZryHGZ2iVG1uuv7X">
+      <span class="dot" data-page-node-id="DRtYu71zZSDh3FT86Dbp9a"></span>
+      <span class="ht" id="hTitle" data-page-node-id="vPqN7sj3dCB4BBzgwDjTLF">請先選風格</span>
+      <span class="hm" id="hMsg" data-page-node-id="TlPuTnduY17srVY7QML3Bn">回到上一頁選一條風格路線，這裡才能判斷協不協調。</span>
+    </div>
+  </div>
+
+  <div class="card soft" data-page-node-id="t8EoPg2s9OPTEG8wgGFrYp">
+    <h3 data-page-node-id="M2SLDi9tUquPIE76GeDesE">這是對錯題嗎？</h3>
+    <p class="sub" style="margin:0" data-page-node-id="8XZJ5dwNd7rxWgh5TGBDQU">不是。綠燈代表「同一條線」，黃燈代表「可以再想想」。<strong data-page-node-id="w3iEwdct1bE7JK4uLIoj4t">你堅持自己的選擇也可以</strong>——只是畫面可能沒那麼統一，生成出來會像兩張圖拼在一起。</p>
+  </div>
+
+  <div class="btn-row" data-page-node-id="t4qG2Wpa3LNvyLVGlv1ioC">
+    <button class="btn" onclick="go(9)" data-page-node-id="AnuWu3BTQfyKLNQYlNVBTF">下一步：組裝 11 點提示詞 →</button>
+    <button class="btn ghost" onclick="copyPrompt('image')">複製 11 點提示詞</button>
+    <button class="btn ghost" onclick="exportPromptTxt('image')">匯出 TXT</button>
+  </div>
+  <p class="hintline" data-page-node-id="p8tip">六個元素配齊後，這裡的提示詞就是完整的 11 點——可以直接複製去 AI 生成底圖。</p>
+</section>
+
+<!-- ============ P9 提示詞組裝 ============ -->
+<section class="page" data-stage="5" data-p="9" data-page-node-id="ybAmOXBwrvgBOHNsImlOmt">
+  <div class="eyebrow" data-page-node-id="XZhI2jYPwe5n0ChY8GK2gT"><span class="chip" data-page-node-id="FbVFVAAnREKFTps0ekilBQ">關卡 ⑤</span>生成圖片追問</div>
+  <h1 class="pagetitle" data-page-node-id="YBnJRUYPHwLu3ypr7Mwqm1">11 點提示詞，缺一點就會被 AI 自行補完</h1>
+  <p class="lead" data-page-node-id="wayKsEJNy9tCuuF93jH5qA">點每一行把它拆開看清楚。11 行全開，就可以整段複製去 AI 了。</p>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:14px;flex-wrap:wrap" data-page-node-id="KqgjoCEIAormCMLbWMCsjA">
+    <span class="countpill" id="p9count" data-page-node-id="d7wPWxcFm220JBmlBDz2G5">已展開 0 / 11</span>
+    <div style="display:flex;gap:10px;flex-wrap:wrap" data-page-node-id="wcwGJjxOt0FsFSTxUVAGAA">
+      <button class="btn ghost" onclick="openAll()" data-page-node-id="UCr3VFFqeTLzNL4COGnUWX">全部展開</button>
+      <button class="btn ghost" onclick="copyPrompt('image')">複製提示詞</button>
+      <button class="btn" onclick="exportPromptTxt('image')" data-page-node-id="0ebYlWCwpPMFLNIdagi4Qc">匯出 TXT</button>
+    </div>
+  </div>
+
+  <div class="plines" id="plines" data-page-node-id="v3RSjbhxIJH783kpFCDI0r"></div>
+
+  <div class="btn-row" data-page-node-id="cDnqdjx8BkzJ144oWwMNBY"><button class="btn" onclick="go(10)" data-page-node-id="DQRATYIGpbDPHYJc0kVqmM">下一步：學會追問 →</button></div>
+</section>
+
+
+<!-- ============ P10 生成圖片追問 ============ -->
+<section class="page" data-stage="5" data-p="10">
+  <div class="eyebrow"><span class="chip">關卡 ⑤</span>生成圖片追問</div>
+  <h1 class="pagetitle">底圖生成出來了，但你覺得不夠好——用一句話叫 AI 改</h1>
+  <p class="lead">你在上一頁配好的底圖，AI 畫出來後你不滿意。下面 7 句都是真實的學生追問，先判斷它想改哪裡——<strong>答對了就把你自己那一點「原本 → 改成」秀給你看</strong>。</p>
+
+  <div class="matchwrap">
+    <div class="qcards" id="qcards"></div>
+    <div class="side">
+      <div class="scorebox">
+        <div class="big" id="imgscore">0 / 7</div>
+        <div class="small">配對正確</div>
+        <div style="margin-top:14px;text-align:left;font-size:15.5px;color:var(--ink2);line-height:1.7">
+          <strong style="color:var(--red)">底圖追問七型</strong><br>
+          （對應 11 點提示詞的第 4～10 點）<br>
+          換風格④／加細節⑤／刪元素⑥／改光線⑦<br>改色彩⑧／改氣氛⑨／改構圖⑩
+        </div>
+        <div class="askbox">
+          <div class="askhd">✍ 你也來寫一句</div>
+          <textarea id="imgAsk" class="askta" maxlength="60" placeholder="例：可以讓畫面左上角的天空留白多一點嗎？"></textarea>
+          <div class="asktypes" id="imgAskTypes"></div>
+          <div class="hintline askmsg" id="imgAskMsg">先寫一句，再選它是哪一型。</div>
+        </div>
+        <div style="margin-top:14px">
+          <button class="btn wait" id="imgnext" onclick="p10Next()" style="width:100%">流程 ② 完成 → ③ 合成<span class="waitnote">還差：7 項配對</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ P10 排序 ============ -->
+<section class="page" data-stage="6" data-p="11" data-page-node-id="5PVENafQvQWjqwuk2HXD8E">
+  <div class="eyebrow" data-page-node-id="tfHpAsTV1m200Er3Di5vO2"><span class="chip" data-page-node-id="Sc9BIJxBOC0V8KuF3fJV3w">關卡 ⑥</span>合成</div>
+  <h1 class="pagetitle" data-page-node-id="Zk7CKHE5JcCqCuKmFAUy1H">合成是把兩件東西「疊」在一起，不是「排」在一起</h1>
+  <p class="lead" data-page-node-id="adPjEwZrwSqkmM2t43crwb">下面六步被打亂了。拖動它們排成正確順序——排對一步，就會告訴你那個步驟最容易踩的坑。</p>
+
+  <div class="card" data-page-node-id="DPBssTDA1xSocWHbg0984i">
+    <div class="sortlist" id="sortlist" data-page-node-id="YjDYRTe02glc9inh6whLhg"></div>
+    <div class="btn-row" data-page-node-id="93GiEkHBPcPRZCvbwQfwKi">
+      <button class="btn ghost" onclick="resetSort()" data-page-node-id="YM2UaKPhh5qtSIfayOM0en">重新打亂</button>
+      <button class="btn wait" id="p10next" onclick="p11Next()" data-page-node-id="30RbS0ACWEY7DdJuEG45Je">下一步：技能檢核 →<span class="waitnote">還差：把六步排對</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ P11 技能檢核 ============ -->
+<section class="page" data-stage="6" data-p="12" data-page-node-id="TuZG4GirNvUIOJsQxVFJ9c">
+  <div class="eyebrow" data-page-node-id="DmRcpCNPa6XwGvknQ2c1sj"><span class="chip" data-page-node-id="FcBX2boWtRThDRJLgiC8uG">關卡 ⑥</span>合成</div>
+  <h1 class="pagetitle" data-page-node-id="kXtZYNhdSeyP1fGJLiaHa1">核心 7 項技能，做到 5 項才算過關</h1>
+  <p class="lead" data-page-node-id="LKDi7HWE7FQQMh3z0CFVhL">做完一項就點一下打勾。做到 5 項出現「達標」，7 項全對就會亮金。</p>
+
+  <div class="card" data-page-node-id="nrM7VIZy5bkySAmmxlbhmm">
+    <div class="ringwrap" style="margin-bottom:22px" data-page-node-id="mstGUDSQxVzC6nZpwTwkwy">
+      <div class="ring" data-page-node-id="JXO4WEnw3xltPMFtxc9JA3">
+        <svg width="118" height="118" data-page-node-id="VGDy4hGyIsVtNW1Z6FXokI">
+          <circle cx="59" cy="59" r="50" fill="none" stroke="#EDE2CE" stroke-width="12" data-page-node-id="yv1uAsZae03kS8gHwHqZYK"></circle>
+          <circle id="ringfg" cx="59" cy="59" r="50" fill="none" stroke="#C9A227" stroke-width="12"
+                  stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="314"
+                  style="transition:stroke-dashoffset .5s" data-page-node-id="mjecJrBF5FkoyTLPR49224"></circle>
+        </svg>
+        <div class="pct" id="ringpct" data-page-node-id="DfzGXk0A7XU527FX5Wv3sS">0/7</div>
+      </div>
+      <div data-page-node-id="gSrtHBKcoBnAx4mznHo7Yh">
+        <div class="state warn" id="skillState" style="margin-bottom:8px" data-page-node-id="1EaGkNzh0k0OBXNFO3emmf">尚未開始</div>
+        <div class="hintline" id="skillHint" data-page-node-id="sHXoSdGcGIoFUAKGvPSzbX">7 項中做到 5 項，就達到本課的技能門檻。</div>
+      </div>
+    </div>
+    <div class="skilllist" id="skilllist" data-page-node-id="sdVILAEyPJtOY8566mKO1r"></div>
+  </div>
+
+  <div class="btn-row" data-page-node-id="Ze1blNL3PRL6vAc5dupYgM"><button class="btn" onclick="go(13)" data-page-node-id="oU12f0XXsSeToi6QtpOgsh">看我的結算 →</button></div>
+</section>
+
+<!-- ============ P12 結算 ============ -->
+<section class="page" data-stage="6" data-p="13" data-page-node-id="WU3iFUDmsXsbOo4jJWGluG">
+  <div class="eyebrow" data-page-node-id="9yuiiAQwf2ypwXGhWMfcQ3"><span class="chip" data-page-node-id="opewGzvp6phBr1eiyqv3YP">收尾</span>結算</div>
+  <h1 class="pagetitle" data-page-node-id="jAuVSqTf98Jrc0fvk55qe7">你的提示詞已經可以用了：帶走這三件東西</h1>
+  <p class="lead" data-page-node-id="18Ul40fYvinKo0PHAAMMtR">下面是你在這節課攢下來的東西。綠色的可以帶走，紅色的還差一步。</p>
+
+  <div class="card" data-page-node-id="8cMKX6XDK11AHRcVgQlLnW">
+    <div id="summary" data-page-node-id="dFQRnd025PsRnf6lRaOgJp"></div>
+  </div>
+
+  <div class="btn-row" style="flex-direction:column;align-items:stretch;gap:12px" data-page-node-id="KKxkFqPfkbt1tGFCXr6wmi">
+    <button class="btn big-btn" onclick="exportAll()" data-page-node-id="felqnWPavvINgWTGkg88M0">匯出我的提示詞（複製＋下載）</button>
+    <button class="btn ghost big-btn" onclick="go(1)" data-page-node-id="27WLUvYRJRFz94LZyrkCHi">回到首頁</button>
+  </div>
+
+  <p class="hintline" style="text-align:center;margin-top:22px" data-page-node-id="3E5tnWxFLoSRujT07ZtlT8">
+    記得：提示詞只是「說明書」，詩句的內容要你自己定。<br data-page-node-id="73YJkl8ckQOg3qmteSEaf9">AI 是你請來的畫師，不是代筆的人。
+  </p>
+</section>
+
+</div>
+
+<div class="nav" data-page-node-id="npSJbMPz7MIR52DQZ8AXLv">
+  <div class="nav-in" data-page-node-id="zEAjoGJr3rGsSPBWuNrQmw">
+    <button class="btn ghost" id="prevBtn" onclick="go(cur-1)" data-page-node-id="U3P0Z1m7dB03E8Zx7Ywmmv">← 上一頁</button>
+    <span class="pageno" id="pageno" data-page-node-id="VcRDC7TVo31yfGERbs86nG">1 / 13</span>
+    <span class="flowtag" id="flowtag">封面 · 揀一個流程</span>
+    <div style="margin-left:auto;display:flex;gap:12px;flex-wrap:wrap" data-page-node-id="DPAv9WFwz4Ql3nGjCR9ulJ">
+      <button class="btn ghost" onclick="resetAll()" style="font-size:16px;padding:10px 20px" data-page-node-id="XqAsIoXEY9lA0lIei427im">重設</button>
+      <button class="btn" id="nextBtn" onclick="go(cur+1)" data-page-node-id="miT1jvVPBnC4e3rNyvaNkB">下一頁 →</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" data-page-node-id="Cd6qPXmuDQh6EGpHZmFbNg"></div>
+
+<script>
+/* ============================================================
+   資料層：全部對應資源站《校慶AI海報_完整版.html》終版
+   ============================================================ */
+
+/* ---- 校史時間軸（10 節點，文字照搬資源站 ②） ---- */
+const TIMELINE = [
+  {yr:"1892", brief:"鏡湖義塾創辦", words:["鏡湖義塾","1892創校","歷史最悠久"]},
+  {yr:"1911", brief:"改名鏡湖小學", words:["正式立案","鏡湖小學","薪火初燃"]},
+  {yr:"1924", brief:"創辦平民小學", words:["平民小學","女子夜校","有教無類"]},
+  {yr:"1948", brief:"捐地筹建新校舍", words:["望廈地段","善長捐地","熱心興學"]},
+  {yr:"1949", brief:"兩校合併", words:["鏡湖平民聯合小學","學生逾千五","兩校合一"]},
+  {yr:"1950", brief:"新校舍落成", words:["新校舍落成","何賢校長","校園新貌"]},
+  {yr:"1984", brief:"增設電腦及公民課", words:["電腦及公民課","與時並進","科技興學"]},
+  {yr:"1990", brief:"推動電化教學", words:["電化教學","崔世安校長","設備更新"]},
+  {yr:"1992", brief:"正名「鏡平學校」", words:["正名鏡平","四層新校舍","鏡平之名"]},
+  {yr:"2025", brief:"守正創新", words:["守正創新","家國情懷","服務社群"]}
+];
+const TL_DETAIL = {
+  "1892":"曹、周二姓善長捐出物業興辦義學，鏡湖醫院在澳門各區辦學塾，統稱「鏡湖義塾」。澳門辦校歷史最悠久的學校。",
+  "1911":"正式立案，改名為「鏡湖小學」。",
+  "1924":"熱心人士許祥發起籌辦義學，創辦「平民小學」（共七所），並設女子夜校。",
+  "1948":"慈善會董事何善衡捐出望廈地段，合力籌建新校舍。",
+  "1949":"「鏡湖小學」與「平民小學」合併，組成「鏡湖平民聯合小學」，余倩嫻女士任校長，學生逾 1,500 人。",
+  "1950":"新校舍落成啟用；同年何賢先生接任校長。",
+  "1984":"何德明先生接任校長，學校與時並進，增設電腦及公民課。",
+  "1990":"崔世安先生任校長，大力推動電化教學、改善環境與設備。",
+  "1992":"小學原址改建為樓高四層的新校舍，正式改名為「鏡平學校」。",
+  "2025":"曾紀川先生擔任校長，秉持守正創新、服務社群，推動課程教學創新與家國情懷。"
+};
+const MOTTO = {
+  "誠":"對自己誠實，言行一致，做老實人、說老實話、辦老實事；對別人真誠；對祖國忠誠，愛國愛澳愛校。",
+  "毅":"堅強的意志和毅力。學習和做事有堅定的目的性，鍥而不捨、知難而進、堅持到底、百折不撓。",
+  "精":"學習上精益求精。專心致志，有扎實深入的知識，掌握基本技能，逐步培養自學與動手操作能力。",
+  "博":"博學多才。在深入的基礎上向廣的方面發展，既掌握課本知識，也學習課堂以外的知識，做到既專且博。"
+};
+
+/* ---- 五個詞館：①是上面的校史時間軸，②～⑤在這裡 ---- */
+const WORDBANKS = [
+  {id:"virtue", no:"②", name:"校訓與品格", star:false,
+   why:"四字品格詞。寫進詩裡，詩就會有「鏡平味」。",
+   words:["誠實守信","堅毅不拔","精益求精","博學多才","守正創新","與時並進","敦品勵學","實事求是"]},
+  {id:"scene", no:"③", name:"校園景物", star:true,
+   why:"★ 意象詞。AI 最需要這種詞，畫面才會出來。",
+   words:["木棉","校舍","操場","一草一木","校門","走廊","禮堂","圖書館","課室","升旗台","鳳凰木","綠蔭","鐘聲","書聲"]},
+  {id:"macau2", no:"④", name:"澳門與家國", star:false,
+   why:"情懷詞。把學校和澳門、和祖國連起來。",
+   words:["愛國愛澳","與祖國同心","蓮花","大三巴","東望洋燈塔","濠江","中葡共融","澳門最悠久","盛世蓮花","根在澳門"]},
+  {id:"heart", no:"⑤", name:"成長與感恩", star:true,
+   why:"★ 情感詞。讓詩有溫度，不像一張年表。",
+   words:["感恩師長","薪火相傳","學長學弟","代代相承","在鏡平長大","成長","青春","驕傲","祝福","同窗","夢想起航","師恩難忘"]}
+];
+/* 館的標籤（素材籃顯示用） */
+const BANK_META = {
+  history:{no:"①", name:"校史", short:"史"},
+  virtue :{no:"②", name:"品格", short:"品"},
+  scene  :{no:"③", name:"景物", short:"景"},
+  macau2 :{no:"④", name:"家國", short:"國"},
+  heart  :{no:"⑤", name:"情感", short:"情"}
+};
+/* 每個主題偏好哪些館（方案 A 的「同類」判定用） */
+const THEME_BANKS = {
+  history:["history"],
+  motto  :["virtue","history"],
+  campus :["scene","history"],
+  macau  :["macau2","history"],
+  passon :["heart","history"],
+  grow   :["heart","history"]
+};
+/* 查一個詞屬於哪個館 */
+function bankOf(w){
+  const b = WORDBANKS.find(x=>x.words.indexOf(w) >= 0);
+  if(b) return b.id;
+  if(MOTTO[w]) return "virtue";
+  if(TIMELINE.some(n=>n.words.indexOf(w) >= 0)) return "history";
+  return null;
+}
+function coveredBanks(){
+  const s = {};
+  S.basket.forEach(w=>{ const b = bankOf(w); if(b) s[b] = 1; });
+  return Object.keys(s).length;
+}
+
+/* ---- 6 個詩歌主題 → 適合的關鍵詞來源（分類對應） ---- */
+const THEMES = [
+  {id:"history", name:"校史慶典", desc:"134 年的傳承、輝煌與里程碑",
+   ok:["1892創校","歷史最悠久","鏡湖義塾","正式立案","正名鏡平","新校舍落成","鏡平之名","校園新貌","兩校合一","平民小學"]},
+  {id:"motto",   name:"校訓精神", desc:"誠毅精博、守正辦學的品格",
+   ok:["誠","毅","精","博","誠實守信","堅毅不拔","精益求精","博學多才","敦品勵學","實事求是","守正創新","與時並進","電化教學"]},
+  {id:"campus",  name:"校園景色", desc:"木棉、校舍、操場、一草一木",
+   ok:["木棉","校舍","操場","一草一木","校門","走廊","禮堂","圖書館","課室","升旗台","鳳凰木","綠蔭","鐘聲","書聲","四層新校舍","新校舍落成","望廈地段","校園新貌"]},
+  {id:"macau",   name:"澳門與家國", desc:"愛國愛澳、與祖國同心的情懷",
+   ok:["家國情懷","歷史最悠久","愛國愛澳","與祖國同心","蓮花","大三巴","東望洋燈塔","濠江","中葡共融","澳門最悠久","盛世蓮花","根在澳門"]},
+  {id:"passon",  name:"薪火相傳", desc:"學長學弟、代代相承的使命",
+   ok:["學生逾千五","何賢校長","崔世安校長","正名鏡平","薪火相傳","學長學弟","代代相承","薪火初燃","兩校合一"]},
+  {id:"grow",    name:"成長與感恩", desc:"在鏡平成長、感謝師長培育",
+   ok:["善長捐地","電腦及公民課","女子夜校","感恩師長","在鏡平長大","成長","青春","祝福","同窗","夢想起航","師恩難忘","有教無類","熱心興學","服務社群"]}
+];
+
+/* ---- 10 條風格路線（照搬資源站 STYLES） ---- */
+const STYLES = [
+  {id:1,name:"金紅節慶",tag:"插畫風 · 校史慶典",img:"assets/風格示範/風格1_金紅節慶_插畫風.png",desc:"現代商業插畫風格，喜慶金光，畫面熱鬧有慶典感"},
+  {id:2,name:"清新水彩",tag:"淡雅風 · 校園景色",img:"assets/風格示範/風格2_清新水彩_淡雅風.png",desc:"清新水彩畫風格，柔和淡雅，低飽和的透明水彩質感，筆觸輕盈水潤"},
+  {id:3,name:"Q 版 3D",tag:"童趣風 · 校園生活",img:"assets/風格示範/風格3_Q版3D_童趣風.png",desc:"可愛的 3D 卡通渲染風格（Q 版），有立體感與光澤，活潑童趣"},
+  {id:4,name:"古風水墨",tag:"書卷風 · 校訓傳承",img:"assets/風格示範/風格4_古風水墨_書卷風.png",desc:"中國傳統水墨畫風格，帶宣紙紋理，淡墨與濃墨交錯，古雅留白"},
+  {id:5,name:"現代幾何",tag:"設計風 · 創校里程碑",img:"assets/風格示範/風格5_現代幾何_設計風.png",desc:"現代扁平化幾何設計風格（flat vector design），純色塊與簡潔線條，時尚簡約"},
+  {id:6,name:"藍調夜景",tag:"璀璨風 · 澳門與家國",img:"assets/風格示範/風格6_藍調夜景_璀璨風.png",desc:"夜景燈光風格，寫實感，深藍夜空配暖黃燈光，靜謐璀璨"},
+  {id:7,name:"剪紙鏤空",tag:"民俗風 · 節慶吉祥",img:"assets/風格示範/風格7_剪紙鏤空_民俗風.png",desc:"中國傳統剪紙藝術風格，紅色鏤空質感，祥雲燈籠等吉祥紋樣，喜慶熱鬧"},
+  {id:8,name:"醒獅賀慶",tag:"南嶺風 · 鑼鼓歡騰",img:"assets/風格示範/風格8_醒獅賀慶_南嶺風.png",desc:"嶺南醒獅賀慶風格，金紅醒獅頭與彩綢飛舞，鑼鼓喧天，熱鬧歡騰的節慶畫面"},
+  {id:9,name:"澳門印記",tag:"蓮城風 · 澳門風情",img:"assets/風格示範/風格9_澳門印記_蓮城風.png",desc:"澳門城市風情插畫風格，蓮花、大三巴牌坊、東望洋燈塔與葡式彩色建築交融，暖陽金橙色調，中葡文化共融的溫馨風情"},
+  {id:10,name:"國潮新韻",tag:"新中式風 · 時尚喜慶",img:"assets/風格示範/風格10_國潮新韻_新中式風.png",desc:"國潮新中式設計風格，中國傳統紋樣（祥雲、回紋、印章）與現代平面構成融合，紅撞青綠描金，時尚大氣"}
+];
+
+/* ---- 6 個從屬維度（照搬資源站 DIMS，含 good 協調表） ---- */
+const DIMS = [
+  {id:"subject",no:5,label:"主體",hint:"畫面主角是什麼",options:[
+    {key:"school",label:"鏡平校園建築",prompt:"以鏡平學校的建築外觀為主體，突出校舍與校門的輪廓",good:[1,2,4,7,8,10]},
+    {key:"campus",label:"校園景色",prompt:"以校園景色為主體，描繪木棉樹、操場與綠意盎然的校園一角",good:[2,3]},
+    {key:"landmark",label:"澳門地標+校園",prompt:"以澳門地標（如大三巴、旅遊塔）與校園建築結合為主體，象徵學校與澳門同在",good:[5,6,9]},
+    {key:"symbol",label:"抽象符號",prompt:"以抽象符號與圖形（如放射狀圓形、幾何圖案）為主體",good:[5]}
+  ]},
+  {id:"person",no:6,label:"人物",hint:"畫面有沒有角色",options:[
+    {key:"kp",label:"KP 娃娃",prompt:"融入鏡平學校的 KP 娃娃卡通形象，穿著校服，活潑可愛",good:[1,2,3,6,7,8,9,10]},
+    {key:"students",label:"學生群像",prompt:"描繪一群學生在校園中學習、活動的剪影或形象",good:[1,2,3,7,8,9,10]},
+    {key:"none",label:"不要人物",prompt:"畫面中不放人物，專注於景物與意境",good:[4,5]}
+  ]},
+  {id:"light",no:7,label:"光線",hint:"畫面的光影氛圍",options:[
+    {key:"radiant",label:"放射金光",prompt:"放射狀的溫暖金光，從中心向外擴散",good:[1,7,8]},
+    {key:"soft",label:"柔和側光",prompt:"柔和的自然側光，光線輕柔細膩",good:[2,4]},
+    {key:"bright",label:"明亮日光",prompt:"明亮的白天日光，色彩飽滿活潑",good:[3,9]},
+    {key:"night",label:"夜晚燈光",prompt:"夜晚的燈光，深藍夜色中點綴暖黃光點",good:[6]},
+    {key:"flat",label:"無陰影平光",prompt:"均勻無陰影的平光，扁平乾淨",good:[5,10]}
+  ]},
+  {id:"color",no:8,label:"色彩",hint:"主色調與配色",options:[
+    {key:"redgold",label:"正紅+金",prompt:"以正紅色與金色為主色調，喜慶熱烈",good:[1,7,8]},
+    {key:"fresh",label:"米白淺青",prompt:"以米白與淺青色為主色調，清新淡雅",good:[2]},
+    {key:"bright",label:"繽紛高彩",prompt:"高彩度的繽紛色彩，明快活潑",good:[3]},
+    {key:"ink",label:"墨赭宣紙",prompt:"以墨色與赭色的水墨宣紙色調，古雅沉靜",good:[4]},
+    {key:"navygold",label:"金+深藍",prompt:"以金色與深藍色為主色調，時尚大氣",good:[5]},
+    {key:"bluegold",label:"深藍+暖黃",prompt:"以深藍與暖黃色為主色調，靜謐璀璨",good:[6]},
+    {key:"guochao",label:"國潮紅青",prompt:"以中國紅為主，撞以青綠色與描金線條，時尚大氣的東方撞色",good:[10]},
+    {key:"liancheng",label:"蓮城粉彩",prompt:"以暖陽金橙為主，點綴蓮花粉紅與葡式建築的柔和粉彩色調",good:[9]}
+  ]},
+  {id:"mood",no:9,label:"氣氛",hint:"整體情感基調",options:[
+    {key:"celebrate",label:"喜慶熱鬧",prompt:"喜慶熱鬧的慶典氣氛，歡騰熱烈",good:[1,7,8]},
+    {key:"quiet",label:"安靜淡雅",prompt:"安靜淡雅的氣氛，平和寧靜",good:[2,4]},
+    {key:"playful",label:"活潑童趣",prompt:"活潑童趣的氣氛，輕快歡樂",good:[3]},
+    {key:"modern",label:"現代時尚",prompt:"現代時尚的氣氛，簡潔有力",good:[5,10]},
+    {key:"serene",label:"靜謐璀璨",prompt:"靜謐璀璨的氣氛，夜色寧靜又華麗",good:[6]},
+    {key:"warm",label:"溫馨動人",prompt:"溫馨動人的氣氛，洋溢著城市情懷與自豪感",good:[9]}
+  ]},
+  {id:"comp",no:10,label:"構圖",hint:"畫面布局方式",options:[
+    {key:"symmetry",label:"對稱中心式",prompt:"對稱的中心式構圖，主體居中、左右平衡",good:[1,7,8]},
+    {key:"space",label:"大留白式",prompt:"大量留白的簡約構圖，主體偏下、頂部大幅留白",good:[2,4]},
+    {key:"center",label:"近景特寫式",prompt:"近景特寫構圖，主體放大占滿畫面下方",good:[3]},
+    {key:"geometry",label:"幾何分割式",prompt:"幾何分割構圖，以色塊與線條切割畫面",good:[5,10]},
+    {key:"depth",label:"遠近景深式",prompt:"有前景中景遠景的景深構圖，層次分明",good:[6,9]}
+  ]}
+];
+
+/* ---- 底圖追問七型（對應 11 點提示詞的第 4～10 點） ---- */
+const TYPES = ["換風格","加細節","刪元素","改光線","改色彩","改氣氛","改構圖"];
+const IMG_PT = {4:"風格",5:"主體",6:"人物",7:"光線",8:"色彩",9:"氣氛",10:"構圖"};
+const IMG_ASK_PT = {"換風格":4,"加細節":5,"刪元素":6,"改光線":7,"改色彩":8,"改氣氛":9,"改構圖":10};
+const QUESTIONS = [
+  {q:"這張太現代了，可以改成中國水墨的感覺嗎？", a:"換風格", pt:4,
+   to:"中國水墨風格，水墨暈染、筆觸寫意，宣紙質感與大量留白。",
+   why:"換風格：整張畫的「畫種」被換掉，不是改小地方 → 改第 4 點風格。"},
+  {q:"可以讓 KP 娃娃手上多拿一朵木棉花嗎？", a:"加細節", pt:5,
+   to:"以鏡平學校的建築外觀為主體，突出校舍與校門的輪廓；並讓 KP 娃娃手上拿著一朵木棉花。",
+   why:"加細節：畫種不變，只是在畫面裡多一樣小東西 → 改第 5 點主體。"},
+  {q:"右上角那個燈籠不要，畫面乾淨一點。", a:"刪元素", pt:6,
+   to:"畫面中不放人物，也不要燈籠之類的裝飾物件，專注於景物與意境。",
+   why:"刪元素：拿掉一個具體的物件或角色 → 改第 6 點人物／元素。"},
+  {q:"現在太暗了，可以改成早上暖暖的陽光嗎？", a:"改光線", pt:7,
+   to:"清晨的暖陽斜光，光線柔和金黃，由畫面左上方灑入。",
+   why:"改光線：明暗與光源方向變了，畫面裡的東西沒變 → 改第 7 點光線。"},
+  {q:"紅色太多了，可以改成比較清爽的藍綠色系嗎？", a:"改色彩", pt:8,
+   to:"以淺藍與青綠色為主色調，清爽明亮。",
+   why:"改色彩：整張畫的配色換掉 → 改第 8 點色彩。"},
+  {q:"看起來太安靜了，可以再熱鬧喜慶一點嗎？", a:"改氣氛", pt:9,
+   to:"喜慶熱鬧的慶典氣氛，歡騰熱烈，有節慶的動感。",
+   why:"改氣氛：整張畫的情緒基調變了 → 改第 9 點氣氛。"},
+  {q:"所有東西都擠在中間，可以改成左邊大留白嗎？", a:"改構圖", pt:10,
+   to:"大量留白的簡約構圖，主體偏右，左側大幅留白。",
+   why:"改構圖：物件的位置關係重排，主體本身沒變 → 改第 10 點構圖。"}
+];
+
+/* ---- 詩句體檢：一首故意有毛病、也有合格項的 AI 詩 ----
+   五項嚴格對應詩句提示詞第 1～5 點；
+   其中第 2、4 點是「合格」的陷阱，用來教「不是每項都要追問」。
+   押韻：丽 lì／李 lǐ／心 xīn／飛 fēi。
+     → 第 2 句「李」押；第 4 句「飛」韻母 ei，不押 → 韻腳缺一，不合格。
+     → 第 3 句「心」不押是對的（第 3 句本來就要跟韻腳相反）。
+     → 第 1 句押不押都可以（首句入韻／首句不入韻）。
+*/
+const POEM_TEXT = ["鏡平校園真美丽，", "誠毅精博育桃李。", "慶祝校慶好開心，", "大家一齊向前飛。"];
+const POEM_CHECK = [
+  {id:0, pt:1, name:"繁體字", tag:"逐字看字形", how:"看一下：有沒有一個字長得跟我們平常寫的不一樣？", bad:true,
+   ev:"第 1 句「美丽」是簡體。繁體要寫「美麗」——這在交作業時會被扣分。",
+   ask:"請全部使用繁體中文，不要出現簡體字。第 1 句的「美丽」請改成「美麗」。",
+   to:"使用繁體中文字（全篇不得出現簡體字）。"},
+  {id:1, pt:2, name:"七言 · 四句", tag:"數一數", how:"數：幾句？每句幾個字？", bad:false,
+   ev:"4 句，每句 7 個字 → 完全符合七言絕句。順帶一提：第 3 句不押韻是對的，它本來就要跟韻腳相反。",
+   ok:"這一項合格，不用追問。"},
+  {id:2, pt:3, name:"第 2、4 句押韻", tag:"讀出來聽", how:"第 2 句和第 4 句是韻腳。讀一讀最後一個字：李、飛——順不順？", bad:true,
+   ev:"第 2 句「李」(lǐ) 押上了，第 4 句「飛」(fēi) 韻母是 ei，跟它不押。韻腳缺一個，就是要改的地方。（第 1 句押不押都可以，第 3 句本來就不押。）",
+   ask:"第 4 句要跟第 2 句押韻，請把「飛」換成跟「李」同韻的字。",
+   to:"第 2 句和第 4 句要押同一個韻（第 3 句不押）。"},
+  {id:3, pt:4, name:"寫出校慶／辦學精神", tag:"問一句：講到鏡平什麼？", how:"這首詩有沒有講到鏡平的什麼？還是換成任何學校都成立？", bad:false,
+   ev:"有「誠毅精博」（校訓）、「慶祝校慶」，主題合格。不過它偏口號——合格不等於好，但這項先不用追問。",
+   ok:"這一項合格，不用追問。"},
+  {id:4, pt:5, name:"用上你的校史關鍵詞", tag:"對照素材籃", how:"對照你採的詞：1892、鏡湖義塾、平民小學……有哪一個出現在詩裡？", bad:true,
+   ev:"一個都沒有。這首詩把「鏡平」換成任何一所學校都成立——這就是為什麼每個人的詩會一樣。",
+   ask:"請把校史關鍵詞寫進詩裡，例如「1892 創校」「鏡湖義塾」，讓這首詩只屬於鏡平。",
+   to:"以下是澳門鏡平學校的參考資料，請優先使用：1892創校、鏡湖義塾。"}
+];
+const POEM_BAD_COUNT = POEM_CHECK.filter(c=>c.bad).length;
+
+/* ---- 學生自寫追問：五型對應五點 ---- */
+const POEM_TYPES = ["改字形","改格式","改押韻","改主題","補資料"];
+const POEM_PT = {1:"繁體字",2:"格式",3:"押韻",4:"主題情感",5:"參考資料"};
+const POEM_ASK_PT = {"改字形":1,"改格式":2,"改押韻":3,"改主題":4,"補資料":5};
+
+/* ---- Word 六步（照搬資源站 ⑦） ---- */
+const STEPS = [
+  {id:1,t:"新建 Word，頁面設成 A4 直向", trap:"先設頁面，後排版"},
+  {id:2,t:"插入圖片 → 選「文繞圖 → 襯於文字下」", trap:"不是「嵌入型」，否則文字推不動它"},
+  {id:3,t:"把圖片拉滿整頁（拖角落控制點，按住 Shift）", trap:"按 Shift 才不變形"},
+  {id:4,t:"插入文字方塊，貼上你的四行詩句", trap:"文字要另開方塊，不直接打在段落上"},
+  {id:5,t:"設定字型、字號、顏色，並「置中」對齊", trap:"詩句置中，整張才有海報感"},
+  {id:6,t:"用「對齊」工具排好位置，調整行距，儲存", trap:"檔名：P5A_學號_姓名_校慶海報"}
+];
+
+/* ---- Word 核心 7 技能（照搬資源站 SKILLS_CORE） ---- */
+const SKILLS = [
+  {n:"①",t:"我會打字和貼上文字",d:"把提示詞、詩句放進文件"},
+  {n:"②",t:"我會設定文字格式",d:"字型、字號、顏色"},
+  {n:"③",t:"我會把詩句「置中」對齊",d:""},
+  {n:"④",t:"我會「插入圖片」，並調整大小",d:""},
+  {n:"⑤",t:"我會設定圖片的「文繞圖 → 襯於文字下」",d:""},
+  {n:"⑥",t:"我會「插入文字方塊」，並移到想要的位置",d:""},
+  {n:"⑦",t:"我會儲存檔案",d:"檔名：P5A_學號_姓名_校慶海報"}
+];
+
+/* ============================================================
+   狀態
+   ============================================================ */
+const S = {
+  basket:[],            // 已收集的關鍵詞
+  openedTL:[],          // 已點開的年份
+  myTheme:null,         // 選定的主題 id
+  themeWords:{},        // {themeId:[word,...]}
+  tmsg:{},              // {themeId:{text,cls}} 主題卡的回饋訊息
+  filled:{},            // P4 填空（七言／四句）
+  rhyme:[],             // P4 學生自選要押韻的行，如 [2,4] 或 [1,2,4]
+  rhymeMode:'free',     // 老師設定：free／in（首句入韻）／out（首句不入韻）
+  refReady:false,       // P5 第5點是否填入
+  role:'',              // P5 第一行角色（學生自己填）
+  pqState:[],           // 詩句體檢：每項是否判定正確
+  pqAdopt:{},           // 已採用進追問清單的項目 id
+  matchState:[],        // 底圖追問每題是否答對
+  poemAsk:"",           // 學生自己寫的詩句追問
+  poemAskType:null,
+  imgAsk:"",            // 學生自己寫的底圖追問
+  imgAskType:null,
+  style:null,           // 選定風格 id
+  dims:{},              // {dimId:key}
+  openedLines:0,        // P9 展開行數
+  sortState:[],         // P10 目前順序（step id 陣列）
+  skills:{}             // P11 技能勾選
+};
+const SKILL_KEY = 'kp134_interactive_skills';
+try{ S.skills = JSON.parse(localStorage.getItem(SKILL_KEY)) || {}; }catch(e){ S.skills = {}; }
+
+let cur = 1;
+const TOTAL = 13;
+
+/* ============================================================
+   三流程導航
+   流程① P2–P6（關卡1-3）｜流程② P7–P10（關卡4-5）｜流程③ P11–P13（關卡6，可單獨做）
+   ============================================================ */
+const STAGE_PAGE = {1:2, 2:4, 3:6, 4:7, 5:9, 6:11};
+const FLOW_PAGES  = {1:[2,3,4,5,6], 2:[7,8,9,10], 3:[11,12,13]};
+const FLOW_STAGES = {1:[1,2,3], 2:[4,5], 3:[6]};
+const FLOW_START  = {1:2, 2:7, 3:11};
+const FLOW_NUM    = {1:'①', 2:'②', 3:'③'};
+function flowOf(p){
+  for(const f in FLOW_PAGES) if(FLOW_PAGES[f].indexOf(p) >= 0) return +f;
+  return 0;
+}
+function jumpStage(s){
+  const p = STAGE_PAGE[s];
+  if(p) go(p);
+}
+function jumpFlow(f){
+  if(FLOW_START[f]) go(FLOW_START[f]);
+}
+
+/* ============================================================
+   進度保存：三個流程分開上，關掉瀏覽器再開要能接上
+   ============================================================ */
+const STATE_KEY = 'kp134_state_v1';
+const STATE_FIELDS = ['basket','openedTL','myTheme','themeWords','filled','rhyme','style','dims',
+                      'pqState','pqAdopt','poemAsk','poemAskType','imgAsk','imgAskType',
+                      'openedLines','sortState','matchState','role'];
+function saveState(){
+  try{
+    const o = {v:1, t:Date.now()};
+    STATE_FIELDS.forEach(k=>{ o[k] = S[k]; });
+    o.skills = S.skills;
+    localStorage.setItem(STATE_KEY, JSON.stringify(o));
+  }catch(e){}
+}
+let _saveTimer = null;
+function queueSave(){
+  if(_saveTimer) return;
+  _saveTimer = setTimeout(()=>{ _saveTimer = null; saveState(); }, 400);
+}
+function loadState(){
+  let o = null;
+  try{
+    const raw = localStorage.getItem(STATE_KEY);
+    if(!raw) return false;
+    o = JSON.parse(raw);
+  }catch(e){ return false; }
+  if(!o || o.v !== 1) return false;
+  STATE_FIELDS.forEach(k=>{ if(o[k] !== undefined) S[k] = o[k]; });
+  if(o.skills && typeof o.skills === 'object') S.skills = o.skills;
+  S._savedAt = o.t || 0;
+  /* 舊資料長度不符時回退，避免陣列越界 */
+  if(!Array.isArray(S.matchState) || S.matchState.length !== QUESTIONS.length) S.matchState = new Array(QUESTIONS.length).fill(false);
+  if(!Array.isArray(S.pqState)  || S.pqState.length  !== POEM_CHECK.length)  S.pqState  = new Array(POEM_CHECK.length).fill(false);
+  if(!S.pqAdopt || typeof S.pqAdopt !== 'object') S.pqAdopt = {};
+  if(!S.themeWords || typeof S.themeWords !== 'object') S.themeWords = {};
+  if(!S.filled || typeof S.filled !== 'object') S.filled = {};
+  if(!S.dims || typeof S.dims !== 'object') S.dims = {};
+  if(!Array.isArray(S.basket)) S.basket = [];
+  if(!Array.isArray(S.rhyme)) S.rhyme = [];
+  if(!Array.isArray(S.sortState)) S.sortState = [];
+  if(!Array.isArray(S.openedTL)) S.openedTL = [];
+  return true;
+}
+function hasProgress(){
+  return S.basket.length > 0 || !!S.style || Object.keys(S.filled).length > 0
+    || Object.keys(S.themeWords).length > 0 || S.pqState.some(Boolean)
+    || (S.skills && Object.keys(S.skills).length > 0);
+}
+function showRestoreBar(){
+  const bar = $('restoreBar');
+  if(!bar) return;
+  if(!hasProgress()){ bar.classList.remove('on'); return; }
+  let when = '';
+  if(S._savedAt){
+    const d = new Date(S._savedAt);
+    const p2 = n => String(n).padStart(2,'0');
+    when = `（${d.getMonth()+1}/${d.getDate()} ${p2(d.getHours())}:${p2(d.getMinutes())}）`;
+  }
+  $('restoreTxt').textContent = '已恢復上次進度' + when;
+  bar.classList.add('on');
+}
+
+/* ============================================================
+   基礎工具
+   ============================================================ */
+function $(id){ return document.getElementById(id); }
+function toast(msg, kind){
+  const t = $('toast');
+  t.textContent = msg;
+  t.className = 'toast on' + (kind ? ' '+kind : '');
+  clearTimeout(t._tm);
+  t._tm = setTimeout(()=>{ t.className = 'toast' + (kind?' '+kind:''); }, 2200);
+}
+function shuffle(a){ const b=a.slice(); for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];} return b; }
+/* ---- 主題說明句：選了主題才帶入提示詞 ---- */
+function curTheme(){ return S.myTheme ? (THEMES.find(t=>t.id===S.myTheme) || null) : null; }
+function themeFullName(){ const t = curTheme(); return t ? (t.name + '（' + t.desc + '）') : ''; }
+
+/* 拖拽通用：支援滑鼠與觸控 */
+function makeDraggable(el, payload, onEnd){
+  el.setAttribute('draggable','true');
+  el.addEventListener('dragstart', e=>{
+    el.classList.add('dragging');
+    e.dataTransfer.setData('text/plain', payload);
+    e.dataTransfer.effectAllowed = 'move';
+  });
+  el.addEventListener('dragend', e=>{
+    el.classList.remove('dragging');
+    if(onEnd) onEnd();
+  });
+  /* 觸控：Pointer 事件模擬 */
+  el.addEventListener('pointerdown', e=>{
+    if(e.pointerType === 'mouse') return;
+    e.preventDefault();
+    const ghost = el.cloneNode(true);
+    ghost.style.cssText += 'position:fixed;z-index:999;pointer-events:none;opacity:.85;transform:translate(-50%,-50%)';
+    document.body.appendChild(ghost);
+    const move = ev=>{
+      ghost.style.left = ev.clientX+'px';
+      ghost.style.top  = ev.clientY+'px';
+      document.querySelectorAll('.drop-active').forEach(n=>n.classList.remove('over','drop-active'));
+      const t = document.elementFromPoint(ev.clientX, ev.clientY);
+      const zone = t && t.closest('[data-drop]');
+      if(zone){ zone.classList.add('over','drop-active'); }
+    };
+    const up = ev=>{
+      ghost.remove();
+      el.removeEventListener('pointermove', move);
+      el.removeEventListener('pointerup', up);
+      el.removeEventListener('pointercancel', up);
+      const t = document.elementFromPoint(ev.clientX, ev.clientY);
+      const zone = t && t.closest('[data-drop]');
+      document.querySelectorAll('.over').forEach(n=>n.classList.remove('over'));
+      document.querySelectorAll('.drop-active').forEach(n=>n.classList.remove('drop-active'));
+      if(zone){ handleDrop(zone.dataset.drop, payload); }
+    };
+    el.addEventListener('pointermove', move);
+    el.addEventListener('pointerup', up);
+    el.addEventListener('pointercancel', up);
+    move(e);
+  });
+}
+/* 統一的 drop 分派 —— 不同頁面註冊不同處理器；
+   用 document 層事件委派，確保任何時候渲染出來的 drop 區域都有效 */
+let handleDrop = ()=>{};
+/* 取離事件目標最近的 drop 區；若冒泡到外層容器，以更深層者為準 */
+function closestZone(t){
+  let n = t;
+  let found = null;
+  while(n && n !== document.body){
+    if(n.dataset && n.dataset.drop){ found = n; break; }
+    n = n.parentElement;
+  }
+  return found;
+}
+document.addEventListener('dragover', e=>{
+  const zone = closestZone(e.target);
+  if(!zone) return;
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+  zone.classList.add('over');
+});
+document.addEventListener('dragleave', e=>{
+  const zone = closestZone(e.target);
+  if(zone) zone.classList.remove('over');
+});
+document.addEventListener('drop', e=>{
+  const zone = closestZone(e.target);
+  if(!zone) return;
+  e.preventDefault();
+  zone.classList.remove('over');
+  const payload = e.dataTransfer.getData('text/plain');
+  if(payload) handleDrop(zone, payload);
+});
+
+/* ============================================================
+   導航
+   ============================================================ */
+function go(n){
+  if(n < 1 || n > TOTAL) return;
+  cur = n;
+  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on', +p.dataset.p === n));
+  $('pageno').textContent = n + ' / ' + TOTAL;
+  $('prevBtn').style.visibility = n === 1 ? 'hidden' : 'visible';
+  $('nextBtn').style.visibility = n === TOTAL ? 'hidden' : 'visible';
+  updateStages();
+  window.scrollTo({top:0, behavior:'smooth'});
+  if(n === 13) renderSummary();
+  if(n === 9) renderPromptLines();
+  if(n === 10) { renderQuestions(); updateScore(); }
+  if(n === 6) { renderPoemLines(); renderPoemQuestions(); renderAskList(); }
+  if(n === 8) renderDims();
+  if(n === 7) renderStyles();
+  if(n === 3) renderThemes();
+  if(n === 4) { renderRhymePick(); gateP4(); }
+  if(n === 5) renderRef();
+}
+function updateStages(){
+  const stageOf = {1:0,2:1,3:1,4:2,5:2,6:3,7:4,8:4,9:5,10:5,11:6,12:6,13:6};
+    const done = {
+    /* 關卡門檻 */
+    1: S.basket.length >= 6 && coveredBanks() >= 3,
+    2: S.filled.b1 === '7' && S.filled.b2 === '4' && rhymeVerdict().ok,
+    3: S.pqState.filter(Boolean).length === POEM_CHECK.length && adoptedList().length >= 1,
+    4: !!S.style && Object.keys(S.dims).length === DIMS.length,
+    5: S.matchState.filter(Boolean).length === QUESTIONS.length,
+    6: countSkills() >= 5
+  };
+  document.querySelectorAll('.stage').forEach(el=>{
+    const s = +el.dataset.s;
+    el.classList.toggle('active', stageOf[cur] === s);
+    el.classList.toggle('done', done[s] && stageOf[cur] !== s);
+  });
+  /* 流程指示：頂欄 ①②③ 與底部徽章 */
+  const f = flowOf(cur);
+  document.querySelectorAll('.fno').forEach(el=>{
+    const n = +el.dataset.f;
+    el.classList.toggle('cur', n === f);
+    el.classList.toggle('ok', n !== f && FLOW_STAGES[n].every(s=>done[s]));
+  });
+  const ft = $('flowtag');
+  if(ft){
+    ft.textContent = f
+      ? '流程 ' + FLOW_NUM[f] + '　第 ' + (FLOW_PAGES[f].indexOf(cur) + 1) + ' / ' + FLOW_PAGES[f].length + ' 頁'
+      : '封面 · 揀一個流程';
+  }
+  const total = 6;
+  let n = 0; for(let i=1;i<=6;i++) if(done[i]) n++;
+  $('prog').style.width = (n/total*100) + '%';
+  /* 封面地圖同步 */
+  document.querySelectorAll('.mapcard').forEach(c=>{
+    c.classList.toggle('lit', !!done[+c.dataset.m]);
+  });
+  queueSave();
+}
+
+/* ============================================================
+   P2 時間軸
+   ============================================================ */
+function renderTimeline(){
+  const box = $('timeline');
+  box.innerHTML = '';
+  TIMELINE.forEach((n,i)=>{
+    const b = document.createElement('button');
+    b.className = 'tl-node';
+    b.innerHTML = `<span class="tick">✓</span><div class="yr">${n.yr}</div><div class="brief">${n.brief}</div>`;
+    b.onclick = ()=> openNode(i, b);
+    if(S.openedTL.includes(n.yr)) b.classList.add('opened');
+    box.appendChild(b);
+  });
+}
+function openNode(i, btn, noScroll){
+  btn.classList.add('opened');
+  const n = TIMELINE[i];
+  if(!S.openedTL.includes(n.yr)) S.openedTL.push(n.yr);
+  /* 已開過就直接跳過去，不會重複產生（可同時開多個年份） */
+  const exist = $('timeline').querySelector('.tl-detail[data-yr="'+n.yr+'"]');
+  if(exist){ if(!noScroll) exist.scrollIntoView({behavior:'smooth', block:'nearest'}); return; }
+  const det = document.createElement('div');
+  det.className = 'tl-detail';
+  det.dataset.yr = n.yr;
+  det.innerHTML = `
+    <h4>${n.yr}　${n.brief}</h4>
+    <div class="txt">${TL_DETAIL[n.yr]}</div>
+    <div style="font-size:16px;color:var(--ink2);margin-bottom:8px">把可以放進詩裡的<strong>詞</strong>點一下，收進素材籃：</div>
+    <div class="wordchips">${n.words.map(w=>`<button class="wchip ${S.basket.includes(w)?'picked':''}" data-w="${w}">${w}</button>`).join('')}</div>`;
+  btn.after(det);
+  det.querySelectorAll('.wchip').forEach(c=>{
+    c.onclick = ()=> toggleWord(c.dataset.w);
+  });
+  if(!noScroll) det.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+function openAllYears(){
+  const btns = $('timeline').querySelectorAll('.tl-node');
+  TIMELINE.forEach((n,i)=>{ if(btns[i]) openNode(i, btns[i], true); });
+  toast('十個年份都打開了，慢慢揀', 'good');
+}
+function closeAllYears(){
+  $('timeline').querySelectorAll('.tl-detail').forEach(d=>d.remove());
+  $('timeline').querySelectorAll('.tl-node').forEach(b=>b.classList.remove('opened'));
+  S.openedTL = [];
+}
+function addCustomWord(){
+  const inp = $('customWord');
+  const w = (inp.value || '').trim().replace(/[，,。、；;\s]/g, '');
+  if(!w){ toast('先打一個詞再按加入', 'bad'); return; }
+  if(w.length > 12){ toast('太長了，關鍵詞控制在 12 字內', 'bad'); return; }
+  if(S.basket.includes(w)){ toast('「'+w+'」已經在籃子裡了'); inp.value=''; return; }
+  S.basket.push(w);
+  inp.value = '';
+  renderBasket();
+  toast('「'+w+'」已加入素材籃', 'good');
+}
+function renderBasket(){
+  $('basketCnt').textContent = S.basket.length;
+  $('basketItems').innerHTML = S.basket.length
+    ? S.basket.map(w=>{
+        const b = bankOf(w);
+        const m = b ? BANK_META[b] : null;
+        return `<span class="bitem">${m?`<i class="btag">${m.short}</i>`:''}${w}<span style="cursor:pointer;color:var(--bad);margin-left:6px;font-weight:700"
+          onclick="removeBasketWord('${w.replace(/'/g,"\\'")}')">×</span></span>`;
+      }).join('')
+    : '<span class="hintline">（還沒有揀詞，到上面五個詞館點一點）</span>';
+  /* 涵蓋度：揀了哪幾個館 */
+  const cov = $('basketCov');
+  if(cov){
+    const got = {};
+    S.basket.forEach(w=>{ const b = bankOf(w); if(b) got[b] = 1; });
+    cov.innerHTML = Object.keys(BANK_META).map(k=>{
+      const on = !!got[k];
+      return `<span class="covdot ${on?'on':''}">${BANK_META[k].no}${BANK_META[k].name}</span>`;
+    }).join('');
+  }
+  const tip = $('basketTip');
+  if(tip){
+    const n = coveredBanks();
+    const need = 6 - S.basket.length;
+    const needB = 3 - n;
+    if(!S.basket.length){
+      tip.innerHTML = '💡 目標：<strong>揀 6 個詞、涵蓋 3 個館</strong>。詞越具體，AI 寫出來的詩越像你自己寫的。';
+    } else if(needB > 0){
+      tip.innerHTML = '⚠ 已揀 ' + S.basket.length + ' 個詞（涵蓋 ' + n + ' 館）。再去 <strong style="color:var(--red)">' +
+        Object.keys(BANK_META).filter(k=>{
+          const got={}; S.basket.forEach(w=>{const b=bankOf(w); if(b) got[b]=1;}); return !got[k];
+        }).map(k=>BANK_META[k].no+BANK_META[k].name).slice(0,2).join('、') +
+        '</strong> 揀幾個，才湊得到 3 個館。';
+    } else if(need > 0){
+      tip.innerHTML = '💡 已涵蓋 ' + n + ' 個館，再揀 <strong>' + need + '</strong> 個詞就達標（可以多揀）。';
+    } else {
+      tip.innerHTML = '✅ 已達標：<strong>' + S.basket.length + ' 個詞、涵蓋 ' + n + ' 個館</strong>。還想揀就繼續。';
+    }
+  }
+  updateStages();
+}
+/* 六大主題路線預覽（P2） */
+function renderRoutes(){
+  const box = $('routegrid');
+  if(!box) return;
+  box.innerHTML = THEMES.map(t=>`
+    <div class="routecard"><b>${t.name}</b><span>${t.desc}</span></div>`).join('');
+}
+/* 五個詞館（②～⑤） */
+function renderWordBanks(){
+  const box = $('bankgrid');
+  if(!box) return;
+  box.innerHTML = WORDBANKS.map(b=>`
+    <div class="bank ${b.star?'star':''}">
+      <h4><span class="bno">${b.no}</span>${b.name}${b.star?'<span class="btag2">★ 最好用</span>':''}</h4>
+      <p class="bwhy">${b.why}</p>
+      <div class="chips">${b.words.map(w=>`<button class="wchip ${S.basket.includes(w)?'picked':''}" data-w="${w}">${w}</button>`).join('')}</div>
+    </div>`).join('');
+  box.querySelectorAll('.wchip').forEach(c=>{
+    c.onclick = ()=> toggleWord(c.dataset.w);
+  });
+}
+function removeBasketWord(w){
+  S.basket = S.basket.filter(x=>x!==w);
+  Object.keys(S.themeWords).forEach(k=>{ S.themeWords[k] = (S.themeWords[k]||[]).filter(x=>x!==w); });
+  document.querySelectorAll('.wchip').forEach(c=>{
+    if(c.dataset.w === w){ c.classList.remove('picked'); }
+  });
+  renderBasket();
+  if($('themes').children.length) renderThemes();
+}
+function renderMotto(){
+  const box = $('motto');
+  box.innerHTML = Object.keys(MOTTO).map(k=>`
+    <div class="mcard">
+      <b onclick="this.parentNode.classList.toggle('open')">${k}</b>
+      <span>${MOTTO[k]}</span>
+      <button class="wchip mchip ${S.basket.includes(k)?'picked':''}" data-w="${k}">${S.basket.includes(k)?'已收進素材籃':'收進素材籃'}</button>
+    </div>`).join('');
+  /* 校訓四個字本身也可以當關鍵詞收進素材籃 */
+  box.querySelectorAll('.mchip').forEach(c=>{
+    c.onclick = e=>{
+      e.stopPropagation();
+      toggleWord(c.dataset.w);
+    };
+  });
+}
+
+/* 統一的「詞進出素材籃」操作：P2 年份詞組與校訓四字共用 */
+function toggleWord(w){
+  if(S.basket.includes(w)){
+    S.basket = S.basket.filter(x=>x!==w);
+  } else {
+    S.basket.push(w);
+  }
+  /* 同步重繪所有帶該詞的 chip，避免兩處狀態不一致 */
+  document.querySelectorAll('.wchip').forEach(c=>{
+    if(c.dataset.w === w && !c.classList.contains('mchip')){
+      c.classList.toggle('picked', S.basket.includes(w));
+    }
+  });
+  document.querySelectorAll('.mchip').forEach(c=>{
+    if(c.dataset.w === w){
+      c.classList.toggle('picked', S.basket.includes(w));
+      c.textContent = S.basket.includes(w) ? '已收進素材籃' : '收進素材籃';
+    }
+  });
+  renderBasket();
+  if(S.basket.includes(w)) toast('「'+w+'」已收進素材籃', 'good');
+}
+
+/* ============================================================
+   P3 主題拖拽
+   ============================================================ */
+function renderPool(){
+  const p = $('pool');
+  p.innerHTML = '';
+  if(!S.basket.length){ p.classList.add('empty'); return; }
+  p.classList.remove('empty');
+  /* 全部詞都留在池裡；已放進主題的標記「已放」（方案 A：一詞可放多主題，列出全部） */
+  S.basket.forEach(w=>{
+    const owners = THEMES.filter(t=>(S.themeWords[t.id]||[]).includes(w));
+    const d = document.createElement('div');
+    d.className = 'drag' + (owners.length ? ' placed' : '');
+    d.innerHTML = w + (owners.length ? `<small>· 已放「${owners.map(o=>o.name).join('、')}」</small>` : '');
+    d.dataset.w = w;
+    makeDraggable(d, 'word:'+w);
+    p.appendChild(d);
+  });
+}
+function isWordUsed(w){
+  return Object.values(S.themeWords).some(arr=>arr.includes(w));
+}
+function renderThemes(){
+  renderPool();
+  const box = $('themes');
+  box.innerHTML = THEMES.map(t=>{
+    const arr = S.themeWords[t.id] || [];
+    const mine = S.myTheme === t.id;
+    const m = S.tmsg[t.id];   /* 回饋訊息存進狀態，重繪才不會被清掉 */
+    return `<div class="theme ${mine?'mine':''}" data-t="${t.id}">
+      <h4>${t.name}<span class="minebadge">我的主題</span></h4>
+      ${mine&&t.desc?'<div class="mydesc">主題重點：'+t.desc+'</div>':''}
+      <div class="tdesc">${arr.length?('已放 '+arr.length+' 個詞'+(arr.length>=3?'　✓ 夠了':'（至少 3 個）')):'把詞拖進這裡'}</div>
+      <div class="drop ${arr.length?'fill':''}" data-drop="theme:${t.id}">
+        ${arr.map(w=>`<span class="titem" draggable="true" data-w="${w}" data-from="${t.id}">${w}<span class="tx" onclick="removeWord('${t.id}','${w}',event)">×</span></span>`).join('')}
+      </div>
+      <div class="tmsg ${(m&&m.cls)||''}" id="msg-${t.id}">${(m&&m.text)||''}</div>
+    </div>`;
+  }).join('');
+  /* 主題籃內的詞也可拖走（換主題或拖回池子） */
+  box.querySelectorAll('.titem[draggable]').forEach(el=>{
+    el.addEventListener('dragstart', e=>{
+      e.dataTransfer.setData('text/plain', 'word:'+el.dataset.w);
+      e.dataTransfer.effectAllowed = 'move';
+      el.style.opacity = .4;
+    });
+    el.addEventListener('dragend', ()=> el.style.opacity = 1);
+  });
+  handleDrop = (zone, payload)=>{
+    if(!payload.startsWith('word:')) return;
+    const w = payload.slice(5);
+    const dropId = zone.dataset.drop;
+    /* 拖回池子 = 從所有主題移除這個詞 */
+    if(dropId === 'pool'){
+      Object.keys(S.themeWords).forEach(k=>{ S.themeWords[k] = S.themeWords[k].filter(x=>x!==w); });
+      renderThemes(); syncP3Hint(); updateStages();
+      toast('「'+w+'」已拿回素材籃，重新放吧');
+      return;
+    }
+    const tid = dropId.split(':')[1];
+    const theme = THEMES.find(t=>t.id===tid);
+    if(!theme) return;
+    const msg = $('msg-'+tid);
+    /* 方案 A：同一個詞可以同時放進多個主題；同一主題內不重複 */
+    if((S.themeWords[tid]||[]).includes(w)){ toast('「'+w+'」已經放進「'+theme.name+'」了'); return; }
+    S.themeWords[tid] = [...(S.themeWords[tid]||[]), w];
+    S.myTheme = tid;
+    /* 方案 A：三級判定，不再說「錯」、不再抖動 */
+    const bank = bankOf(w);
+    const sameBank = (THEME_BANKS[tid]||[]).indexOf(bank) >= 0;
+    let txt, cls;
+    if(theme.ok.includes(w)){
+      txt = '✅ 很貼題：「'+w+'」和「'+theme.name+'」很合。'; cls = 'ok';
+    } else if(sameBank){
+      txt = '🟡 可以用：「'+w+'」跟這個主題是同一類，看你怎麼寫。'; cls = 'warn';
+    } else {
+      txt = '🟡 也可以用：它跨了另一類，但詩是你的——想想它跟「'+theme.name+'」有沒有關係。'; cls = 'warn';
+    }
+    S.tmsg[tid] = {text:txt, cls:cls};
+    if(msg){ msg.textContent = txt; msg.className = 'tmsg '+cls; }
+    renderThemes();
+    syncP3Hint();
+    updateStages();
+  };
+  /* 點卡片 = 選為我的主題 */
+  box.querySelectorAll('.theme').forEach(el=>{
+    el.addEventListener('click', e=>{
+      if(e.target.closest('.drop') || e.target.classList.contains('tx')) return;
+      S.myTheme = el.dataset.t;
+      renderThemes();
+      syncP3Hint();
+    });
+  });
+}
+function removeWord(tid, w, ev){
+  ev.stopPropagation();
+  S.themeWords[tid] = (S.themeWords[tid]||[]).filter(x=>x!==w);
+  renderThemes();
+  syncP3Hint();
+}
+function syncP3Hint(){
+  const mine = S.themeWords[S.myTheme] || [];
+  $('p3hint').innerHTML = S.myTheme
+    ? `你的主題：<strong>${THEMES.find(t=>t.id===S.myTheme).name}</strong>，已放 ${mine.length} 個詞${mine.length>=3?'　✓ 夠了，想加就繼續拖':'（至少 3 個）'}`
+    : '拖進一個主題，就會告訴你這個詞貼不貼題。';
+}
+
+/* ============================================================
+   P4 填空
+   ============================================================ */
+let activeBlank = null;
+function initFill(){
+  const blanks = ['b1','b2'];
+  blanks.forEach(id=>{
+    const el = $(id);
+    if(S.filled[id]){
+      el.textContent = S.filled[id];
+      el.classList.add('filled','locked');
+    }
+    el.onclick = ()=>{
+      if(el.classList.contains('locked')) return;
+      activeBlank = id;
+      blanks.forEach(x=>$(x).style.boxShadow = '');
+      el.style.boxShadow = '0 0 0 4px rgba(201,162,39,.28)';
+      $('p4msg').textContent = '選一個數字填進高亮的空格。';
+    };
+  });
+  $('opts').innerHTML = [1,2,4,7].map(v=>`<button class="optbtn" data-v="${v}">${v}</button>`).join('');
+  $('opts').querySelectorAll('.optbtn').forEach(b=>{
+    b.onclick = ()=>{
+      if(!activeBlank){ $('p4msg').textContent = '先點一個空格，再點數字。'; return; }
+      const el = $(activeBlank);
+      const ans = el.dataset.a;
+      if(b.dataset.v === ans){
+        el.textContent = ans;
+        el.classList.add('filled','locked');
+        el.style.boxShadow = '';
+        S.filled[activeBlank] = ans;
+        activeBlank = null;
+        gateP4();
+        updateStages();
+      } else {
+        b.classList.add('shake');
+        setTimeout(()=>b.classList.remove('shake'), 450);
+        const ask = {
+          b1:'七言，是每句幾個字？數一數「床前明月光」。',
+          b2:'絕句的「絕」是斷開的意思——全詩一共幾句？'
+        };
+        $('p4msg').innerHTML = `<span style="color:var(--bad)">再想想：${ask[activeBlank]}</span>`;
+      }
+    };
+  });
+  renderRhymePick();
+  gateP4();
+}
+
+/* ---- 押韻：讓學生自己勾哪幾句押 ----
+   真正的規則：第 2、4 句必須押；第 3 句必須不押；第 1 句可押可不押。
+   所以合法組合只有 {2,4} 與 {1,2,4} 兩種。
+
+   老師可用右上角 ⚙ 統一全班寫法（存 localStorage）：
+   free＝學生自選（預設）／in＝首句入韻 {1,2,4}／out＝首句不入韻 {2,4}
+*/
+const RHYME_KEY = 'kp134_rhyme_mode';
+const RHYME_MODES = {
+  free:{label:'讓學生自己選（預設）', short:null, set:null,
+        desc:'兩種都合法，由學生判斷。適合第一次教絕句。'},
+  in:  {label:'統一「首句入韻」：第 1、2、4 句押韻', short:'首句入韻（第 1、2、4 句押韻）', set:[1,2,4],
+        desc:'全班同一種寫法，批改與展示較整齊。'},
+  out: {label:'統一「首句不入韻」：只有第 2、4 句押韻', short:'首句不入韻（只有第 2、4 句押韻）', set:[2,4],
+        desc:'難度稍低（第一句不必湊韻），適合趕進度。'}
+};
+try{
+  const m = localStorage.getItem(RHYME_KEY);
+  if(m && RHYME_MODES[m]) S.rhymeMode = m;
+}catch(e){}
+function rhymeSet(){ return S.rhyme.slice().sort((a,b)=>a-b); }
+function rhymeLocked(){ return S.rhymeMode !== 'free'; }
+function applyRhymeMode(mode, silent){
+  if(!RHYME_MODES[mode]) mode = 'free';
+  S.rhymeMode = mode;
+  if(RHYME_MODES[mode].set) S.rhyme = RHYME_MODES[mode].set.slice();
+  try{ localStorage.setItem(RHYME_KEY, mode); }catch(e){}
+  const g = $('gearBtn');
+  if(g) g.classList.toggle('set', mode !== 'free');
+  renderRhymePick(); renderRef(); gateP4(); updateStages();
+  if(!silent){
+    toast(mode === 'free' ? '已改回：讓學生自己選' : '已統一為' + RHYME_MODES[mode].short, 'good');
+  }
+}
+function openSettings(){
+  const old = $('settingsPanel'); if(old) old.remove();
+  const p = document.createElement('div');
+  p.id = 'settingsPanel';
+  p.className = 'exportpanel';
+  p.innerHTML = `
+    <div class="setcard">
+      <h3>老師設定</h3>
+      <p class="hintline" style="margin:0 0 16px">押韻本來就有兩種合法寫法。預設讓學生自己判斷；如果全班要統一（方便批改、方便投影示範），在這裡鎖定。</p>
+      ${Object.keys(RHYME_MODES).map(k=>`
+        <div class="setopt ${S.rhymeMode===k?'on':''}" data-k="${k}">
+          <span class="rd"></span>
+          <span><b>${RHYME_MODES[k].label}</b><span>${RHYME_MODES[k].desc}</span></span>
+        </div>`).join('')}
+      <p class="hintline" style="margin:14px 0 0;font-size:15px">※ 這項設定存在本機瀏覽器，換電腦或清除資料後會回到預設。學生的作答不受影響。</p>
+      <div class="btn-row">
+        <button class="btn" onclick="closeSettings()">完成</button>
+      </div>
+    </div>`;
+  document.body.appendChild(p);
+  p.querySelectorAll('.setopt').forEach(el=>{
+    el.onclick = ()=>{
+      applyRhymeMode(el.dataset.k);
+      closeSettings();
+    };
+  });
+  p.onclick = e=>{ if(e.target === p) closeSettings(); };
+}
+function closeSettings(){
+  const el = $('settingsPanel'); if(el) el.remove();
+}
+function rhymeVerdict(){
+  const r = rhymeSet();
+  if(!r.length) return {ok:false, msg:''};
+  if(r.includes(3))
+    return {ok:false, kind:'has3',
+      msg:'第 3 句不能押韻——它要跟韻腳「相反」，第 4 句押韻時才聽得出回環。'
+        + (r.includes(1) ? '第 1 句你選得沒錯，可以留著。' : '')};
+  if(!r.includes(2) || !r.includes(4)){
+    const missing = [];
+    if(!r.includes(2)) missing.push('2');
+    if(!r.includes(4)) missing.push('4');
+    return {ok:false, kind:'miss24',
+      msg: r.includes(1)
+        ? '第 1 句押韻是合法的（叫「首句入韻」），不用取消。不過第 2、4 句是必須的韻腳——你還缺第 ' + missing.join('、') + ' 句。'
+        : '還缺第 ' + missing.join('、') + ' 句。第 2、4 句一定要在韻腳上；第 1 句可押可不押。'};
+  }
+  return {ok:true,
+    msg: r.includes(1)
+      ? '✓ 對了。你選的是「首句入韻」：第 1、2、4 句押韻。'
+      : '✓ 對了。你選的是「首句不入韻」：只有第 2、4 句押韻——這也完全合法，唐詩裡很多。'};
+}
+function rhymeText(){ const r = rhymeSet(); return r.length ? '第 ' + r.join('、') + ' 句' : '哪幾句？'; }
+function rhymePromptLine(){
+  const r = rhymeSet();
+  if(!r.length) return '第 2 句和第 4 句要押韻，第 1 句和第 3 句不押韻';
+  return r.includes(1)
+    ? '第 1、2、4 句要押韻，第 3 句不押韻'
+    : '第 2 句和第 4 句要押韻，第 1 句和第 3 句不押韻';
+}
+function renderRhymePick(){
+  const box = $('rhymepick');
+  if(!box) return;
+  const locked = rhymeLocked();
+  box.innerHTML = [1,2,3,4].map(n=>
+    `<button class="rhymebtn ${S.rhyme.includes(n)?'on':''}" data-n="${n}" ${locked?'disabled':''}>第 ${n} 句</button>`).join('')
+    + (locked ? `<span class="rhymelock">本班統一</span>` : '');
+  box.querySelectorAll('.rhymebtn').forEach(b=>{
+    b.onclick = ()=>{
+      const n = +b.dataset.n;
+      if(S.rhyme.includes(n)) S.rhyme = S.rhyme.filter(x=>x!==n);
+      else S.rhyme = [...S.rhyme, n].sort((a,b)=>a-b);
+      renderRhymePick();
+      gateP4();
+      updateStages();
+    };
+  });
+  /* 已選行顯示 */
+  const picked = $('rhymePicked');
+  if(picked){
+    picked.textContent = S.rhyme.length ? rhymeText() : '哪幾句？';
+    picked.className = S.rhyme.length ? 'filled-in' : '';
+  }
+  const lead = $('rhymeLead');
+  if(lead) lead.textContent = locked ? '——（本班已由老師指定）' : '—— 點下面自己選：';
+  /* 提示文字：鎖定時講「本班統一」，自由時講規則 */
+  const hint = $('rhymeHint');
+  if(hint){
+    if(locked){
+      hint.innerHTML = '本班統一用 <b>' + RHYME_MODES[S.rhymeMode].short + '</b>。要改請老師按右上角 ⚙。';
+      hint.style.color = 'var(--gold)';
+    } else {
+      const v = rhymeVerdict();
+      hint.innerHTML = v.msg || '第 2、4 句必須押；第 3 句必須不押；第 1 句可押可不押（兩種都是合法的絕句）。';
+      hint.style.color = v.ok ? 'var(--green)' : (v.msg ? 'var(--bad)' : 'var(--ink2)');
+    }
+  }
+}
+/* ------------------------------------------------------------
+   關卡按鈕的通用閘門
+   以前用 disabled 把按鈕鎖死：學生做對了不一定亮，做錯了
+   更不知道還差什麼，只能一直試。現在按鈕永遠可按，未完成時
+   按下去會指出「還差哪一項」，並把那一塊閃一下帶你去看。
+   ------------------------------------------------------------ */
+function armBtn(id, ready, label, reason){
+  const b = $(id); if(!b) return;
+  b.disabled = false;
+  b.classList.toggle('wait', !ready);
+  b.dataset.ready = ready ? '1' : '0';
+  b.innerHTML = label + (ready ? '' : `<span class="waitnote">還差：${reason}</span>`);
+}
+function flashAt(sel){
+  const el = document.querySelector(sel); if(!el) return;
+  el.scrollIntoView({behavior:'smooth', block:'center'});
+  el.classList.remove('flashnow');
+  void el.offsetWidth;
+  el.classList.add('flashnow');
+  setTimeout(()=>el.classList.remove('flashnow'), 2400);
+}
+function p4Status(){
+  const fmtOk = S.filled.b1 === '7' && S.filled.b2 === '4';
+  const v = rhymeVerdict();
+  return {fmtOk:fmtOk, v:v, ok:fmtOk && v.ok};
+}
+function gateP4(){
+  const st4 = p4Status();
+  const fmtOk = st4.fmtOk, v = st4.v, ok = st4.ok;
+  const miss = [];
+  if(!fmtOk) miss.push('填好「7」和「4」');
+  if(!v.ok) miss.push(S.rhyme.length ? '押韻選錯了' : '勾出押韻句');
+  armBtn('p4next', ok, '下一步：寫提示詞 →', miss.join('、') || '未完成');
+
+  /* 狀態條：永遠告訴學生還差什麼，不讓「✓」和「按鈕停用」互相矛盾 */
+  const st = $('p4state');
+  if(st){
+    let rp = S.rhyme.length ? rhymeText() : '尚未選';
+    if(!v.ok && S.rhyme.length){
+      if(v.kind === 'has3') rp += '（第 3 句不可押）';
+      else rp += '（缺第 ' + [2,4].filter(n=>!S.rhyme.includes(n)).join('、') + ' 句）';
+    }
+    st.innerHTML =
+      `<span class="st ${fmtOk?'ok':'no'}">${fmtOk?'✓':'○'} 格式：七言 · 四句</span>` +
+      `<span class="st ${v.ok?'ok':'no'}">${v.ok?'✓':'○'} 押韻：${rp}</span>`;
+  }
+
+  const msg = $('p4msg');
+  if(ok){
+    msg.innerHTML = '<span style="color:var(--green)">✓ 全對了：' + rhymeText() + '押韻，這就是你的絕句規則。</span>';
+    if(!S._p4Toast){ S._p4Toast = true; toast('絕句格式完成！', 'good'); }
+  } else if(fmtOk && !v.ok){
+    msg.innerHTML = '<span style="color:var(--amber)">格式對了，但押韻還沒選對——看上面那行紅字再調整。</span>';
+  } else if(!fmtOk && v.ok){
+    msg.innerHTML = '<span style="color:var(--amber)">押韻對了，還差格式：把上面兩個空格填完。</span>';
+  } else {
+    msg.innerHTML = '<span style="color:var(--ink2)">分別填好上面兩個空格，再勾出押韻的句子。</span>';
+  }
+}
+function p4Next(){
+  const st4 = p4Status();
+  if(st4.ok){ go(5); return; }
+  if(!st4.fmtOk){
+    flashAt('#b1');
+    toast('還差兩個空格：先填「幾言」和「幾句」。', 'bad');
+    return;
+  }
+  flashAt('#rhymepick');
+  toast(st4.v.msg || '先勾出你認為要押韻的句子。', 'bad');
+}
+
+/* ============================================================
+   P5 四要素
+   ============================================================ */
+function renderRef(){
+  const target = $('refLines');
+  const words = (S.themeWords[S.myTheme] || []);
+  /* 第 4 點同步帶入「主題名＋說明句」 */
+  const rt = $('refTheme');
+  const ct = curTheme();
+  if(rt) rt.innerHTML = ct ? '；本次主題為「'+ct.name+'」，重點是：'+ct.desc : '';
+  /* 第 3 點同步學生自選的押韻行 */
+  const rr = $('refRhyme');
+  if(rr) rr.textContent = rhymePromptLine();
+  const rc = $('rhymeChoice');
+  if(rc) rc.textContent = S.rhyme.length ? rhymeText() : '尚未選';
+  if(words.length){
+    target.className = 'filled-in';
+    target.innerHTML = words.map(w=>w).join('　');
+    target.style.display = 'inline';
+  } else {
+    target.className = 'empty-in';
+    target.textContent = '（等待第 ① 關的關鍵詞）';
+  }
+  S.refReady = words.length > 0;
+  const ri = $('roleInput');
+  if(ri && document.activeElement !== ri) ri.value = S.role || '';
+  updateP5State();
+}
+/* 學生自己填第一行角色：點範例即填入，仍可改寫 */
+function setRole(v){
+  const ri = $('roleInput'); if(!ri) return;
+  ri.value = v;
+  onRoleInput();
+  ri.focus();
+}
+function onRoleInput(){
+  const ri = $('roleInput'); if(!ri) return;
+  S.role = ri.value.trim();
+  queueSave();
+  updateP5State();
+}
+function updateP5State(){
+  const words = (S.themeWords[S.myTheme] || []);
+  const hasRole = !!(S.role || '').trim();
+  const st = $('p5state'); if(!st) return;
+  if(words.length && hasRole){
+    st.className = 'state ok';
+    st.textContent = `角色與第 5 點（${words.length} 詞）都填好了`;
+    armBtn('p5next', true, '下一步：學會追問 →', '');
+  } else if(words.length){
+    st.className = 'state warn';
+    st.textContent = '還差第一行的角色';
+    armBtn('p5next', false, '下一步：學會追問 →', '角色');
+  } else if(hasRole){
+    st.className = 'state warn';
+    st.textContent = '還差第 5 點關鍵詞';
+    armBtn('p5next', false, '下一步：學會追問 →', '第 5 點關鍵詞');
+  } else {
+    st.className = 'state warn';
+    st.textContent = '角色與第 5 點都尚未填';
+    armBtn('p5next', false, '下一步：學會追問 →', '角色＋第 5 點關鍵詞');
+  }
+}
+function p5Next(){
+  const words = (S.themeWords[S.myTheme] || []);
+  const hasRole = !!(S.role || '').trim();
+  if(words.length && hasRole){ go(6); return; }
+  if(!hasRole){
+    flashAt('#roleInput');
+    toast('第一行還沒填角色：想 AI 用誰的口氣寫詩？（不會想就點上面的範例）', 'bad');
+    return;
+  }
+  flashAt('#refLines');
+  toast('第 5 點還是空的：回第 ① 關揀幾個詞，或按「從素材籃帶入關鍵詞」。', 'bad');
+}
+function pullBasket(){
+  /* 若尚未選主題，就把素材籃全部帶入 */
+  if(!(S.themeWords[S.myTheme]||[]).length && S.basket.length){
+    S.themeWords['_temp'] = S.basket.slice();
+    S.myTheme = S.myTheme || '_temp';
+  }
+  renderRef();
+  if(S.refReady) toast('已帶入關鍵詞', 'good');
+  else toast('素材籃還是空的，回第 ① 關揀詞', 'bad');
+}
+
+/* ============================================================
+   P10 生成圖片追問（七型，對應 11 點的第 4～10 點）
+   ============================================================ */
+function poemLines(){
+  const raw = buildPoemPrompt().split('\n').map(s=>s.trim()).filter(Boolean);
+  const out = [];
+  raw.forEach(s=>{
+    if(/^\d+\./.test(s)) out.push(s.replace(/^\d+\.\s*/,''));
+    else if(out.length) out[out.length-1] += '　' + s;
+  });
+  return out;
+}
+function showChange(id, kind, q){
+  const el = $(id); if(!el) return;
+  const lines = kind === 'img' ? buildPromptLines() : poemLines();
+  const old = lines[q.pt-1] || '';
+  const label = kind === 'img' ? IMG_PT[q.pt] : POEM_PT[q.pt];
+  const empty = !old || /（未選|（請填/.test(old);
+  el.innerHTML = `🎯 這句會改到你的<b>第 ${q.pt} 點（${label}）</b><br>`
+    + `<span class="old">原本：${empty ? '（你還沒選，這一點是空的）' : old}</span><br>`
+    + `<span class="new">改成：${q.to}</span>`
+    + (empty ? '<br><span style="color:var(--ink2)">先回上一頁把這一點選好，追問才改得到東西。</span>' : '');
+}
+function renderQuestions(){
+  const box = $('qcards');
+  box.innerHTML = QUESTIONS.map((q,i)=>`
+    <div class="qcard" id="q${i}">
+      <div class="q">${q.q}</div>
+      <div class="types">${TYPES.map(t=>`<button class="tbtn" data-i="${i}" data-t="${t}">${t}</button>`).join('')}</div>
+      <div class="why">✓ ${q.why}</div>
+      <div class="chnge" id="chg${i}"></div>
+    </div>`).join('');
+  box.querySelectorAll('.tbtn').forEach(b=>{
+    b.onclick = ()=>{
+      const i = +b.dataset.i;
+      const card = $('q'+i);
+      if(card.classList.contains('right')) return;
+      const chosen = b.dataset.t;
+      if(chosen === QUESTIONS[i].a){
+        card.classList.add('right');
+        b.classList.add('sel');
+        S.matchState[i] = true;
+        showChange('chg'+i, 'img', QUESTIONS[i]);
+        updateScore();
+      } else {
+        card.classList.add('wrong'); b.classList.add('sel');
+        setTimeout(()=>{ card.classList.remove('wrong'); b.classList.remove('sel'); }, 900);
+        toast('再想想：這句是改「整張畫」，還是改「畫面裡的一樣東西」？', 'bad');
+      }
+    };
+  });
+}
+function updateScore(){
+  const n = S.matchState.filter(Boolean).length;
+  $('imgscore').textContent = n + ' / ' + QUESTIONS.length;
+  const ready = n === QUESTIONS.length;
+  armBtn('imgnext', ready, '流程 ② 完成 → ③ 合成', `${QUESTIONS.length - n} 項配對`);
+  if(ready && !S._imgToast){ S._imgToast = true; toast('七型追問全對！', 'good'); }
+  updateStages();
+}
+function p10Next(){
+  const n = S.matchState.filter(Boolean).length;
+  if(n === QUESTIONS.length){ go(11); return; }
+  const miss = S.matchState.findIndex((v,i)=>!v);
+  flashAt('#q'+miss);
+  toast(`還差第 ${miss+1} 題沒配對——先讀那句追問想改「整張畫」還是「一樣東西」。`, 'bad');
+}
+
+/* ============================================================
+   P6 詩句追問：先體檢、再開口
+   ============================================================ */
+function renderPoemLines(){
+  const box = $('poemlines');
+  if(!box) return;
+  box.innerHTML = POEM_TEXT.map((t,i)=>
+    `<span class="poemline" data-i="${i}" onclick="hiLine(${i})">${t}</span>`).join('');
+}
+function hiLine(i){
+  document.querySelectorAll('.poemline').forEach(el=>{
+    el.classList.toggle('hi', +el.dataset.i === i);
+  });
+}
+function renderPoemQuestions(){
+  const box = $('pqcards');
+  if(!box) return;
+  box.innerHTML = POEM_CHECK.map((c,i)=>{
+    const done = S.pqState[i];
+    const adopted = !!S.pqAdopt[c.id];
+    return `<div class="chkcard ${done?'correct':''}" id="pq${i}">
+      <div class="chkhead">
+        <span class="ptno">${c.pt}</span>
+        <b>${c.name}</b>
+        <span class="tag">${c.tag}</span>
+      </div>
+      <div class="chkhow">怎麼查：${c.how}</div>
+      ${done ? '' : `<div class="chkbtns">
+        <button class="chkbtn pass" data-i="${i}" data-a="pass">✓ 合格，不用改</button>
+        <button class="chkbtn bad" data-i="${i}" data-a="bad">✗ 有問題，要追問</button>
+      </div>`}
+      <div class="chkres">
+        <div class="ev">${c.ev}</div>
+        ${c.bad
+          ? `<div class="badline" style="margin-top:6px">→ 這一項要追問</div>
+             <div class="askline ${adopted?'adopted':''}">
+               <span class="lb">可以這樣說（會改第 ${c.pt} 點：${POEM_PT[c.pt]}）</span>
+               ${c.ask}
+               ${adopted
+                 ? `<div class="okline" style="margin-top:6px;font-size:15px">✓ 已加入追問清單</div>`
+                 : `<button class="btn ghost" onclick="adoptAsk(${c.id})">採用這句</button>`}
+             </div>`
+          : `<div class="okline" style="margin-top:6px">→ ${c.ok}</div>`}
+      </div>
+    </div>`;
+  }).join('');
+
+  box.querySelectorAll('.chkbtn').forEach(b=>{
+    b.onclick = ()=> judgePoem(+b.dataset.i, b.dataset.a);
+  });
+  updatePoemScore();
+}
+function judgePoem(i, answer){
+  const c = POEM_CHECK[i];
+  const saidBad = answer === 'bad';
+  if(saidBad === c.bad){
+    S.pqState[i] = true;
+    renderPoemQuestions();
+    /* 讓學生看到證據：如果這一項有問題，順便高亮詩裡那一句 */
+    if(c.bad && c.id === 0) hiLine(0);
+    if(c.bad && c.id === 2) hiLine(3);
+  } else {
+    const card = $('pq'+i);
+    card.classList.add('wrongshake');
+    setTimeout(()=>card.classList.remove('wrongshake'), 450);
+    toast(c.bad
+      ? '再看一次：這一項真的沒問題嗎？'
+      : '這一項其實是合格的——不是每個地方都要改。', 'bad');
+  }
+}
+function adoptAsk(id){
+  S.pqAdopt[id] = true;
+  renderPoemQuestions();
+  renderAskList();
+  toast('已加入追問清單', 'good');
+}
+function removeAsk(id){
+  delete S.pqAdopt[id];
+  renderPoemQuestions();
+  renderAskList();
+}
+function adoptedList(){
+  return POEM_CHECK.filter(c=>c.bad && S.pqAdopt[c.id]);
+}
+function renderAskList(){
+  const list = adoptedList();
+  if($('askCount')) $('askCount').textContent = list.length + ' 條';
+  const box = $('askList');
+  if(!box) return;
+  box.innerHTML = list.length
+    ? list.map(c=>`<div class="aitem">
+        <span class="rm" onclick="removeAsk(${c.id})">×</span>
+        <span class="pt">第 ${c.pt} 點 · ${POEM_PT[c.pt]}</span>${c.ask}
+      </div>`).join('')
+    : '<div class="empty-ask">還沒有——把上面「有問題」的項目按「採用這句」。</div>';
+}
+function p6Status(){
+  const judged = S.pqState.filter(Boolean).length;
+  const missIdx = POEM_CHECK.findIndex((c,i)=>!S.pqState[i]);
+  const adopt = adoptedList().length;
+  return {judged:judged, missIdx:missIdx, adopt:adopt,
+          ok: judged === POEM_CHECK.length && adopt >= 1};
+}
+function updatePoemScore(){
+  const judged = S.pqState.filter(Boolean).length;
+  const okN = POEM_CHECK.filter((c,i)=>S.pqState[i] && !c.bad).length;
+  const badN = POEM_CHECK.filter((c,i)=>S.pqState[i] && c.bad).length;
+  if($('poemscore')) $('poemscore').textContent = `已判定 ${judged} / ${POEM_CHECK.length}`;
+  if($('poemstat')) $('poemstat').textContent = `合格 ${okN} ／ 不對 ${badN}`;
+
+  const st6 = p6Status();
+  const miss = [];
+  if(st6.judged < POEM_CHECK.length) miss.push(`${POEM_CHECK.length - st6.judged} 項未判定`);
+  if(st6.adopt < 1) miss.push('1 條追問');
+  armBtn('pfnext', st6.ok, '流程 ① 完成 → ② 選風格', miss.join('、') || '未完成');
+
+  const box = $('p6state');
+  if(box){
+    const jd = st6.judged === POEM_CHECK.length;
+    box.innerHTML =
+      `<span class="st ${jd?'ok':'no'}">${jd?'✓':'○'} 體檢 ${st6.judged}/${POEM_CHECK.length} 項</span>` +
+      `<span class="st ${st6.adopt>=1?'ok':'no'}">${st6.adopt>=1?'✓':'○'} 追問清單 ${st6.adopt} 條${st6.adopt>=1?'（可再加）':'（至少 1 條）'}</span>`;
+  }
+  if(st6.ok && !S._pqToast){ S._pqToast = true; toast(`體檢完成，追問清單 ${st6.adopt} 條`, 'good'); }
+  updateStages();
+}
+function p6Next(){
+  const st6 = p6Status();
+  if(st6.ok){ go(7); return; }
+  if(st6.missIdx >= 0){
+    const c = POEM_CHECK[st6.missIdx];
+    flashAt('#pq'+st6.missIdx);
+    toast(`還差第 ${c.pt} 項「${c.name}」沒判定——先看它的「怎麼查」。`, 'bad');
+    return;
+  }
+  flashAt('#askList');
+  toast('清單還是空的：把「有問題」的項目按「採用這句」，至少 1 條。', 'bad');
+}
+
+/* 追問清單的複製／匯出 */
+function buildAskListText(){
+  const list = adoptedList();
+  const t = S.myTheme ? (THEMES.find(x=>x.id===S.myTheme)||{}) : {};
+  const head = `【鏡平 134．我的詩句追問清單】\n主題：${t.name || '（未選）'}\n\n`;
+  if(!list.length) return head + '（尚未採用任何追問）\n';
+  return head + list.map((c,i)=>
+    `${i+1}. 第 ${c.pt} 點（${POEM_PT[c.pt]}）\n   追問：${c.ask}\n   改完之後，第 ${c.pt} 點會變成：${c.to}\n`
+  ).join('\n') + '\n（把這些句子逐句貼給 AI，一次只改一項。）\n';
+}
+function copyAskList(){
+  if(!adoptedList().length){ toast('追問清單還是空的', 'bad'); return; }
+  const ok = copyToClipboard(buildAskListText());
+  toast(ok ? '追問清單已複製' : '複製被擋住，請用「匯出 TXT」', ok?'good':'bad');
+}
+function exportAskList(){
+  if(!adoptedList().length){ toast('追問清單還是空的', 'bad'); return; }
+  const text = buildAskListText();
+  const copied = copyToClipboard(text);
+  const downloaded = downloadTxt(text, '校慶AI海報_我的詩句追問.txt');
+  showExportPanel(text, copied, downloaded, '我的詩句追問清單');
+}
+
+/* ============================================================
+   我也來寫一句追問
+   ============================================================ */
+function renderAskTypes(){
+  const bind = (typeBox, types, stateKey, checkFn)=>{
+    const box = $(typeBox);
+    if(!box) return;
+    box.innerHTML = types.map(t=>`<button class="tbtn" data-t="${t}">${t}</button>`).join('');
+    box.querySelectorAll('.tbtn').forEach(b=>{
+      b.onclick = ()=>{
+        box.querySelectorAll('.tbtn').forEach(x=>x.classList.remove('sel'));
+        b.classList.add('sel');
+        S[stateKey] = b.dataset.t;
+        checkFn();
+      };
+    });
+  };
+  bind('imgAskTypes', TYPES, 'imgAskType', checkImgAsk);
+  bind('poemAskTypes', POEM_TYPES, 'poemAskType', checkPoemAsk);
+  const ia = $('imgAsk'); if(ia) ia.oninput = ()=>{ S.imgAsk = ia.value; checkImgAsk(); queueSave(); };
+  const pa = $('poemAsk'); if(pa) pa.oninput = ()=>{ S.poemAsk = pa.value; checkPoemAsk(); queueSave(); };
+}
+function checkImgAsk(){
+  const m = $('imgAskMsg'); if(!m) return;
+  const v = ($('imgAsk').value || '').trim();
+  if(!v){ m.className = 'hintline askmsg'; m.textContent = '先寫一句，再選它是哪一型。'; return; }
+  if(!S.imgAskType){ m.className = 'hintline askmsg'; m.textContent = '寫好了！現在選一選：你這句是七型裡的哪一型？'; return; }
+  m.className = 'askmsg ok';
+  m.innerHTML = '✅ 你的追問是<b>' + S.imgAskType + '</b>，會改到底圖提示詞的第 '
+    + IMG_ASK_PT[S.imgAskType] + ' 點（' + IMG_PT[IMG_ASK_PT[S.imgAskType]] + '）。'
+    + '把這句貼到第 ' + IMG_ASK_PT[S.imgAskType] + ' 點後面，就完成一次真正的追問。';
+}
+function checkPoemAsk(){
+  const m = $('poemAskMsg'); if(!m) return;
+  const v = ($('poemAsk').value || '').trim();
+  if(!v){ m.className = 'hintline askmsg'; m.textContent = '先寫一句，再選它是哪一型。'; return; }
+  if(!S.poemAskType){ m.className = 'hintline askmsg'; m.textContent = '寫好了！現在選一選：你這句是五型裡的哪一型？'; return; }
+  m.className = 'askmsg ok';
+  m.innerHTML = '✅ 你的追問是<b>' + S.poemAskType + '</b>，會改到詩句提示詞的第 '
+    + POEM_ASK_PT[S.poemAskType] + ' 點（' + POEM_PT[POEM_ASK_PT[S.poemAskType]] + '）。'
+    + '把這句貼到第 ' + POEM_ASK_PT[S.poemAskType] + ' 點後面，就完成一次真正的追問。';
+}
+
+/* ============================================================
+   P7 風格牆
+   ============================================================ */
+function renderStyles(){
+  $('stylewall').innerHTML = STYLES.map(s=>`
+    <div class="scard ${S.style===s.id?'sel':''}" data-id="${s.id}">
+      <div class="pick">✓</div>
+      <img src="${s.img}" alt="${s.name}" loading="lazy">
+      <div class="sb"><b>${s.id}. ${s.name}</b><span>${s.tag}</span></div>
+    </div>`).join('');
+  $('stylewall').querySelectorAll('.scard').forEach(el=>{
+    el.onclick = ()=>{
+      S.style = +el.dataset.id;
+      renderStyles();
+      const st = STYLES.find(x=>x.id===S.style);
+      $('line4').innerHTML = `第 4 點　風格：<strong style="color:var(--red)">${st.desc}。</strong>`;
+      /* 換風格就清空維度，避免不匹配殘留 */
+      S.dims = {};
+      updateStages();
+    };
+  });
+  const st = STYLES.find(x=>x.id===S.style);
+  if(st) $('line4').innerHTML = `第 4 點　風格：<strong style="color:var(--red)">${st.desc}。</strong>`;
+  armBtn('p7next', !!S.style, '下一步：配你的 6 個元素 →', '先選一條風格');
+  if($('p7copy')) $('p7copy').disabled = !S.style;
+  if($('p7export')) $('p7export').disabled = !S.style;
+}
+function p7Next(){
+  if(S.style){ go(8); return; }
+  flashAt('#stylewall');
+  toast('先在上面選一條風格路線——它就是提示詞的第 4 點。', 'bad');
+}
+
+/* ============================================================
+   P8 六元素拖拽
+   ============================================================ */
+function renderDims(){
+  const box = $('dimrows');
+  if(!S.style){
+    box.innerHTML = '<p class="hintline">先回到上一頁選一條風格路線。</p>';
+    $('p8lead').textContent = '先回到上一頁選風格。';
+    return;
+  }
+  const st = STYLES.find(x=>x.id===S.style);
+  $('p8lead').innerHTML = `你的風格是 <strong style="color:var(--red)">${st.name}</strong>。把下面每組的選項拖進槽位（或直接點），把 6 個元素配齊。`;
+  box.innerHTML = DIMS.map(d=>{
+    const cur2 = S.dims[d.id];
+    const opt = d.options.find(o=>o.key===cur2);
+    const isGood = opt && opt.good.includes(S.style);
+    return `<div class="dimrow">
+      <div class="dl">${d.no}. ${d.label}<small>${d.hint}</small></div>
+      <div class="slot ${cur2?(isGood?'filled good':'filled conflict'):''}" data-drop="dim:${d.id}">
+        ${opt ? opt.label + '<span class="x" onclick="clearDim(\''+d.id+'\',event)">×</span>' : '拖選項到這裡'}
+      </div>
+      <div style="flex:1;min-width:260px">
+        <div class="optpool">
+          ${d.options.map(o=>{
+            const rec = o.good.includes(S.style);
+            const on = o.key === cur2;
+            return `<button class="tbtn ${on?'sel':''}" data-d="${d.id}" data-k="${o.key}" style="${rec&&!on?'border-color:var(--gold)':''}">${rec?'⭐ ':''}${o.label}</button>`;
+          }).join('')}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  box.querySelectorAll('.tbtn').forEach(b=>{
+    b.onclick = ()=>{ setDim(b.dataset.d, b.dataset.k); };
+  });
+
+  handleDrop = (zone, payload)=>{
+    if(!payload.startsWith('dimopt:')) return;
+    const rest = payload.slice(7);
+    const [dimId, key] = rest.split('|');
+    const targetDim = zone.dataset.drop.split(':')[1];
+    if(dimId !== targetDim){
+      toast('這是「'+DIMS.find(d=>d.id===dimId).label+'」的選項，不是這一格。', 'bad');
+      const slot = document.querySelector('[data-drop="dim:'+targetDim+'"]');
+      if(slot){ slot.classList.add('shake'); setTimeout(()=>slot.classList.remove('shake'),450); }
+      return;
+    }
+    setDim(dimId, key);
+  };
+
+  updateHarmony();
+}
+function setDim(dimId, key){
+  S.dims[dimId] = key;
+  renderDims();
+  updateHarmony();
+  updateStages();
+}
+function clearDim(dimId, ev){
+  ev.stopPropagation();
+  delete S.dims[dimId];
+  renderDims(); updateHarmony(); updateStages();
+}
+function updateHarmony(){
+  const box = $('harmony');
+  if(!S.style){
+    box.className = 'harmony yellow';
+    $('hTitle').textContent = '請先選風格';
+    $('hMsg').textContent = '回到上一頁選一條風格路線，這裡才能判斷協不協調。';
+    return;
+  }
+  const st = STYLES.find(x=>x.id===S.style);
+  const conflicts = [];
+  DIMS.forEach(d=>{
+    const k = S.dims[d.id];
+    const o = d.options.find(x=>x.key===k);
+    if(o && !o.good.includes(S.style)) conflicts.push({d, o});
+  });
+  const filledN = Object.keys(S.dims).length;
+  if(filledN < DIMS.length){
+    box.className = 'harmony yellow';
+    $('hTitle').textContent = `還差 ${DIMS.length - filledN} 個元素`;
+    $('hMsg').textContent = '6 個元素都配齊，才會告訴你整體協不協調。';
+    return;
+  }
+  if(conflicts.length === 0){
+    box.className = 'harmony green';
+    $('hTitle').textContent = '✅ 風格一致';
+    $('hMsg').textContent = `你的六個選項都和「${st.name}」很協調，可以直接生成底圖。`;
+  } else if(conflicts.length < 3){
+    box.className = 'harmony yellow';
+    $('hTitle').textContent = '⚠ 有幾項可以再想想';
+    $('hMsg').textContent = `「${conflicts.map(c=>c.d.label).join('、')}」和「${st.name}」不太搭。可以換回標 ⭐ 的選項；堅持也可以，只是畫面可能沒那麼統一。`;
+  } else {
+    box.className = 'harmony red';
+    $('hTitle').textContent = '⚠ 組合不太協調';
+    $('hMsg').textContent = `「${conflicts.map(c=>c.d.label).join('、')}」偏離了「${st.name}」。這樣更像幾張圖拼在一起，不是一張海報。`;
+  }
+}
+
+/* ============================================================
+   提示詞文字：詩句（寫出來的）／底圖（選出來的）
+   —— 寫詩關卡、選風格關卡、合成關卡共用同一份文字，
+      確保學生在哪一頁複製，拿到的都是同一段東西
+   ============================================================ */
+function buildPoemPrompt(){
+  const words = (S.themeWords[S.myTheme]||[]);
+  const t = curTheme();
+  const words2 = words.length ? words.join('、') : '（請填上你自己的校史關鍵詞）';
+  /* 第 4 點＝四要素的「主題情感」：帶入主題名＋說明句 */
+  const line4 = '4. 詩句要能表達慶祝鏡平學校校慶、讚揚鏡平學校的辦學精神或特色；'
+    + (t ? '本次主題為「'+t.name+'」，重點是：'+t.desc+'；' : '');
+  const role = (S.role || '').trim() || '＿＿＿＿＿';
+  return `你是一位${role}。
+請依以下指示，生成一首慶祝澳門鏡平學校校慶的詩：
+
+1. 使用繁體中文字；
+2. 詩句的格式為七言絕句，全詩共 4 句；
+3. ${rhymePromptLine()}；
+${line4}
+5. 以下是澳門鏡平學校的參考資料，你生成詩句時可以參考：
+${words2}`;
+}
+const PROMPT_META = {
+  poem:  {title:'詩句提示詞', file:'校慶AI海報_詩句提示詞.txt', name:'詩句'},
+  image: {title:'底圖提示詞（11 點）', file:'校慶AI海報_底圖提示詞.txt', name:'底圖'}
+};
+function getPromptText(kind){
+  return kind === 'poem'
+    ? buildPoemPrompt()
+    : buildPromptLines().map((t,i)=>`${i+1}. ${t}`).join('\n');
+}
+/* 複製：execCommand 為主（file:// 下也有效），clipboard API 為輔 */
+function copyToClipboard(text){
+  let ok = false;
+  try{
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    ok = document.execCommand('copy');
+    document.body.removeChild(ta);
+  }catch(e){ ok = false; }
+  if(!ok && navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).catch(()=>{});
+    ok = true;   /* 非同步結果無法回傳，這裡樂觀處理；真失敗還有面板兜底 */
+  }
+  return ok;
+}
+function downloadTxt(text, filename){
+  try{
+    const blob = new Blob([text], {type:'text/plain;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = filename; a.style.display = 'none';
+    document.body.appendChild(a); a.click();
+    setTimeout(()=>{ URL.revokeObjectURL(url); a.remove(); }, 1500);
+    return true;
+  }catch(e){ return false; }
+}
+/* 按鈕：複製（三個關卡都呼叫這一個） */
+function copyPrompt(kind='image'){
+  const meta = PROMPT_META[kind] || PROMPT_META.image;
+  if(kind === 'poem' && !(S.role || '').trim()){
+    flashAt('#roleInput');
+    toast('第一行角色還是空的：填好再複製，AI 才知道用誰的口氣寫。', 'bad');
+    return;
+  }
+  const ok = copyToClipboard(getPromptText(kind));
+  if(kind === 'poem' && !(S.themeWords[S.myTheme]||[]).length){
+    toast('已複製，但第 5 點還是空的——回第 ① 關先揀關鍵詞', 'bad');
+    return;
+  }
+  toast(ok ? `${meta.name}提示詞已複製，貼進 AI 對話框就可以` : '複製被擋住，已打開手動複製面板', ok?'good':'bad');
+  if(!ok) showExportPanel(getPromptText(kind), false, false, meta.title);
+}
+/* 按鈕：匯出 TXT（三個關卡都呼叫這一個） */
+function exportPromptTxt(kind='image'){
+  const meta = PROMPT_META[kind] || PROMPT_META.image;
+  if(kind === 'poem' && !(S.role || '').trim()){
+    flashAt('#roleInput');
+    toast('第一行角色還是空的：填好再匯出。', 'bad');
+    return;
+  }
+  const text = getPromptText(kind);
+  const copied = copyToClipboard(text);
+  const downloaded = downloadTxt(text, meta.file);
+  showExportPanel(text, copied, downloaded, meta.title);
+}
+
+/* ============================================================
+   P9 11 點提示詞
+   ============================================================ */
+function buildPromptLines(){
+  const st = STYLES.find(x=>x.id===S.style);
+  const get = id=>{
+    const d = DIMS.find(x=>x.id===id);
+    const k = S.dims[id];
+    return (d.options.find(o=>o.key===k)||{}).prompt || '（未選）';
+  };
+  const words = (S.themeWords[S.myTheme]||[]);
+  const t2 = curTheme();
+  return [
+    '海報比例及大小為：直向 A3 尺寸。',
+    '海報中不要加入任何文字。',
+    '我會在最後手動加入詩句，請在畫面頂部三分之一預留足夠的留白空間，可以有底色但不要有物件，也不要留有方框或對話框。',
+    `風格：${st?st.desc:'（未選風格）'}。`,
+    `主體：${get('subject')}。`,
+    `人物：${get('person')}。`,
+    `光線：${get('light')}。`,
+    `色彩：${get('color')}。`,
+    `氣氛：${get('mood')}。`,
+    `構圖：${get('comp')}。`,
+    `附件是鏡平學校的建築物圖片及學生卡通形象服飾圖片，可以參考並融入圖片設計。${t2?'（詩句主題：'+t2.name+'——'+t2.desc+'；關鍵詞：'+words.join('、')+'）':''}`
+  ];
+}
+function renderPromptLines(){
+  const lines = buildPromptLines();
+  $('plines').innerHTML = lines.map((t,i)=>`
+    <div class="pline" data-i="${i}" onclick="openLine(${i},this)">
+      <span class="pn">${i+1}</span>
+      <span class="pt mono">${t}</span>
+      <span class="lockhint">點我展開</span>
+    </div>`).join('');
+  /* 復原已展開狀態 */
+  $('plines').querySelectorAll('.pline').forEach(el=>{
+    if(+el.dataset.i < S.openedLines) el.classList.add('open');
+    const lh = el.querySelector('.lockhint'); if(el.classList.contains('open') && lh) lh.style.display='none';
+  });
+  syncOpenedCount();
+}
+function syncOpenedCount(){
+  S.openedLines = document.querySelectorAll('#plines .pline.open').length;
+  $('p9count').textContent = `已展開 ${S.openedLines} / 11`;
+}
+function openLine(i, el){
+  if(el.classList.contains('open')) return;
+  el.classList.add('open');
+  el.querySelector('.lockhint').style.display = 'none';
+  syncOpenedCount();
+  if(S.openedLines >= 11) toast('11 點全開，可以整段複製去 AI 了', 'good');
+}
+function openAll(){
+  $('plines').querySelectorAll('.pline').forEach(el=>{
+    el.classList.add('open');
+    const lh = el.querySelector('.lockhint'); if(lh) lh.style.display='none';
+  });
+  S.openedLines = 11;
+  syncOpenedCount();
+  toast('全部展開', 'good');
+}
+/* ============================================================
+   P10 排序
+   ============================================================ */
+function initSort(){
+  if(S.sortState.length) { renderSort(); checkSort(true); return; }
+  S.sortState = shuffle(STEPS.map(s=>s.id));
+  renderSort();
+}
+function resetSort(){
+  S.sortState = shuffle(STEPS.map(s=>s.id));
+  renderSort();
+  checkSort(true);
+  toast('已重新打亂');
+}
+function renderSort(){
+  const box = $('sortlist');
+  box.innerHTML = S.sortState.map((id,idx)=>{
+    const st = STEPS.find(x=>x.id===id);
+    const locked = (idx+1) === id;
+    return `<div class="sitem ${locked?'locked':''}" draggable="true" data-id="${id}" data-idx="${idx}">
+      <span class="idx">${idx+1}</span>
+      <span>${st.t}</span>
+      <span class="trap">💡 ${st.trap}</span>
+    </div>`;
+  }).join('');
+  /* HTML5 拖拽排序 */
+  let dragId = null;
+  box.querySelectorAll('.sitem').forEach(el=>{
+    el.addEventListener('dragstart', e=>{
+      dragId = +el.dataset.id;
+      el.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain','sort:'+dragId);
+    });
+    el.addEventListener('dragend', ()=> el.classList.remove('dragging'));
+    el.addEventListener('dragover', e=>{
+      e.preventDefault();
+      el.classList.add('droptarget');
+    });
+    el.addEventListener('dragleave', ()=> el.classList.remove('droptarget'));
+    el.addEventListener('drop', e=>{
+      e.preventDefault();
+      el.classList.remove('droptarget');
+      const movedId = dragId || +e.dataTransfer.getData('text/plain').replace('sort:','');
+      const targetIdx = +el.dataset.idx;
+      if(!movedId) return;
+      const from = S.sortState.indexOf(movedId);
+      S.sortState.splice(from,1);
+      S.sortState.splice(targetIdx,0,movedId);
+      renderSort();
+      checkSort();
+    });
+  });
+  /* 觸控排序：pointer 版 */
+  box.querySelectorAll('.sitem').forEach(el=>{
+    el.addEventListener('pointerdown', e=>{
+      if(e.pointerType === 'mouse') return;
+      e.preventDefault();
+      const id = +el.dataset.id;
+      const ghost = el.cloneNode(true);
+      ghost.style.cssText += 'position:fixed;z-index:999;pointer-events:none;opacity:.8;width:'+el.offsetWidth+'px';
+      document.body.appendChild(ghost);
+      const move = ev=>{
+        ghost.style.left = (ev.clientX - el.offsetWidth/2)+'px';
+        ghost.style.top  = (ev.clientY - 24)+'px';
+        box.querySelectorAll('.sitem').forEach(n=>n.classList.remove('droptarget'));
+        const t = document.elementFromPoint(ev.clientX, ev.clientY);
+        const target = t && t.closest('.sitem');
+        if(target) target.classList.add('droptarget');
+      };
+      const up = ev=>{
+        ghost.remove();
+        el.removeEventListener('pointermove',move);
+        el.removeEventListener('pointerup',up);
+        const t = document.elementFromPoint(ev.clientX, ev.clientY);
+        const target = t && t.closest('.sitem');
+        box.querySelectorAll('.sitem').forEach(n=>n.classList.remove('droptarget'));
+        if(target && +target.dataset.id !== id){
+          const from = S.sortState.indexOf(id);
+          S.sortState.splice(from,1);
+          S.sortState.splice(+target.dataset.idx,0,id);
+          renderSort(); checkSort();
+        }
+      };
+      el.addEventListener('pointermove',move);
+      el.addEventListener('pointerup',up);
+      move(e);
+    });
+  });
+  checkSort(true);
+}
+function checkSort(silent){
+  const firstWrong = S.sortState.findIndex((id,i)=> id !== i+1);
+  const okAll = firstWrong < 0 && S.sortState.length === STEPS.length;
+  armBtn('p10next', okAll, '下一步：技能檢核 →', '把六步排對');
+  if(okAll && !silent){ toast('六步全排對了！', 'good'); }
+  else if(!silent && firstWrong >= 0){
+    toast('第 '+(firstWrong+1)+' 步還不太對，想想「先做什麼，才能做下一步」', 'bad');
+  }
+}
+function p11Next(){
+  const firstWrong = S.sortState.findIndex((id,i)=> id !== i+1);
+  if(firstWrong < 0 && S.sortState.length === STEPS.length){ go(12); return; }
+  if(firstWrong >= 0){
+    flashAt('.sitem[data-id="'+S.sortState[firstWrong]+'"]');
+    toast('第 '+(firstWrong+1)+' 步還不太對，想想「先做什麼，才能做下一步」', 'bad');
+    return;
+  }
+  toast('先把六步拖到右邊的排序區。', 'bad');
+}
+
+/* ============================================================
+   P11 技能
+   ============================================================ */
+function renderSkills(){
+  $('skilllist').innerHTML = SKILLS.map((s,i)=>`
+    <div class="skill ${S.skills['k'+i]?'done':''}" data-k="k${i}">
+      <span class="bx"></span>
+      <span><b>${s.n} ${s.t}</b>${s.d?`<small>${s.d}</small>`:''}</span>
+    </div>`).join('');
+  $('skilllist').querySelectorAll('.skill').forEach(el=>{
+    el.onclick = ()=>{
+      const k = el.dataset.k;
+      S.skills[k] = !S.skills[k];
+      try{ localStorage.setItem(SKILL_KEY, JSON.stringify(S.skills)); }catch(e){}
+      renderSkills(); updateStages();
+    };
+  });
+  updateSkillRing();
+}
+function countSkills(){ return SKILLS.filter((_,i)=>S.skills['k'+i]).length; }
+function updateSkillRing(){
+  const n = countSkills();
+  $('ringpct').textContent = n + '/7';
+  const C = 2 * Math.PI * 50;
+  $('ringfg').style.strokeDashoffset = C - (n/7)*C;
+  $('ringfg').style.stroke = n === 7 ? '#C9A227' : (n >= 5 ? '#2E7D32' : '#C9A227');
+  const st = $('skillState');
+  if(n < 5){ st.className = 'state warn'; st.textContent = '還差 '+(5-n)+' 項達標'; }
+  else if(n < 7){ st.className = 'state ok'; st.textContent = '已達標（'+n+'/7）'; }
+  else { st.className = 'state ok'; st.textContent = '✓ 全對 7/7'; }
+}
+
+/* ============================================================
+   P12 結算
+   ============================================================ */
+function renderSummary(){
+  const words = (S.themeWords[S.myTheme]||[]);
+  const st = STYLES.find(x=>x.id===S.style);
+  const conflicts = DIMS.filter(d=>{
+    const o = d.options.find(x=>x.key===S.dims[d.id]);
+    return o && S.style && !o.good.includes(S.style);
+  }).length;
+  const skillN = countSkills();
+  const matchN = S.matchState.filter(Boolean).length;
+  const pqN = S.pqState.filter(Boolean).length;
+  const myAsk = v => v ? v : '未寫';
+  const askTxt = (v,t) => (v ? v + '（' + (t||'未選型') + '）' : '未寫');
+
+  const rows = [
+    {k:'① 我的主題', v: themeFullName() || '未選', ok: !!S.myTheme},
+    {k:'① 關鍵詞', v: words.length ? words.join('、') : '未收集', ok: words.length >= 3},
+    {k:'② 絕句格式', v: (S.filled.b1 === '7' && S.filled.b2 === '4') ? ('七言 · 四句 · ' + rhymeText() + '押韻') : '未完成', ok: S.filled.b1 === '7' && S.filled.b2 === '4' && rhymeVerdict().ok},
+    {k:'② 第一行角色', v: (S.role||'').trim() ? '你是一位'+(S.role||'').trim() : '未填', ok: !!(S.role||'').trim()},
+    {k:'② 提示詞第 5 點', v: S.refReady ? '已填 '+words.length+' 個關鍵詞' : '未填', ok: S.refReady},
+    {k:'③ 詩句體檢', v: pqN + ' / 5 項判定正確', ok: pqN === 5},
+    {k:'③ 我的追問清單', v: adoptedList().length + ' 條（合格項不追問，至少 1 條）', ok: adoptedList().length >= 1},
+    {k:'③ 我寫的詩句追問', v: askTxt(S.poemAsk, S.poemAskType), ok: !!S.poemAsk && !!S.poemAskType},
+    {k:'④ 風格路線', v: st ? st.id + '. ' + st.name : '未選', ok: !!st},
+    {k:'④ 六個元素協調度', v: Object.keys(S.dims).length < 6 ? '未配齊' : (conflicts===0 ? '全部協調' : conflicts+' 項偏離'), ok: Object.keys(S.dims).length===6 && conflicts===0},
+    {k:'⑤ 11 點提示詞', v: S.openedLines >= 11 ? '已全部展開，可複製' : '已展開 '+S.openedLines+' / 11', ok: S.openedLines >= 11},
+    {k:'⑤ 底圖追問七型', v: matchN + ' / 7 配對正確', ok: matchN === 7},
+    {k:'⑤ 我寫的底圖追問', v: askTxt(S.imgAsk, S.imgAskType), ok: !!S.imgAsk && !!S.imgAskType},
+    {k:'⑥ Word 六步排序', v: S.sortState.every((id,i)=>id===i+1) ? '已排對' : '未完成', ok: S.sortState.every((id,i)=>id===i+1)},
+    {k:'⑥ 核心技能', v: skillN + ' / 7' + (skillN>=5?'（達標）':''), ok: skillN >= 5}
+  ];
+  $('summary').innerHTML = rows.map(r=>
+    `<div class="sumrow"><span class="k">${r.k}</span><span class="v ${r.ok?'ok':'miss'}">${r.ok?'✓ ':''}${r.v}</span></div>`
+  ).join('');
+}
+
+function exportAll(){
+  const words = (S.themeWords[S.myTheme]||[]);
+  const st = STYLES.find(x=>x.id===S.style);
+  const themename = themeFullName() || '（未選主題）';
+  const poemPrompt = buildPoemPrompt();
+  const imgPrompt = buildPromptLines().map((t,i)=>`${i+1}. ${t}`).join('\n');
+
+  const text = `【鏡平 134．校慶 AI 海報｜我的兩段提示詞】
+姓名／學號：__________________
+
+════════ 一、詩句提示詞（寫出來的） ════════
+${poemPrompt}
+
+════════ 二、底圖提示詞（選出來的） ════════
+${imgPrompt}
+
+════════ 三、詩句追問清單（體檢後只改不對的項） ════════
+${adoptedList().length
+  ? adoptedList().map((c,i)=>`${i+1}. 第 ${c.pt} 點（${POEM_PT[c.pt]}）：${c.ask}`).join('\n')
+  : '（尚未採用任何追問）'}
+
+════════ 四、我的記錄 ════════
+詩歌主題：${themename}
+我的角色：${(S.role||'').trim() || '（未填）'}
+關鍵詞：${words.join('、') || '（無）'}
+詩句體檢：${S.pqState.filter(Boolean).length} / ${POEM_CHECK.length} 項判定正確
+我寫的詩句追問：${S.poemAsk || '（未寫）'}${S.poemAskType ? '（' + S.poemAskType + '，改第 ' + POEM_ASK_PT[S.poemAskType] + ' 點）' : ''}
+我寫的底圖追問：${S.imgAsk || '（未寫）'}${S.imgAskType ? '（' + S.imgAskType + '，改第 ' + IMG_ASK_PT[S.imgAskType] + ' 點）' : ''}
+風格路線：${st ? st.id + '. ' + st.name : '（未選）'}
+核心技能達成：${countSkills()} / 7
+
+（提示詞只是說明書，詩句內容要由你自己決定。）
+`;
+  const copied = copyToClipboard(text);
+  const downloaded = downloadTxt(text, '校慶AI海報_我的提示詞.txt');
+  showExportPanel(text, copied, downloaded, '我的兩段提示詞');
+}
+
+/* 匯出結果面板：無論複製／下載成不成功，學生都能手動全選帶走 */
+function showExportPanel(text, copied, downloaded, title){
+  const old = $('exportPanel'); if(old) old.remove();
+  const p = document.createElement('div');
+  p.id = 'exportPanel';
+  p.className = 'exportpanel';
+  p.innerHTML = `
+    <div class="epcard">
+      <h3>${title || '我的提示詞'}</h3>
+      <div class="epstate">
+        <span class="${copied?'ok':'miss'}">${copied?'✓ 已複製到剪貼板':'⚠ 自動複製被瀏覽器擋住'}</span>
+        <span class="${downloaded?'ok':'miss'}">${downloaded?'✓ 已下載 txt':'⚠ 自動下載被擋住'}</span>
+      </div>
+      <p class="hintline" style="margin:6px 0 12px">不管上面成不成功，都可以<strong>直接全選下面這段文字</strong>（已預先選好）→ Ctrl+C 複製，貼進 Word 或記事本。</p>
+      <textarea class="epta" id="epText" spellcheck="false"></textarea>
+      <div class="btn-row">
+        <button class="btn" onclick="selectEpText()">全選文字</button>
+        <button class="btn ghost" onclick="copyEpText()">再試一次複製</button>
+        <button class="btn ghost" onclick="document.getElementById('exportPanel').remove()">關閉</button>
+      </div>
+    </div>`;
+  document.body.appendChild(p);
+  const ta = $('epText');
+  ta.value = text;
+  setTimeout(()=>{ ta.focus(); ta.select(); }, 60);
+}
+function selectEpText(){
+  const ta = $('epText'); ta.focus(); ta.select();
+  toast('已全選，按 Ctrl+C 複製', 'good');
+}
+function copyEpText(){
+  const ta = $('epText');
+  ta.focus(); ta.select();
+  try{
+    if(document.execCommand('copy')){ toast('已複製到剪貼板', 'good'); return; }
+  }catch(e){}
+  toast('複製不了，請按 Ctrl+C 手動複製', 'bad');
+}
+
+/* ============================================================
+   重設
+   ============================================================ */
+function resetAll(){
+  if(!confirm('確定要重設嗎？所有收集的詞、選擇和打勾都會清空。')) return;
+  S.basket = []; S.openedTL = []; S.myTheme = null; S.themeWords = {}; S.tmsg = {};
+  S.filled = {}; S.rhyme = RHYME_MODES[S.rhymeMode] && RHYME_MODES[S.rhymeMode].set ? RHYME_MODES[S.rhymeMode].set.slice() : [];
+  S._p4Toast = false; S.refReady = false; S.role = ''; S.matchState = new Array(QUESTIONS.length).fill(false);
+  S.pqState = new Array(POEM_CHECK.length).fill(false);
+  S.pqAdopt = {}; S._pqToast = false;
+  S.poemAsk = ''; S.poemAskType = null; S.imgAsk = ''; S.imgAskType = null;
+  S.style = null; S.dims = {}; S.openedLines = 0; S.sortState = [];
+  S.skills = {};
+  try{ localStorage.removeItem(SKILL_KEY); localStorage.removeItem(STATE_KEY); }catch(e){}
+  const bar = $('restoreBar'); if(bar) bar.classList.remove('on');
+  /* 重新初始化各頁 */
+  renderTimeline(); renderBasket(); renderRoutes(); renderWordBanks(); renderThemes();
+  ['b1','b2','b3','b4'].forEach(id=>{
+    const el = $(id);
+    if(!el) return;
+    el.textContent = '--'; el.classList.remove('filled','locked'); el.style.boxShadow='';
+  });
+  renderRhymePick();
+  const rh = $('rhymeHint');
+  if(rh && !rhymeLocked()){
+    rh.innerHTML = '第 2、4 句必須押；第 3 句必須不押；第 1 句可押可不押（兩種都是合法的絕句）。';
+    rh.style.color = 'var(--ink2)';
+  }
+  gateP4();
+  renderRef();
+  S.matchState = new Array(QUESTIONS.length).fill(false);
+  $('poemscore').textContent = '已判定 0 / ' + POEM_CHECK.length;
+  if($('poemstat')) $('poemstat').textContent = '合格 0 ／ 不對 0';
+  updateScore();
+  renderPoemLines(); renderPoemQuestions(); renderAskList(); renderQuestions(); renderAskTypes();
+  const pa = $('poemAsk'); if(pa) pa.value = '';
+  const ia = $('imgAsk'); if(ia) ia.value = '';
+  const pm = $('poemAskMsg'); if(pm){ pm.className='hintline askmsg'; pm.textContent='先寫一句，再選它是哪一型。'; }
+  const im = $('imgAskMsg'); if(im){ im.className='hintline askmsg'; im.textContent='先寫一句，再選它是哪一型。'; }
+  renderStyles();
+  renderSkills();
+  go(1);
+  toast('已重設');
+}
+
+/* ============================================================
+   初始化
+   ============================================================ */
+function init(){
+  const restored = loadState();
+  if(!S.matchState.length) S.matchState = new Array(QUESTIONS.length).fill(false);
+  if(!S.pqState.length) S.pqState = new Array(POEM_CHECK.length).fill(false);
+  if(!S.pqAdopt) S.pqAdopt = {};
+  /* 套用老師設定（若已統一押韻寫法） */
+  if(S.rhymeMode !== 'free' && RHYME_MODES[S.rhymeMode]){
+    S.rhyme = RHYME_MODES[S.rhymeMode].set.slice();
+    const g = $('gearBtn'); if(g) g.classList.add('set');
+  }
+  renderTimeline(); renderBasket(); renderMotto(); renderRoutes(); renderWordBanks();
+  initFill(); renderRef();
+  renderQuestions(); updateScore();
+  renderPoemLines(); renderPoemQuestions(); renderAskList(); updatePoemScore();
+  renderAskTypes();
+  renderStyles();
+  initSort();
+  renderSkills();
+  updateStages();
+  go(1);
+
+  /* 關卡章與封面地圖卡：點一下直接跳到該關第一頁（分流程上課用） */
+  document.querySelectorAll('.stage').forEach(el=>{
+    const s = +el.dataset.s;
+    el.title = '跳到第 ' + (STAGE_PAGE[s]||1) + ' 頁';
+    el.onclick = ()=>jumpStage(s);
+  });
+  /* 流程徽章 ①②③：跳到該流程第一頁 */
+  document.querySelectorAll('.fno').forEach(el=>{
+    el.onclick = ()=>jumpFlow(+el.dataset.f);
+  });
+  /* 封面流程標題：整條可按，直接進入該流程 */
+  document.querySelectorAll('.mfhd').forEach(el=>{
+    el.onclick = ()=>jumpFlow(+el.dataset.f);
+  });
+  document.querySelectorAll('.mapcard').forEach(c=>{
+    c.onclick = ()=>jumpStage(+c.dataset.m);
+  });
+
+  /* 恢復上次進度（三個流程分開上時接續用） */
+  showRestoreBar();
+  /* 關頁前補存一次，避免最後 400ms 的操作沒寫進去 */
+  window.addEventListener('beforeunload', saveState);
+  document.addEventListener('visibilitychange', ()=>{ if(document.hidden) saveState(); });
+}
+init();
+</script>
+<a class="site-back" href="../index.html">← 學生資源站</a>
+</body>
+</html>
